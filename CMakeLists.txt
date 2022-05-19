@@ -3,6 +3,7 @@ project(CPP)
 add_subdirectory(module_00/ex00)
 add_subdirectory(module_00/ex01)
 add_subdirectory(module_00/ex02)
+add_subdirectory(module_01/ex00)
 
 
 
