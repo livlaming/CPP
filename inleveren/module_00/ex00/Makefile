@@ -1,0 +1,42 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         ::::::::             #
+#    Makefile                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: livlamin <livlamin@student.codam.nl>         +#+                      #
+#                                                    +#+                       #
+#    Created: 2022/02/10 17:15:29 by livlamin      #+#    #+#                  #
+#    Updated: 2022/02/10 17:15:38 by livlamin      ########   odam.nl          #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = megaphone
+
+SRC =	megaphone.cpp
+
+OBJS = $(SRC:.cpp=.o)
+
+CC = clang++
+
+CFLAGS = -Wall -Werror -Wextra -pedantic -std=c++98
+
+all: $(NAME)
+
+$(NAME):	$(OBJS)
+			$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+			
+%.o:	%.cpp
+			$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+			rm -f $(OBJS)
+
+fclean: 	clean
+			rm -f $(NAME)
+
+re: fclean all
+
+.PHONY:     clean fclean
+
+
+
