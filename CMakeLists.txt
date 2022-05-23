@@ -7,6 +7,8 @@ add_subdirectory(module_01/m1ex00)
 add_subdirectory(module_01/m1ex01)
 add_subdirectory(module_01/m1ex02)
 add_subdirectory(module_01/m1ex03)
+add_subdirectory(module_01/m1ex04)
+add_subdirectory(module_01/m1ex05)
 
 
 
