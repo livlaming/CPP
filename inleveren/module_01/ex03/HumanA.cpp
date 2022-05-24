@@ -1,22 +1,20 @@
 //
-// Created by lisa vlamings on 15/02/2022.
+// Created by Lisa Vlamings on 5/23/22.
 //
 
 #include "HumanA.hpp"
-#include "Weapon.hpp"
 #include <iostream>
-#include <string>
+#include "Weapon.hpp"
 
-HumanA::HumanA(std::string name, Weapon weapon){
-    this->_name = name;
-    this->_weaponA = weapon;
-//    this->_weaponA.setWeapon(Weapon);
+HumanA::HumanA(void) {}
+
+HumanA::HumanA(std::string _newName, Weapon &_newWeapon) {
+    this->_Weapon = &_newWeapon;
+    this->_Name = _newName;
 }
 
-HumanA::HumanA(void){}
-
-void    HumanA::attack(void){
-    std::cout << this->_name << " attacks with their "<< this->_weaponA.getType() << std::endl;;
+void HumanA::attack(void) {
+    std::cout << this->_Name << " attacks with their " << this->_Weapon->getType() << std::endl;
 }
 
-HumanA::~HumanA(void){}
+HumanA::~HumanA() {}

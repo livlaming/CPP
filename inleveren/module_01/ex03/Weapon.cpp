@@ -1,24 +1,21 @@
 //
-// Created by lisa vlamings on 15/02/2022.
+// Created by Lisa Vlamings on 5/23/22.
 //
 
 #include "Weapon.hpp"
 
-#include <iostream>
-#include <string>
+Weapon::Weapon(void) {}
 
-Weapon::Weapon(void){}
-
-Weapon::Weapon(std::string type){
-    this->_type = type;
+Weapon::Weapon(std::string weaponType) {
+    setType(weaponType);
 }
 
-void                Weapon::setType( std::string type ){
-    this->_type = type;
+const std::string &Weapon::getType(void) {
+    return (this->_Type);
 }
 
-const std::string   &Weapon::getType() const{
-    return(this->_type);
+void    Weapon::setType(std::string newType) {
+    this->_Type = newType;
 }
 
-Weapon::~Weapon(void){}
+Weapon::~Weapon() {}

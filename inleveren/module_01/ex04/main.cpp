@@ -1,8 +1,7 @@
 //
-// Created by Lisa Vlamings on 2/17/22.
+// Created by Lisa Vlamings on 5/23/22.
 //
 
-#include <string>
 #include <iostream>
 #include <fstream>
 
@@ -20,7 +19,8 @@ void    ReplaceString(std::string *line, char *argv[]){
     }
 }
 
-int     ReadFile(char *argv[], std::string NewFileName){
+int ReadFile(char *argv[], std::string NewFileName)
+{
     std::string line;
     std::ifstream ini_file(argv[1]);
     std::ofstream out_file(NewFileName);
@@ -42,13 +42,14 @@ int     ReadFile(char *argv[], std::string NewFileName){
     ini_file.close();
     out_file.close();
     return (0);
+
 }
 
-int     main(int argc, char *argv[]){
-    std::string NewFileName;
+int main(int argc, char *argv[]){
 
+    std::string NewFileName;
     if (argc != 4){
-        std::cout << "Invalid input" << std::endl;
+        std::cout << "invalid input" << std::endl;
         return (-1);
     }
     NewFileName = argv[1];

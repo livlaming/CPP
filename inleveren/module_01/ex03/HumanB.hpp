@@ -1,22 +1,22 @@
 //
-// Created by Lisa Vlamings on 2/17/22.
+// Created by Lisa Vlamings on 5/23/22.
 //
 
-#ifndef CPP__HUMANB_HPP
-#define CPP__HUMANB_HPP
+#ifndef CPP_HUMANB_HPP
+#define CPP_HUMANB_HPP
+#include <iostream>
 #include "Weapon.hpp"
-#include <string>
 
 class HumanB {
-    private:
-        std::string _name;
-        Weapon      _weaponB;
-        HumanB(void);
-    public:
-        HumanB(std::string name);
-        ~HumanB(void);
-        void    attack();
-        void    setWeapon(Weapon weapon);
+private:
+    Weapon *_Weapon;
+    std::string _Name;
+public:
+    HumanB(void);
+    HumanB(std::string newName);
+    ~HumanB(void);
+    void setWeapon(Weapon &newWeapon);
+    void attack(void);
 };
 
-#endif //CPP__HUMANB_HPP
+#endif //CPP_HUMANB_HPP

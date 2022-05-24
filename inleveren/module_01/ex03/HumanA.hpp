@@ -1,23 +1,21 @@
 //
-// Created by lisa vlamings on 15/02/2022.
+// Created by Lisa Vlamings on 5/23/22.
 //
 
-#ifndef CPP__HUMANA_HPP
-#define CPP__HUMANA_HPP
-
-#include <string>
+#ifndef CPP_HUMANA_HPP
+#define CPP_HUMANA_HPP
+#include <iostream>
 #include "Weapon.hpp"
 
 class HumanA {
-    private:
-        std::string _name;
-        Weapon      _weaponA;
-        HumanA(void);
-    public:
-        HumanA(std::string name, Weapon weapon);
-        ~HumanA(void);
-        void    attack();
+private:
+    Weapon *_Weapon;
+    std::string _Name;
+    HumanA(void);
+public:
+    HumanA(std::string _newName, Weapon &_newWeapon);
+    ~HumanA(void);
+    void attack();
 };
 
-
-#endif //CPP__HUMANA_HPP
+#endif //CPP_HUMANA_HPP

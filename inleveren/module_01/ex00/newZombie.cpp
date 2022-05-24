@@ -1,13 +1,12 @@
 //
-// Created by Lisa Vlamings on 2/8/22.
+// Created by Lisa Vlamings on 5/19/22.
 //
-
 #include "Zombie.hpp"
 
-Zombie *newZombie( std::string name ){
-    Zombie  *newZombie;
-
-    newZombie = new Zombie;
-    newZombie->setName(name);
-    return (newZombie);
+Zombie* newZombie( std::string name )
+{
+    Zombie *HeapZombie;
+    HeapZombie = new Zombie;
+    HeapZombie->setName(name);
+    return (HeapZombie);
 }

@@ -5,41 +5,38 @@
 #                                                      +:+                     #
 #    By: livlamin <marvin@codam.nl>                   +#+                      #
 #                                                    +#+                       #
-#    Created: 2022/02/27 13:28:13 by livlamin      #+#    #+#                  #
-#    Updated: 2022/02/27 15:03:31 by livlamin      ########   odam.nl          #
+#    Created: 2020/07/27 13:28:13 by livlamin      #+#    #+#                  #
+#    Updated: 2020/07/27 15:03:31 by livlamin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ex00
 
-SRC =	main.cpp \
-			newZombie.cpp \
-			randomChump.cpp \
-			Zombie.cpp
+SRC = main.cpp \
+        newZombie.cpp \
+        RandomChump.cpp \
+        Zombie.cpp
 
-OBJS = $(SRC:.cpp=.o)
-
-CC = clang++
+OBJ = $(SRC:.cpp=.o)
 
 CFLAGS = -Wall -Werror -Wextra -pedantic -std=c++98
 
+CC = clang++
+
 all: $(NAME)
 
-$(NAME):	$(OBJS)
-			$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+$(NAME):	$(OBJ)
+			$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 
 %.o:	%.cpp
 			$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-			rm -f $(OBJS)
+		rm -f $(OBJ)
 
-fclean: 	clean
-			rm -f $(NAME)
+fclean: clean
+		rm -f $(NAME)
 
-re: fclean all
+re:     fclean all
 
-.PHONY:     clean fclean
-
-
-
+.PHONY:  clean fclean

@@ -1,19 +1,16 @@
 //
-// Created by lisa vlamings on 15/02/2022.
+// Created by Lisa Vlamings on 5/23/22.
 //
 #include "Zombie.hpp"
-int     main()
-{
-    Zombie *zombie;
-    int i = 0;
+
+int main(){
+    Zombie *ZombieHorde;
     int N = 5;
 
-    zombie = zombieHorde(N, "FREAK");
-    while (i < N)
-    {
-        std::cout << zombie[i].getName() << std::endl;
-        i++;
+    ZombieHorde = zombieHorde(N, "Freaks");
+    for (int i = 0; i < N; i++){
+        ZombieHorde[i].announce();
     }
-    delete [] zombie;
+    delete [] ZombieHorde;
     return (0);
 }

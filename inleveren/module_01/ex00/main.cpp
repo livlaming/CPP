@@ -1,13 +1,14 @@
 //
-// Created by Lisa Vlamings on 2/8/22.
+// Created by Lisa Vlamings on 5/19/22.
 //
 #include "Zombie.hpp"
 
 int main(){
-    Zombie *zombie;
+    Zombie *HeapZombie;
 
-    randomChump("RANDOM CHUMP");
-    zombie = newZombie("FREAK");
-    delete zombie;
+    HeapZombie = newZombie("HeapFreak");
+    randomChump("StackFreak");
+    HeapZombie->announce();
+    delete HeapZombie;
     return (0);
 }

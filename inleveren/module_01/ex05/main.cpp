@@ -1,18 +1,20 @@
 //
-// Created by Lisa Vlamings on 2/23/22.
+// Created by Lisa Vlamings on 5/23/22.
 //
-#include "Karen.hpp"
 
-int     main(){
-    Karen karen;
+#include "Harl.hpp"
+
+int main(void){
+
+    Harl Harl;
     int index = 0;
 
-    while (index < 100)
+    while (index < 50)
     {
-        karen.complain("DEBUG");
-        karen.complain("INFO");
-        karen.complain("WARNING");
-        karen.complain("ERROR");
+        Harl.complain("DEBUG");
+        Harl.complain("INFO");
+        Harl.complain("WARNING");
+        Harl.complain("ERROR");
         index++;
     }
     return (0);

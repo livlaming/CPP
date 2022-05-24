@@ -10,10 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = karenFilter
+NAME = harlFilter
 
 SRC =	main.cpp \
-            Karen.cpp
+			Harl.cpp
 
 OBJS = $(SRC:.cpp=.o)
 
@@ -34,6 +34,7 @@ clean:
 
 fclean: 	clean
 			rm -f $(NAME)
+			rm -f test.txt.replace
 
 re: fclean all
 

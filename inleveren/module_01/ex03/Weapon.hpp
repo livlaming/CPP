@@ -1,22 +1,21 @@
 //
-// Created by lisa vlamings on 15/02/2022.
+// Created by Lisa Vlamings on 5/23/22.
 //
 
-#ifndef CPP__WEAPON_HPP
-#define CPP__WEAPON_HPP
-#include <string>
+#ifndef CPP_WEAPON_HPP
+#define CPP_WEAPON_HPP
+#include <iostream>
 
 class Weapon {
 private:
-    std::string _type;
+    std::string _Type;
 
 public:
     Weapon(void);
+    Weapon(std::string weaponType);
     ~Weapon(void);
-    Weapon(std::string type);
-    void                setType( std::string name );
-    const std::string   &getType() const;
+    const std::string   &getType(void);
+    void                setType(std::string newType);
 };
 
-
-#endif //CPP__WEAPON_HPP
+#endif //CPP_WEAPON_HPP
