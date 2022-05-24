@@ -4,6 +4,7 @@
 
 #include "Harl.hpp"
 #include <iostream>
+#include <algorithm>
 
 Harl::Harl(void){}
 
@@ -23,6 +24,40 @@ void    Harl::warning(void) {
     std::cout << "I think I deserve to have some extra bacon for free. I’ve been coming for years whereas you started working here since last month." <<std::endl;
 }
 
+void    Harl::complain( std::string level ){
+
+    int index;              //within for loop index exists solely within the brackets{}
+    t_list complaints[4] = {
+            {"DEBUG", &Harl::debug},
+            {"INFO",&Harl::info},
+            {"WARNING",&Harl::warning},
+            {"ERROR",&Harl::error}};
+
+    for (index = 0;index<4;index++)
+    {
+        if (complaints[index].str.compare(level) == 0)
+            break;
+    }
+    (this->*(complaints[index].f))();
+}
+
+Harl::~Harl(void){}
+
+
+
+
+
+//notes to self:
+
+//    (this->*(complaints[index].f))() ==  Harl::debug() ==  this->debug //voer functie uit binnen class.
+//    this-> = Harl::
+//    this->debug(); = Harl::debug();
+
+//    (this->*(complaints[index].f))(): =
+//    (this->*(&Harl::debug))();
+//    (Harl::*(&Harl::debug))(); //
+
+//without struct:
 //void    Harl::complain( std::string level ){
 //    void (Harl::*pmf[])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error} ;
 //    std::string input[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
@@ -35,24 +70,4 @@ void    Harl::warning(void) {
 //        index++;
 //    }
 //    (this->*pmf[index])();
-//
 //}
-
-void    Harl::complain( std::string level ){
-    std::string input[4][2] = {{"DEBUG", "&Harl::debug"}, {"INFO","&Harl::info"}, {"WARNING","&Harl::warning"}, {"ERROR","&Harl::error"}};
-    int index = 0;
-    void (Harl::*pmf)(); // declare pmf as pointer to Harl member function,
-    while (index < 4)
-    {
-        if (input[index][0] == level)
-            break;
-    }
-//    this->*pmf();
-    this->(*pmf) = input[index][1];//&Karen::debug;//input[0]; // set pmf to point to Karen's member function
-////    pmf = &input[index][1];//&Karen::debug;//input[0]; // set pmf to point to Karen's member function
-//    (this->*pmf)();
-//    level();
-
-}
-
-Harl::~Harl(void){}

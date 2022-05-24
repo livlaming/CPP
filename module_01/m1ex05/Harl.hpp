@@ -18,5 +18,9 @@ public:
     void complain( std::string level );
 };
 
+typedef struct          t_list{
+    std::string	    str;
+    void (Harl::*f)();
+}                      s_list;
 
 #endif //CPP_HARL_HPP
