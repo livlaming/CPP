@@ -34,7 +34,7 @@ int ReadFile(char *argv[], std::string NewFileName)
         }
     }
     else {
-        printf("Cannot open or read File");
+        std::cout << "Cannot open or read File" << std::endl;
         ini_file.close();
         out_file.close();
         return (-1);

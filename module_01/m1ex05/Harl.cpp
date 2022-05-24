@@ -38,7 +38,7 @@ void    Harl::complain( std::string level ){
         if (complaints[index].str.compare(level) == 0)
             break;
     }
-    (this->*(complaints[index].f))();
+    (this->*complaints[index].f)();
 }
 
 Harl::~Harl(void){}
@@ -49,7 +49,7 @@ Harl::~Harl(void){}
 
 //notes to self:
 
-//    (this->*(complaints[index].f))() ==  Harl::debug() ==  this->debug //voer functie uit binnen class.
+//    (this->*complaints[index].f)() ==  Harl::debug() ==  this->debug //voer functie uit binnen class.
 //    this-> = Harl::
 //    this->debug(); = Harl::debug();
 
