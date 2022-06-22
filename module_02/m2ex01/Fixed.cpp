@@ -4,6 +4,8 @@
 
 #include "Fixed.hpp"
 #include <iostream>
+#include <cmath>
+
 
 Fixed::Fixed(void){
     this->_FixedPointVal = 0;
@@ -11,11 +13,14 @@ Fixed::Fixed(void){
 }
 
 Fixed::Fixed(const int val){
-    this->_FixedPointVal = val;
+//    this->_FixedPointVal = ;
+//  converts int into fixedpointval;
+
 }
 
 Fixed::Fixed(const float val){
-    this->_FixedPointVal = (int)val;
+    //  converts int into fixedpointval;
+//    this->_FixedPointVal = ;
 }
 
 Fixed::Fixed(const Fixed &copy){
@@ -58,3 +63,21 @@ int Fixed::toInt( void ) const{
 Fixed::~Fixed(void){
     std::cout << "Destructor called" << std::endl;
 }
+
+
+//Fixed::Fixed(const int val){
+//    std::cout << "Int constructor called" << std::endl;
+//    this->_FixedPointVal = val << this->_FractionalBits;
+//}
+//
+//Fixed::Fixed(const float val){
+//    std::cout << "Float constructor called" << std::endl;
+//    this->_FixedPointVal = (int)roundf(val * pow (2.0, this->_FractionalBits));
+////    this->FixedPointVal = (int)roundf(val * (1 << this->FractionalBits));
+//
+//}
+//
+//float Fixed::toFloat( void ) const{
+//    return((float)this->_FixedPointVal / pow (2.0, this->_FractionalBits) );
+////    return((float)this->FixedPointVal / (1 << this->FractionalBits));
+//}
