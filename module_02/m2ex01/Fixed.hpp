@@ -18,9 +18,9 @@ public:
     Fixed(const Fixed &copy); // copy constructor
     Fixed &operator=(const Fixed &copy); //assignment operator overload
     int getRawBits( void ) const;
-    void setRawBits( int const raw );
     float toFloat( void ) const;
     int toInt( void ) const;
+    void setRawBits( int const raw );
 };
 
 std::ostream &operator<<(std::ostream &out, const Fixed &copy);
