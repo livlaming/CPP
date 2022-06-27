@@ -21,16 +21,16 @@ public:
     Fixed &operator=(const Fixed &copy); //assignment operator overload
 
     bool    operator>(const Fixed &copy); //comparison operator overload
-//    bool    operator<(const Fixed &copy); //comparison operator overload
-//    bool    operator>=(const Fixed &copy); //comparison operator overload
-//    bool    operator<=(const Fixed &copy); //comparison operator overload
-//    bool    operator!=(const Fixed &copy); //comparison operator overload
-//    bool    operator==(const Fixed &copy); //comparison operator overload
-//
-//    Fixed &operator+(const Fixed &copy); //arithmetic operator overload
-//    Fixed &operator-(const Fixed &copy); //arithmetic operator overload
-//    Fixed &operator*(const Fixed &copy); //arithmetic operator overload
-//    Fixed &operator/(const Fixed &copy); //arithmetic operator overload
+    bool    operator<(const Fixed &copy); //comparison operator overload
+    bool    operator>=(const Fixed &copy); //comparison operator overload
+    bool    operator<=(const Fixed &copy); //comparison operator overload
+    bool    operator!=(const Fixed &copy); //comparison operator overload
+    bool    operator==(const Fixed &copy); //comparison operator overload
+
+    Fixed operator+(const Fixed &copy); //arithmetic operator overload
+    Fixed operator-(const Fixed &copy); //arithmetic operator overload
+    Fixed operator*(const Fixed &copy); //arithmetic operator overload
+    Fixed operator/(const Fixed &copy); //arithmetic operator overload
 
     Fixed operator++(void); //pre-increment   Fixed &operator++(void); reference?
     Fixed operator++(int); //post-increment
@@ -42,10 +42,10 @@ public:
     float toFloat( void ) const;
     int toInt( void ) const;
 
-//    static Fixed &min(Fixed &copy1, Fixed &copy2);
-//    static const Fixed &min(const Fixed &copy1, const Fixed &copy2);
-//    static Fixed &max(Fixed &copy1, Fixed &copy2);
-//    static const Fixed &max(const Fixed &copy1, const Fixed &copy2);
+    static Fixed &min(Fixed &copy1, Fixed &copy2);
+    static const Fixed &min(const Fixed &copy1, const Fixed &copy2);
+    static Fixed &max(Fixed &copy1, Fixed &copy2);
+    static const Fixed &max(const Fixed &copy1, const Fixed &copy2);
 
 };
 

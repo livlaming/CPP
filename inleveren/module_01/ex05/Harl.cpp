@@ -24,9 +24,14 @@ void    Harl::warning(void) {
     std::cout << "I think I deserve to have some extra bacon for free. I’ve been coming for years whereas you started working here since last month." <<std::endl;
 }
 
-void    Harl::complain( std::string level ){
+void    Harl::complain( std::string level ) {
 
     int index;              //within for loop index exists solely within the brackets{}
+    if (level != "DEBUG" && level != "INFO" && level != "WARNING" && level != "ERROR")
+    {
+        std::cout << "Invalid input" << std::endl;
+        return;
+    }
     t_list complaints[4] = {
             {"DEBUG", &Harl::debug},
             {"INFO",&Harl::info},

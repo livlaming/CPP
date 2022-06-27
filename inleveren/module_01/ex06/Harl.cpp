@@ -48,16 +48,12 @@ void    Harl::complain( std::string level ){
             break;
         case 0:
             (this->*complaints[0].f)();
-            break;
         case 1:
             (this->*complaints[1].f)();
-            break;
         case 2:
             (this->*complaints[2].f)();
-            break;
         case 3:
             (this->*complaints[3].f)();
-            break;
     }
 }
 
