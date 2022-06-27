@@ -6,7 +6,6 @@
 #include <iostream>
 #include <cmath>
 
-
 Fixed::Fixed(void){
     //    std::cout << "Default constructor called"<< std::endl;
     this->_FixedPointVal = 0;
@@ -114,7 +113,7 @@ Fixed &Fixed::min(Fixed &copy1, Fixed &copy2){
         return (copy1);
     else
         return (copy2);
-};
+}
 
 Fixed const &Fixed::min(const Fixed &copy1, const Fixed &copy2){
     if (copy1.getRawBits() < copy2.getRawBits())
@@ -128,7 +127,7 @@ Fixed &Fixed::max(Fixed &copy1, Fixed &copy2){
         return (copy1);
     else
         return (copy2);
-};
+}
 
 Fixed const &Fixed::max(const Fixed &copy1, const Fixed &copy2){
     if (copy1.getRawBits() > copy2.getRawBits())
