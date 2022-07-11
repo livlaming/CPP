@@ -4,9 +4,12 @@
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void){}
+ClapTrap::ClapTrap(void){
+    std::cout << "ClapTrap default constructor called"<< std::endl;
+}
 
 ClapTrap::ClapTrap(std::string Name){
+    std::cout << "ClapTrap name constructor called"<< std::endl;
     this->_Name = Name;
     this->_Hitpoints = 10;
     this->_EnergyPoints = 10;
@@ -15,16 +18,18 @@ ClapTrap::ClapTrap(std::string Name){
 
 //copy constructor kan een keer en maakt een Class aan waar hij een andere class in kopieerd.
 ClapTrap::ClapTrap(const ClapTrap &copy): _Name(copy._Name), _Hitpoints(copy._Hitpoints), _EnergyPoints(copy._EnergyPoints), _AttackDamage(copy._AttackDamage){
-    std::cout << "Copy constructor called" << std::endl;
+    std::cout << "Copy constructor Claptrap called" << std::endl;
 }
 
 //asignment operator: kopieerd Class in bestaande class
 ClapTrap& ClapTrap::operator=(const ClapTrap &copy){
-    std::cout << "Copy assignment operator called" << std::endl;
-    this->_Name = copy._Name;
-    this->_Hitpoints = copy._Hitpoints;
-    this->_EnergyPoints = copy._EnergyPoints;
-    this->_AttackDamage = copy._AttackDamage;
+    std::cout << "Copy assignment operator Claptrap called" << std::endl;
+    if (&copy){
+        this->_Name = copy._Name;
+        this->_Hitpoints = copy._Hitpoints;
+        this->_EnergyPoints = copy._EnergyPoints;
+        this->_AttackDamage = copy._AttackDamage;
+    }
     return (*this);
 }
 

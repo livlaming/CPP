@@ -4,4 +4,4 @@ project(m3ex01)
 set(CMAKE_CXX_STANDARD 98)
 set(CMAKE_CXX_FLAGS -std=c++98)
 
-add_executable(m3ex01 main.cpp)
+add_executable(m3ex01 main.cpp ClapTrap.cpp ScavTrap.cpp)

@@ -12,7 +12,9 @@
 
 NAME = ex01
 
-SRC =	main.cpp
+SRC =	main.cpp \
+			Scavtrap.cpp \
+			Claptrap.cpp
 
 OBJS = $(SRC:.cpp=.o)
 
