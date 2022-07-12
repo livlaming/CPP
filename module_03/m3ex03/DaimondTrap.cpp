@@ -38,6 +38,7 @@ void DaimondTrap::attack(const std::string &target) {
 void  DaimondTrap::whoAmI(){
     std::cout << "I am: " << this->_Name <<  " && My ClapTrap name = " << ClapTrap::_Name << std::endl;
 }
+
 DaimondTrap::~DaimondTrap() {
     std::cout << "DaimondTrap " << this->_Name << " GAME OVER" << std::endl;
 }
