@@ -1,21 +1,25 @@
 //
-// Created by Lisa Vlamings on 7/11/22.
+// Created by Lisa Vlamings on 7/12/22.
 //
 
 #ifndef CPP_DAIMONDTRAP_HPP
 #define CPP_DAIMONDTRAP_HPP
-#include "FragTrap.hpp"
+#include <iostream>
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-class DaimondTrap : public FragTrap, public ScavTrap {
+class DaimondTrap : public ScavTrap, public FragTrap {
 private:
-    std::string Name;
+    std::string _Name;
+    DaimondTrap();
 public:
     DaimondTrap(std::string Name);
-    DaimondTrap(const DaimondTrap &copy); // copy constructor
+    DaimondTrap(const DaimondTrap &copy);
     DaimondTrap &operator=(const DaimondTrap &copy);
-    ~DaimondTrap(void); // destructor
+    ~DaimondTrap();
 
+    void  whoAmI();
+    void attack(const std::string& target);
 };
 
 

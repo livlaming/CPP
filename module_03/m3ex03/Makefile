@@ -15,8 +15,7 @@ NAME = ex01
 SRC =	main.cpp \
 			Scavtrap.cpp \
 			Claptrap.cpp \
-			Fragtrap.cpp \
-			DaimondTrap.cpp
+			Fragtrap.cpp
 
 OBJS = $(SRC:.cpp=.o)
 

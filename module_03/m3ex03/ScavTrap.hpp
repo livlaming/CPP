@@ -10,8 +10,8 @@
 //ClapTrap = “base class” or “parent class”;
 //Scavtrap = “derived class” or “child class”
 
-class ScavTrap : public ClapTrap {
-private:
+class ScavTrap : virtual public ClapTrap {
+protected:
     ScavTrap(void);
 public:
     ScavTrap(std::string Name);
