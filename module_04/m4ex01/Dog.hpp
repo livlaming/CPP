@@ -6,8 +6,11 @@
 #define CPP_DOG_HPP
 #include <iostream>
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Dog : public Animal{
+private:
+    Brain *_DogBrain;
 public:
     Dog();
     ~Dog();

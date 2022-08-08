@@ -6,24 +6,30 @@
 #include "Cat.hpp"
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
+#include "Brain.hpp"
 
-int main() {
-    const Animal *meta = new Animal();
-    const Animal *j = new Dog();
-    const Animal *i = new Cat();
-    std::cout << meta->getType() << " " << std::endl;
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
-    i->makeSound(); //will output the cat sound!
-    j->makeSound();
-    meta->makeSound();
+int main()
+{
+//    const Animal* j = new Dog();
+    const Animal* i = new Cat();
 
-    std::cout << "----------------" << std::endl;
-    const WrongAnimal *Wrongmeta = new WrongAnimal();
-    const WrongAnimal *Wrongi = new WrongCat();
-    std::cout << Wrongmeta->getType() << " " << std::endl;
-    std::cout << Wrongi->getType() << " " << std::endl;
-    Wrongi->makeSound(); //will output the cat sound!
-    Wrongmeta->makeSound();
+//    int NumberOfAnimals = 5;
+//    const Animal* Various[NumberOfAnimals];
+//    for (int i; i < NumberOfAnimals; i++)
+//    {
+//        if (i % 2 == 0)
+//            Various[i] = new Dog();
+//        else
+//            Various[i] = new Cat();
+//    }
+//    for (int i; i < NumberOfAnimals; i++)
+//        std::cout << Various[i]->getType() << std::endl;
+
+//    for (int i; i < NumberOfAnimals; i++)
+//        delete Various[i];
+//    delete j;//should not create a leak
+    delete i;
+
+ system("leaks m4ex01");
     return 0;
 }

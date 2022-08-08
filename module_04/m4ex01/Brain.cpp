@@ -5,6 +5,8 @@
 #include "Brain.hpp"
 
 Brain::Brain() {
+    for (int i; i < 100; i++)
+        this->ideas[i] = "idea";
 }
 
 Brain::Brain(const Brain &copy) {
@@ -15,9 +17,10 @@ Brain::Brain(const Brain &copy) {
 
 Brain &Brain::operator=(const Brain &copy) {
     std::cout << "Copy assignment operator Claptrap called" << std::endl;
-//    if (&copy){
-//        this->ideas = copy->ideas;
-//    }
+    if (&copy){
+        for (int i; i < 100; i++)
+            this->ideas[i] = copy.ideas[i];
+    }
     return (*this);
 }
 
