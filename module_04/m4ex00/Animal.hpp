@@ -12,7 +12,10 @@ protected:
 public:
     Animal();
     ~Animal();
-    makeSound();
+    Animal(const Animal &copy);
+    Animal &operator=(const Animal &copy);
+    std::string getType();
+    void makeSound();
 };
 
 #endif //CPP_ANIMAL_HPP

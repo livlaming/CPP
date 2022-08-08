@@ -7,14 +7,16 @@
 #include <iostream>
 #include "Animal.hpp"
 
-class Dog : Animal{
-private:
-    std::string type = "Dog";
+class Dog : public Animal{
+//protected:
+//    std::string type;
 public:
     Dog();
     ~Dog();
-    makeSound();
-};
+    Dog(const Dog &copy);
+    Dog &operator=(const Dog &copy);
 
+    void makeSound();
+};
 
 #endif //CPP_DOG_HPP
