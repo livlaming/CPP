@@ -32,7 +32,7 @@ public:
     Fixed operator*(const Fixed &copy); //arithmetic operator overload
     Fixed operator/(const Fixed &copy); //arithmetic operator overload
 
-    Fixed operator++(void); //pre-increment   Fixed &operator++(void); reference?
+    Fixed operator++(void); //pre-increment   Fixed &operator++(void);
     Fixed operator++(int); //post-increment
     Fixed operator--(void); //pre-decrement
     Fixed operator--(int); //post-decrement
