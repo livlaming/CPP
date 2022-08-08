@@ -13,11 +13,6 @@
 NAME = ex00
 
 SRC =	main.cpp \
-			Animal.cpp \
-			Cat.cpp \
-			Dog.cpp \
-			WrongAnimal.cpp \
-			WrongCat.cpp
 
 OBJS = $(SRC:.cpp=.o)
 
