@@ -14,7 +14,7 @@ public:
     Dog(const Dog &copy);
     Dog &operator=(const Dog &copy);
 
-    virtual void makeSound();
+    void makeSound() const;
 };
 
 #endif //CPP_DOG_HPP
