@@ -10,25 +10,25 @@ WrongAnimal::WrongAnimal() {
 
 WrongAnimal::WrongAnimal(const WrongAnimal &copy) {
     std::cout << "Copy constructor ClapTrap called" << std::endl;
-//    if (&copy)
+    if (&copy)
     *this = copy;
 }
 
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &copy) {
     std::cout << "Copy assignment operator Claptrap called" << std::endl;
-//    if (&copy){
+    if (&copy){
     this->type = "";
-//    }
+    }
     return (*this);
 }
 std::string WrongAnimal::getType() const {
     return (this->type);
 }
 void WrongAnimal::makeSound() const{
-    std::cout << "Cat Sound" << std::endl;
+    std::cout << "Animal Sound" << std::endl;
 }
 
-WrongAnimal::~Animal() {
+WrongAnimal::~WrongAnimal() {
     std::cout << "deconstructor called" << std::endl;
 }
 

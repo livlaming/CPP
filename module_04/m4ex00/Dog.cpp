@@ -11,15 +11,15 @@ Dog::Dog() {
 
 Dog::Dog(const Dog &copy) {
     std::cout << "Copy constructor ClapTrap called" << std::endl;
-//    if (&copy)
+    if (&copy)
         *this = copy;
 }
 
 Dog &Dog::operator=(const Dog &copy) {
     std::cout << "Copy assignment operator Claptrap called" << std::endl;
-//    if (&copy){
+    if (&copy){
         this->type = "";
-//    }
+    }
     return (*this);
 }
 

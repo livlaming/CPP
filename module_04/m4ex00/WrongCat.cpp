@@ -11,17 +11,17 @@ WrongCat::WrongCat() {
     this->type = "Cat";
 }
 
-WrongCat::Cat(const WrongCat &copy) {
+WrongCat::WrongCat(const WrongCat &copy) {
     std::cout << "Copy constructor ClapTrap called" << std::endl;
-//    if (&copy)
+    if (&copy)
     *this = copy;
 }
 
 WrongCat &WrongCat::operator=(const WrongCat &copy) {
     std::cout << "Copy assignment operator Claptrap called" << std::endl;
-//    if (&copy){
+    if (&copy){
     this->type = "";
-//    }
+    }
     return (*this);
 }
 

@@ -13,15 +13,15 @@ Cat::Cat() {
 
 Cat::Cat(const Cat &copy) {
     std::cout << "Copy constructor ClapTrap called" << std::endl;
-//    if (&copy)
+    if (&copy)
         *this = copy;
 }
 
 Cat &Cat::operator=(const Cat &copy) {
     std::cout << "Copy assignment operator Claptrap called" << std::endl;
-//    if (&copy){
+    if (&copy){
         this->type = "";
-//    }
+    }
     return (*this);
 }
 
