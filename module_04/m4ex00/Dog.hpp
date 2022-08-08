@@ -8,15 +8,13 @@
 #include "Animal.hpp"
 
 class Dog : public Animal{
-//protected:
-//    std::string type;
 public:
     Dog();
     ~Dog();
     Dog(const Dog &copy);
     Dog &operator=(const Dog &copy);
 
-    void makeSound();
+    virtual void makeSound();
 };
 
 #endif //CPP_DOG_HPP

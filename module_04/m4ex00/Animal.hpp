@@ -14,8 +14,9 @@ public:
     ~Animal();
     Animal(const Animal &copy);
     Animal &operator=(const Animal &copy);
-    std::string getType();
-    void makeSound();
+    std::string getType() const;
+
+    virtual void makeSound() const;
 };
 
 #endif //CPP_ANIMAL_HPP

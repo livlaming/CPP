@@ -8,15 +8,13 @@
 #include "Animal.hpp"
 
 class Cat : public Animal{
-//protected:
-//    std::string type;
 public:
     Cat();
     ~Cat();
     Cat(const Cat &copy);
     Cat &operator=(const Cat &copy);
 
-    void makeSound();
+    virtual void makeSound();
 };
 
 

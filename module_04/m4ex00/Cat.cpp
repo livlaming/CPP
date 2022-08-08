@@ -8,6 +8,7 @@
 
 Cat::Cat() {
     std::cout << "constructor called" << std::endl;
+    this->type = "Cat";
 }
 
 Cat::Cat(const Cat &copy) {
