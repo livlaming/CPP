@@ -4,4 +4,4 @@ project(m4ex00)
 set(CMAKE_CXX_STANDARD 98)
 set(CMAKE_CXX_FLAGS -std=c++98)
 
-add_executable(m4ex00 )
+add_executable(m4ex00 main.cpp Animal.cpp)

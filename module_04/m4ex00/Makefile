@@ -10,12 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ex02
+NAME = ex00
 
 SRC =	main.cpp \
-			Scavtrap.cpp \
-			Claptrap.cpp \
-			Fragtrap.cpp
 
 OBJS = $(SRC:.cpp=.o)
 
