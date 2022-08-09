@@ -5,18 +5,18 @@
 #include "Dog.hpp"
 
 Dog::Dog() {
-    std::cout << "constructor called" << std::endl;
+    std::cout << "Dog constructor called" << std::endl;
     this->_type = "Dog";
 }
 
 Dog::Dog(const Dog &copy) {
-    std::cout << "Copy constructor ClapTrap called" << std::endl;
+    std::cout << "Copy constructor Dog called" << std::endl;
     if (&copy)
         *this = copy;
 }
 
 Dog &Dog::operator=(const Dog &copy) {
-    std::cout << "Copy assignment operator Claptrap called" << std::endl;
+    std::cout << "Copy assignment operator Dog called" << std::endl;
     if (&copy){
         this->_type = copy._type;
     }
@@ -28,5 +28,5 @@ void Dog::makeSound() const{
 }
 
 Dog::~Dog() {
-    std::cout << "deconstructor called" << std::endl;
+    std::cout << "Dog deconstructor called" << std::endl;
 }

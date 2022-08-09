@@ -5,17 +5,17 @@
 #include "WrongAnimal.hpp"
 
 WrongAnimal::WrongAnimal() {
-    std::cout << "constructor called" << std::endl;
+    std::cout << "WrongAnimal constructor called" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal &copy) {
-    std::cout << "Copy constructor ClapTrap called" << std::endl;
+    std::cout << "Copy constructor WrongAnimal called" << std::endl;
     if (&copy)
     *this = copy;
 }
 
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &copy) {
-    std::cout << "Copy assignment operator Claptrap called" << std::endl;
+    std::cout << "Copy assignment operator WrongAnimal called" << std::endl;
     if (&copy){
         this->_type = copy._type;
     }
@@ -25,11 +25,11 @@ std::string WrongAnimal::getType() const {
     return (this->_type);
 }
 void WrongAnimal::makeSound() const{
-    std::cout << "Animal Sound" << std::endl;
+    std::cout << "WrongAnimal Sound" << std::endl;
 }
 
 WrongAnimal::~WrongAnimal() {
-    std::cout << "deconstructor called" << std::endl;
+    std::cout << "WrongAnimal deconstructor called" << std::endl;
 }
 
 
