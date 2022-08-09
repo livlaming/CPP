@@ -5,20 +5,17 @@
 #include "Animal.hpp"
 
 Animal::Animal() {
-    std::cout << "constructor called" << std::endl;
+    std::cout << "Animal constructor called" << std::endl;
 }
 
 Animal::Animal(const Animal &copy) {
-    std::cout << "Copy constructor ClapTrap called" << std::endl;
-    if (&copy)
-        *this = copy;
+    std::cout << "Copy constructor Animal called" << std::endl;
+    *this = copy;
 }
 
 Animal &Animal::operator=(const Animal &copy) {
-    std::cout << "Copy assignment operator Claptrap called" << std::endl;
-    if (&copy){
-        this->_type = copy.getType();
-    }
+    std::cout << "Overload Copy assignment operator Animal called" << std::endl;
+    this->_type = copy.getType();
     return (*this);
 }
 

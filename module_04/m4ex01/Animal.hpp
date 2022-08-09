@@ -10,7 +10,7 @@ class Animal {
 protected:
     std::string _type;
 public:
-     Animal();
+    Animal();
     virtual ~Animal();
     Animal(const Animal &copy);
     Animal &operator=(const Animal &copy);

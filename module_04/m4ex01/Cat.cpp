@@ -8,25 +8,21 @@
 #include "Brain.hpp"
 
 Cat::Cat() {
-    std::cout << "constructor called" << std::endl;
+    std::cout << "Cat constructor called" << std::endl;
     this->_type = "Cat";
     this->_CatBrain = new Brain();
 }
 
 Cat::Cat(const Cat &copy) {
-    std::cout << "Copy constructor ClapTrap called" << std::endl;
-    if (&copy)
-        *this = copy;
+    std::cout << "Copy constructor Cat called" << std::endl;
+    *this = copy;
 }
 
 Cat &Cat::operator=(const Cat &copy) {
-    std::cout << "Copy assignment operator Claptrap called" << std::endl;
-    if (&copy){
-        this->_type = copy.getType();
-        this->_CatBrain = copy._CatBrain;
-    }
-//    else
-//        this->_CatBrain = new Brain(copy._CatBrain);
+    std::cout << "Copy assignment operator Cat called" << std::endl;
+    this->_type = copy.getType();
+    this->_CatBrain = copy._CatBrain;
+
     return (*this);
 }
 

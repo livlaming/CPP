@@ -5,23 +5,23 @@
 #include "Dog.hpp"
 
 Dog::Dog() {
-    std::cout << "constructor called" << std::endl;
+    std::cout << "Dog constructor called" << std::endl;
     this->_type = "Dog";
     this->_DogBrain = new Brain();
 }
 
 Dog::Dog(const Dog &copy) {
-    std::cout << "Copy constructor ClapTrap called" << std::endl;
-    if (&copy)
-        *this = copy;
+    std::cout << "Copy constructor Dog called" << std::endl;
+    this->_type = copy.getType();
+    this->_DogBrain = new Brain(*copy._DogBrain);
+//        *this = copy;
 }
 
 Dog &Dog::operator=(const Dog &copy) {
-    std::cout << "Copy assignment operator Claptrap called" << std::endl;
-    if (&copy){
-        this->_type = copy._type;
-        this->_DogBrain = copy._DogBrain;
-    }
+    std::cout << "Copy assignment operator Dog called" << std::endl;
+    this->_type = copy._type;
+    this->_DogBrain = copy._DogBrain;
+
     return (*this);
 }
 

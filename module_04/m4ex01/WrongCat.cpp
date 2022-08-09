@@ -7,28 +7,25 @@
 #include <iostream>
 
 WrongCat::WrongCat() {
-    std::cout << "constructor called" << std::endl;
-    this->_type = "Cat";
+    std::cout << "WrongCat constructor called" << std::endl;
+    this->_type = "WrongCat";
 }
 
 WrongCat::WrongCat(const WrongCat &copy) {
-    std::cout << "Copy constructor ClapTrap called" << std::endl;
-    if (&copy)
+    std::cout << "Copy constructor WrongCat called" << std::endl;
     *this = copy;
 }
 
 WrongCat &WrongCat::operator=(const WrongCat &copy) {
-    std::cout << "Copy assignment operator Claptrap called" << std::endl;
-    if (&copy){
-        this->_type = copy._type;
-    }
+    std::cout << "Copy assignment operator WrongCat called" << std::endl;
+    this->_type = copy._type;
     return (*this);
 }
 
 void WrongCat::makeSound() const {
-    std::cout << "Cat Sound" << std::endl;
+    std::cout << "WrongCat Sound" << std::endl;
 }
 
 WrongCat::~WrongCat() {
-    std::cout << "deconstructor called" << std::endl;
+    std::cout << "WrongCat deconstructor called" << std::endl;
 }

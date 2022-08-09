@@ -10,15 +10,12 @@ Animal::Animal() {
 
 Animal::Animal(const Animal &copy) {
     std::cout << "Copy constructor ClapTrap called" << std::endl;
-    if (&copy)
-        *this = copy;
+    *this = copy;
 }
 
 Animal &Animal::operator=(const Animal &copy) {
     std::cout << "Copy assignment operator Claptrap called" << std::endl;
-    if (&copy){
-        this->_type = copy._type;
-    }
+    this->_type = copy._type;
     return (*this);
 }
 std::string Animal::getType() const {
