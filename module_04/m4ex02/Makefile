@@ -13,7 +13,7 @@
 NAME = ex00
 
 SRC =	main.cpp \
-			AAnimal.cpp \
+			Animal.cpp \
 			Cat.cpp \
 			Dog.cpp \
 			WrongAnimal.cpp \

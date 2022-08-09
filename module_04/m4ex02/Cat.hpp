@@ -5,7 +5,7 @@
 #ifndef CPP_CAT_HPP
 #define CPP_CAT_HPP
 #include <iostream>
-#include "AAnimal.hpp"
+#include "Animal.hpp"
 #include "Brain.hpp"
 
 class Cat : public Animal{

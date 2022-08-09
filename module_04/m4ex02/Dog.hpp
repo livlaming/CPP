@@ -5,7 +5,7 @@
 #ifndef CPP_DOG_HPP
 #define CPP_DOG_HPP
 #include <iostream>
-#include "AAnimal.hpp"
+#include "Animal.hpp"
 #include "Brain.hpp"
 
 class Dog : public Animal{

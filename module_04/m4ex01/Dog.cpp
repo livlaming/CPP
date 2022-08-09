@@ -12,16 +12,13 @@ Dog::Dog() {
 
 Dog::Dog(const Dog &copy) {
     std::cout << "Copy constructor Dog called" << std::endl;
-    this->_type = copy.getType();
-    this->_DogBrain = new Brain(*copy._DogBrain);
-//        *this = copy;
+    *this = copy;
 }
 
 Dog &Dog::operator=(const Dog &copy) {
     std::cout << "Copy assignment operator Dog called" << std::endl;
-    this->_type = copy._type;
-    this->_DogBrain = copy._DogBrain;
-
+    this->_type = copy.getType();
+    this->_DogBrain = new Brain(*copy._DogBrain);
     return (*this);
 }
 

@@ -1,7 +1,7 @@
 //
 // Created by Lisa Vlamings on 8/8/22.
 //
-#include "AAnimal.hpp"
+#include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "WrongAnimal.hpp"
