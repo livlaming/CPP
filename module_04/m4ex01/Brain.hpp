@@ -7,9 +7,10 @@
 #include <iostream>
 
 class Brain {
-protected:
-    std::string ideas[100];
+//protected:
+
 public:
+    std::string ideas[100];
     Brain();
     ~Brain();
     Brain(const Brain &copy);

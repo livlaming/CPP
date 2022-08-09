@@ -17,17 +17,19 @@ Animal::Animal(const Animal &copy) {
 Animal &Animal::operator=(const Animal &copy) {
     std::cout << "Copy assignment operator Claptrap called" << std::endl;
     if (&copy){
-        this->_type = copy._type;
+        this->_type = copy.getType();
     }
     return (*this);
 }
+
 std::string Animal::getType() const {
     return (this->_type);
 }
+
 void Animal::makeSound() const{
     std::cout << "Animal Sound" << std::endl;
 }
 
 Animal::~Animal() {
-    std::cout << "deconstructor called" << std::endl;
+    std::cout << "Animal deconstructor called" << std::endl;
 }

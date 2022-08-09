@@ -21,9 +21,11 @@ WrongAnimal &WrongAnimal::operator=(const WrongAnimal &copy) {
     }
     return (*this);
 }
+
 std::string WrongAnimal::getType() const {
     return (this->_type);
 }
+
 void WrongAnimal::makeSound() const{
     std::cout << "Animal Sound" << std::endl;
 }

@@ -7,7 +7,7 @@
 Dog::Dog() {
     std::cout << "constructor called" << std::endl;
     this->_type = "Dog";
-    this->_DogBrain = new Brain;
+    this->_DogBrain = new Brain();
 }
 
 Dog::Dog(const Dog &copy) {
@@ -30,6 +30,6 @@ void Dog::makeSound() const{
 }
 
 Dog::~Dog() {
-    std::cout << "deconstructor called" << std::endl;
+    std::cout << "Dog deconstructor called" << std::endl;
     delete this->_DogBrain;
 }

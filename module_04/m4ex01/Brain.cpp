@@ -25,5 +25,5 @@ Brain &Brain::operator=(const Brain &copy) {
 }
 
 Brain::~Brain() {
-    std::cout << "deconstructor called" << std::endl;
+    std::cout << "Brain deconstructor called" << std::endl;
 }
