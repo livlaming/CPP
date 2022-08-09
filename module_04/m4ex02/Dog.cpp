@@ -3,6 +3,7 @@
 //
 
 #include "Dog.hpp"
+#include "AAnimal.hpp"
 
 Dog::Dog() {
     std::cout << "Dog constructor called" << std::endl;
