@@ -1,7 +1,7 @@
 //
 // Created by Lisa Vlamings on 8/8/22.
 //
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "WrongAnimal.hpp"
@@ -10,8 +10,10 @@
 
 int main()
 {
+    const AAnimal* x = new AAnimal();
     const AAnimal* j = new Dog();
     const AAnimal* i = new Cat();
+//    const Dog* a = new AAnimal();
 
     const AAnimal* Various[5];
     for (int i; i < 5; i++)
@@ -23,6 +25,7 @@ int main()
     }
     for (int i; i < 5; i++){
         std::cout << Various[i]->getType() << std::endl;
+    }
 
 
 //    delete j;//should not create a leak
@@ -30,10 +33,11 @@ int main()
 //    for (int i; i < 5; i++)
 //        delete Various[i];
 
-    system("leaks m4ex01");
+
     return 0;
 }
 
+//    system("leaks m4ex01");
 //int NumberOfAnimals = 5;
 //std::cout << NumberOfAnimals << std::endl;
 //const Animal* Various[NumberOfAnimals];
