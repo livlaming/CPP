@@ -5,10 +5,10 @@
 #ifndef CPP_DOG_HPP
 #define CPP_DOG_HPP
 #include <iostream>
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
-class Dog : public Animal{
+class Dog : public AAnimal{
 private:
     Brain *_DogBrain;
 public:
