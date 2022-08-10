@@ -12,8 +12,8 @@ int main()
 {
     const AAnimal* j = new Dog();
     const AAnimal* i = new Cat();
-//    const Dog* a = new AAnimal();
-//    const AAnimal* x = new AAnimal();
+//    const Dog* a = new AAnimal(); <------ Should not work!
+//    const AAnimal* x = new AAnimal();   <------ Should not work!
 
     const AAnimal* Various[5];
     for (int i; i < 5; i++)
@@ -27,15 +27,10 @@ int main()
         std::cout << Various[i]->getType() << std::endl;
     }
 
-//    delete j;//should not create a leak
-//    delete i;
-//    for (int i; i < 5; i++)
-//        delete Various[i];
+    delete j;//should not create a leak
+    delete i;
+    for (int i; i < 5; i++)
+        delete Various[i];
 
     return 0;
 }
-
-//    system("leaks m4ex01");
-//int NumberOfAnimals = 5;
-//std::cout << NumberOfAnimals << std::endl;
-//const Animal* Various[NumberOfAnimals];

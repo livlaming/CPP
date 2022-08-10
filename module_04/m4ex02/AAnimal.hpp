@@ -10,11 +10,11 @@ class AAnimal {
 protected:
     std::string _type;
     AAnimal();
-    ~AAnimal();
     AAnimal(const AAnimal &copy);
     AAnimal &operator=(const AAnimal &copy);
 
 public:
+    virtual ~AAnimal();
     std::string getType() const;
 
     virtual void makeSound() const = 0;
