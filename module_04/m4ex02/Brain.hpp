@@ -7,8 +7,6 @@
 #include <iostream>
 
 class Brain {
-//protected:
-
 public:
     std::string ideas[100];
     Brain();

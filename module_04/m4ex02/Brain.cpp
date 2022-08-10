@@ -6,7 +6,7 @@
 
 Brain::Brain() {
     std::cout << "Brain constructor called called" << std::endl;
-    for (int i; i < 100; i++)
+    for (int i = 0; i < 100; i++)
         this->ideas[i] = "idea";
 }
 //copy constructor is voor een object dat al bestaat,
