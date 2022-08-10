@@ -4,4 +4,4 @@ project(m5ex00)
 set(CMAKE_CXX_STANDARD 98)
 set(CMAKE_CXX_FLAGS -std=c++98)
 
-add_executable(m5ex00 main.cpp)
+add_executable(m5ex00 main.cpp Bureaucrat.cpp)

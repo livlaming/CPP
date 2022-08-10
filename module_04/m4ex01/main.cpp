@@ -24,6 +24,13 @@ int main()
     for (int i; i < 5; i++)
         std::cout << Various[i]->getType() << std::endl;
 
+    for (int i; i < 5; i++){
+        if (i % 2 == 0)
+            Various[i]->getBrain()->ideas[i];
+        else
+            Various[i]->getBrain()->ideas[i];
+    }
+
     delete j;//should not create a leak
     delete i;
     for (int i; i < 5; i++)

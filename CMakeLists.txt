@@ -20,5 +20,6 @@ add_subdirectory(module_03/m3ex03)
 add_subdirectory(module_04/m4ex00)
 add_subdirectory(module_04/m4ex01)
 add_subdirectory(module_04/m4ex02)
+add_subdirectory(module_05/m5ex00)
 
 #add_subdirectory(practise)

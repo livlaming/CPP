@@ -26,6 +26,10 @@ void Dog::makeSound() const{
     std::cout << "Dog Sound" << std::endl;
 }
 
+Brain * Dog::getBrain(){
+    return(this->_DogBrain);
+}
+
 Dog::~Dog() {
     std::cout << "Dog deconstructor called" << std::endl;
     delete this->_DogBrain;
