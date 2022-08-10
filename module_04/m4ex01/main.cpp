@@ -24,11 +24,17 @@ int main()
     for (int i; i < 5; i++)
         std::cout << Various[i]->getType() << std::endl;
 
-    for (int i; i < 5; i++){
-        if (i % 2 == 0)
-            Various[i]->getBrain()->ideas[i];
-        else
-            Various[i]->getBrain()->ideas[i];
+
+    std::cout << "BRAIN CHECKK!!!" << std::endl;
+
+    Cat* Kit = new Cat();
+    for (int i = 0; i < 100; i++){
+        std::cout << "CAT brain: " << Kit->getBrain()->ideas[i] << std::endl;
+    }
+
+    Dog* Ko = new Dog();
+    for (int i = 0; i < 100; i++){
+        std::cout << "DOG brain: " << Ko->getBrain()->ideas[i] << std::endl;
     }
 
     delete j;//should not create a leak
