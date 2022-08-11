@@ -20,8 +20,15 @@ int main() {
         std::cout << e.what() << std::endl;
     }
 
-    Bureaucrat a("C", 10);
+    Bureaucrat a("C", 1);
     std::cout << a << std::endl;
+    try{
+        a.increment();
+        std::cout << a << std::endl;
+    }
+    catch (Bureaucrat::GradeTooHighException &e) {
+        std::cout << e.what() << std::endl;
+    }
 
     return 0;
 }
