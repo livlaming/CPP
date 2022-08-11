@@ -4,15 +4,15 @@
 
 #include "Bureaucrat.hpp"
 
+
 Bureaucrat::Bureaucrat(){};
 
-Bureaucrat::Bureaucrat(int grade) {
-    if (grade < 1 )
-        throw Bureaucrat::GradeTooLowException();
-    else if (grade > 150)
+Bureaucrat::Bureaucrat(const std::string Name, int grade) : _name(Name) {
+    this->_grade = grade;
+    if (this->_grade < 1 )
         throw Bureaucrat::GradeTooHighException();
-    else
-        this->_grade = grade;
+    else if (this->_grade > 150)
+        throw Bureaucrat::GradeTooLowException();
 }
 
 int Bureaucrat::getGrade() {
@@ -23,30 +23,22 @@ std::string Bureaucrat::getName() {
     return (this->_name);
 }
 
-
 void Bureaucrat::increment() {
-    try {
-        this->_grade += 1;
-        if (this->_grade > 150)
-            throw Bureaucrat::GradeTooHighException();
-    }
-    catch (Bureaucrat::GradeTooHighException& e)
-    {
-        std::cout << this->_name <<", bureaucrat grade " << this->_grade << "." << std::endl;
-    }
+    this->_grade -= 1;
+    if (this->_grade > 150)
+        throw Bureaucrat::GradeTooLowException();
 }
 
 void Bureaucrat::decrement() {
-    try {
-        this->_grade -= 1;
-        if (this->_grade < 1 )
-            throw Bureaucrat::GradeTooLowException();
-    }
-    catch (Bureaucrat::GradeTooLowException & e)
-    {
-        std::cout << this->_name <<", bureaucrat grade " << this->_grade << "." << std::endl;
-    }
+    this->_grade += 1;
+    if (this->_grade < 1 )
+        throw Bureaucrat::GradeTooHighException();
+}
 
+std::ostream &operator<<(std::ostream &out, Bureaucrat &copy)
+{
+    out << copy.getName() <<", bureaucrat grade " << copy.getGrade() << "." << std::endl;
+    return (out);
 }
 
 Bureaucrat::~Bureaucrat() {

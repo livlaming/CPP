@@ -9,11 +9,11 @@
 
 class Bureaucrat {
 private:
-    const std::string _name = "constant";
+    const std::string _name;// = "Jaap" static ;
     int _grade;
     Bureaucrat();
 public:
-    Bureaucrat(int);
+    Bureaucrat(std::string, int);
     ~Bureaucrat();
     std::string getName();
     int getGrade();
@@ -23,7 +23,7 @@ public:
         public:
             virtual const char * what() const throw()
             {
-                return ("GradeTooHighException");
+                return ("grade is too high :(");
             }
     };
 
@@ -31,11 +31,14 @@ public:
         public:
             virtual const char * what() const throw()
             {
-                return ("GradeTooLowException");
+                return ("grade is too low :(");
             }
     };
 
 };
+
+std::ostream &operator<<(std::ostream &out, Bureaucrat &copy);
+
 
 
 #endif //CPP_BUREAUCRAT_HPP
