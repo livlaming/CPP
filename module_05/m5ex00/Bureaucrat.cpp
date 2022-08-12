@@ -15,7 +15,6 @@ Bureaucrat::Bureaucrat(const std::string Name, int grade) : _name(Name) {
         throw Bureaucrat::GradeTooLowException();
 }
 
-
 Bureaucrat::Bureaucrat(const Bureaucrat &copy) : _name(copy._name) {
     std::cout << "Copy constructor Cat called" << std::endl;
     *this = copy;

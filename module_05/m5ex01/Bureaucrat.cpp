@@ -3,7 +3,7 @@
 //
 
 #include "Bureaucrat.hpp"
-
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat(){};
 
@@ -52,6 +52,14 @@ std::ostream &operator<<(std::ostream &out, Bureaucrat &copy)
     out << copy.getName() <<", bureaucrat grade " << copy.getGrade() << "." << std::endl;
     return (out);
 }
+
+//void Bureaucrat::signForm(const Form &copy){
+//    if (copy.getSign() == 1)
+//        std::cout << copy.getName() << " signed " << this->getName() << std::endl;
+//    else
+//        std::cout << copy.getName() << " couldn't sign " << this->getName() << "because " << std::endl;
+//}
+
 
 Bureaucrat::~Bureaucrat() {
 

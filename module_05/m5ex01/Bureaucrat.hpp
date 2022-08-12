@@ -7,12 +7,15 @@
 #include <iostream>
 #include <exception>
 
+class Form;
+
 class Bureaucrat {
 private:
     const std::string _name;// = "Jaap" static ;
     int _grade;
-    Bureaucrat();
+
 public:
+    Bureaucrat();
     Bureaucrat(std::string, int);
     ~Bureaucrat();
     Bureaucrat(const Bureaucrat &copy);
@@ -36,7 +39,7 @@ public:
                 return ("grade is too low :(");
             }
     };
-
+    void signForm(const Form &copy);
 };
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat &copy);
