@@ -7,9 +7,18 @@
 
 int main() {
     try {
-        Bureaucrat Her("Lola", 5);
+        Bureaucrat She("Lola", 5);
         Form College("Codam", 6, 6);
-//        Her.SignForm(college);
+        She.signForm(College);
+    }
+    catch (std::exception &Exc) {
+        std::cout << Exc.what() << std::endl;
+    }
+
+    try {
+        Bureaucrat He("George", 7);
+        Form College("Codam", 6, 6);
+        He.signForm(College);
     }
     catch (std::exception &Exc) {
         std::cout << Exc.what() << std::endl;

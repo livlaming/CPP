@@ -11,7 +11,7 @@ class Form;
 
 class Bureaucrat {
 private:
-    const std::string _name;// = "Jaap" static ;
+    const std::string _name;
     int _grade;
 
 public:
@@ -39,7 +39,7 @@ public:
                 return ("grade is too low :(");
             }
     };
-    void signForm(const Form &copy);
+    void signForm(Form &copy);
 };
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat &copy);

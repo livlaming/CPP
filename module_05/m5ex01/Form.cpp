@@ -9,7 +9,6 @@ Form::Form() : _name(NULL), _grade_sign(0), _grade_exc(0), _signed(false){}
 
 Form::Form(const std::string Name, const int GradeTS, const int GradeTE) : _name(Name), _grade_sign(GradeTS), _grade_exc(GradeTE), _signed(false){}
 
-
 Form::Form(const Form &copy) : _name(copy.getName()), _grade_sign(copy.getGradeSign()), _grade_exc(copy.getGradeExc()) {
     std::cout << "Copy constructor Cat called" << std::endl;
     *this = copy;
@@ -47,23 +46,12 @@ std::ostream &operator<<(std::ostream &out, Form &copy)
 }
 
 void Form::beSigned(const Bureaucrat &copy){
-    if (copy.getGrade() <= 150 && copy.getGrade() >= 1)
-    {
+    if (copy.getGrade() > this->_grade_sign)
+        throw Form::GradeTooLowException();
+    else if (copy.getGrade() < 1)
+        throw Form::GradeTooHighException();
+    else
         this->_signed = true;
-        signForm(copy);
-    }
-    if (copy.getGrade() > 150)
-    {
-        std::cout << copy.getName() << " couldn't sign " << this->getName() << "because grade is too low " << std::endl;
-        throw Form::GradeTooLowException();
-
-    }
-    if (copy.getGrade() < 1)
-    {
-        std::cout << copy.getName() << " couldn't sign " << this->getName() << "because grade is too high " << std::endl;
-        throw Form::GradeTooLowException();
-    }
-
 }
 
 Form::~Form(){}

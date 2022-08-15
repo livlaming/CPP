@@ -43,7 +43,6 @@ public:
     };
 
     void beSigned(const Bureaucrat &copy);
-    void signForm(const Bureaucrat &copy);
 
 };
 
