@@ -18,7 +18,7 @@ private:
 public:
 
     Form(const std::string Name, const int GradeTS, const int GradeTE);
-    ~Form();
+    virtual ~Form();
     Form(const Form &copy);
     Form &operator=(const Form &copy);
     std::string getName() const;
