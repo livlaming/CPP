@@ -45,6 +45,7 @@ public:
     void beSigned(const Bureaucrat &copy);
 
 };
+std::ostream &operator<<(std::ostream &out, Form &copy);
 
 
 #endif //CPP_FORM_HPP
