@@ -8,14 +8,14 @@
 
 class ShrubberyCreationForm : public Form{
 private:
-    std::string _target;
-public:
     ShrubberyCreationForm();
+public:
     ShrubberyCreationForm(std::string target);
     ~ShrubberyCreationForm();
     ShrubberyCreationForm(const ShrubberyCreationForm &copy);
     ShrubberyCreationForm &operator=(const ShrubberyCreationForm &copy);
-//    std::string getTarget() const;
+
+    void execute(Bureaucrat const & executor) const;
 };
 
 

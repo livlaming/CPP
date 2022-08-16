@@ -64,4 +64,10 @@ void Bureaucrat::signForm(Form &copy){
     }
 }
 
+void Bureaucrat::executeForm(Form const &form){
+    form->excecute();
+//    if (succes)
+//        std::cout << this->getName() << " executed " << form.getName() << endl;
+}
+
 Bureaucrat::~Bureaucrat() {}

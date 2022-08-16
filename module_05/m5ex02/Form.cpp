@@ -54,4 +54,8 @@ void Form::beSigned(const Bureaucrat &copy){
         this->_signed = true;
 }
 
+std::string Form::getTarget() const {
+    return(this->_target);
+}
+
 Form::~Form(){}

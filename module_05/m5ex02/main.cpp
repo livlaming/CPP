@@ -3,11 +3,49 @@
 //
 
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 #include "Form.hpp"
 #include <iostream>
 #include <fstream>
 
-int main() {
+int main(){
+
+    try {
+        Bureaucrat Me("Lola", 14);
+        ShrubberyCreationForm Tree("garden");
+//        Me.SignForm(Tree);
+//        Me.IncrementGrade(20);
+//        Me.ExecuteForm(Tree);
+    }
+    catch (std::exception &Exc) {
+        std::cout << Exc.what() << std::endl;
+    }
+    std::cout << "---------------------------" << std::endl;
+    try {
+        Bureaucrat Me("Lola", 139);
+        RobotomyRequestForm RoBoy("wall-e");
+//        Me.SignForm(RoRo);
+//        Me.IncrementGrade(20);
+//        Me.ExecuteForm(RoRo);
+    }
+    catch (std::exception &Exc) {
+        std::cout << Exc.what() << std::endl;
+    }
+    std::cout << "---------------------------" << std::endl;
+    try {
+        Bureaucrat Me("Lola", 5);
+        PresidentialPardonForm Pardon("Lola");
+//        Me.SignForm(Obama);
+//        Me.ExecuteForm(Obama);
+    }
+    catch (std::exception &Exc) {
+        std::cout << Exc.what() << std::endl;
+    }
+}
+
+//int main() {
 
 //    std::cout << "\n----------------\n" << std::endl;
 //    try {
@@ -35,28 +73,30 @@ int main() {
 //    catch (std::exception &Exc) {
 //        std::cout << Exc.what() << std::endl;
 //    }
-    std::string filename = "_shrubby.txt";
-    std::ofstream outfile(filename);
+//    std::string filename = "_shrubby.txt";
+//    std::ofstream outfile(filename);
 //    if (outfile.is_open() == false)
 //        std::cout << "error" << std::endl;
 //    this->_target = target;
 //
-    // Write to the file
-    outfile << "                  %%%,%%%%%%%\n"
-               "                   ,'%% \\\\-*%%%%%%%\n"
-               "             ;%%%%%*%   _%%%%\"\n"
-               "              ,%%%       \\(_.*%%%%.\n"
-               "              % *%%, ,%%%%*(    '\n"
-               "            %^     ,*%%% )\\|,%%*%,_\n"
-               "                 *%    \\/ #).-\"*%%*\n"
-               "                     _.) ,/ *%,\n"
-               "             _________/)#(_____________";
-    // Close the file
-    outfile.close();
-
+//    // Write to the file
+//    outfile << "                  %%%,%%%%%%%\n"
+//               "                   ,'%% \\\\-*%%%%%%%\n"
+//               "             ;%%%%%*%   _%%%%\"\n"
+//               "              ,%%%       \\(_.*%%%%.\n"
+//               "              % *%%, ,%%%%*(    '\n"
+//               "            %^     ,*%%% )\\|,%%*%,_\n"
+//               "                 *%    \\/ #).-\"*%%*\n"
+//               "                     _.) ,/ *%,\n"
+//               "             _________/)#(_____________";
+//    // Close the file
+//    outfile.close();
+//
 
 //    system("leaks m5ex01");
+//
+//
+//    return 0;
+//}
 
 
-    return 0;
-}
