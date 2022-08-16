@@ -15,9 +15,9 @@ int main(){
     try {
         Bureaucrat Me("Lola", 14);
         ShrubberyCreationForm Tree("garden");
-//        Me.SignForm(Tree);
+        Me.signForm(Tree);
 //        Me.IncrementGrade(20);
-//        Me.ExecuteForm(Tree);
+        Me.executeForm(Tree);
     }
     catch (std::exception &Exc) {
         std::cout << Exc.what() << std::endl;
@@ -25,20 +25,20 @@ int main(){
     std::cout << "---------------------------" << std::endl;
     try {
         Bureaucrat Me("Lola", 139);
-        RobotomyRequestForm RoBoy("wall-e");
-//        Me.SignForm(RoRo);
+        RobotomyRequestForm RoBoy("Lola");
+        Me.signForm(RoBoy);
 //        Me.IncrementGrade(20);
-//        Me.ExecuteForm(RoRo);
+        Me.executeForm(RoBoy);
     }
     catch (std::exception &Exc) {
         std::cout << Exc.what() << std::endl;
     }
     std::cout << "---------------------------" << std::endl;
     try {
-        Bureaucrat Me("Lola", 5);
+        Bureaucrat Me("Lola", 4);
         PresidentialPardonForm Pardon("Lola");
-//        Me.SignForm(Obama);
-//        Me.ExecuteForm(Obama);
+        Me.signForm(Pardon);
+        Me.executeForm(Pardon);
     }
     catch (std::exception &Exc) {
         std::cout << Exc.what() << std::endl;

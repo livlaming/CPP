@@ -50,14 +50,14 @@ ShrubberyCreationForm::~ShrubberyCreationForm(){};
 
 
 //
-//// Create and open a text file
+// Create and open a text file
 //std::string filename = target + "_shrubby.txt";
 //std::ofstream outfile(filename);
 //if (outfile.is_open() == false)
 //std::cout << "error" << std::endl;
-////    this->_target = target;
-////
-//// Write to the file
+//    this->_target = target;
+//
+// Write to the file
 //outfile << "                  %%%,%%%%%%%\n"
 //"                   ,'%% \\\\-*%%%%%%%\n"
 //"             ;%%%%%*%   _%%%%\"\n"
@@ -67,7 +67,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm(){};
 //"                 *%    \\/ #).-\"*%%*\n"
 //"                     _.) ,/ *%,\n"
 //"             _________/)#(_____________";
-//// Close the file
+// Close the file
 //outfile.close();
 
 
@@ -96,4 +96,4 @@ ShrubberyCreationForm::~ShrubberyCreationForm(){};
 //    myfile.close();
 
 
-}
+//}
