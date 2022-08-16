@@ -12,6 +12,8 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target) {
     // Create and open a text file
     std::string filename = target + "_shrubby.txt";
     std::ofstream outfile(filename);
+    if (outfile.is_open() == false)
+        std::cout << "error" << std::endl;
 //    this->_target = target;
 //
     // Write to the file
@@ -26,6 +28,31 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target) {
                "             _________/)#(_____________";
     // Close the file
     outfile.close();
+
+
+//    of //
+//    std::string filename = "hallo.txt";
+//    std::ofstream outfile;
+//    outfile.open(filename);
+//    if (outfile.is_open() == false)
+//        std::cout << "error" << std::endl;
+//
+//    outfile << "                  %%%,%%%%%%%\n"
+//               "                   ,'%% \\\\-*%%%%%%%\n"
+//               "             ;%%%%%*%   _%%%%\"\n"
+//               "              ,%%%       \\(_.*%%%%.\n"
+//               "              % *%%, ,%%%%*(    '\n"
+//               "            %^     ,*%%% )\\|,%%*%,_\n"
+//               "                 *%    \\/ #).-\"*%%*\n"
+//               "                     _.) ,/ *%,\n"
+//               "             _________/)#(_____________" << std::endl;
+//    // Close the file
+//    outfile.close();
+//
+//    std::ofstream myfile;
+//    myfile.open ("example.txt");
+//    myfile << "Writing this to a file.\n";
+//    myfile.close();
 
 
 }

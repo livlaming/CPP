@@ -35,11 +35,12 @@ int main() {
 //    catch (std::exception &Exc) {
 //        std::cout << Exc.what() << std::endl;
 //    }
-
-    std::string filename = "hallo.txt";
-    std::ofstream outfile("hallo.txt");
+    std::string filename = "_shrubby.txt";
+    std::ofstream outfile(filename);
+//    if (outfile.is_open() == false)
+//        std::cout << "error" << std::endl;
 //    this->_target = target;
-
+//
     // Write to the file
     outfile << "                  %%%,%%%%%%%\n"
                "                   ,'%% \\\\-*%%%%%%%\n"
@@ -49,16 +50,13 @@ int main() {
                "            %^     ,*%%% )\\|,%%*%,_\n"
                "                 *%    \\/ #).-\"*%%*\n"
                "                     _.) ,/ *%,\n"
-               "             _________/)#(_____________" << std::endl;
+               "             _________/)#(_____________";
     // Close the file
     outfile.close();
 
-    std::ofstream myfile;
-    myfile.open ("example.txt");
-    myfile << "Writing this to a file.\n";
-    myfile.close();
 
 //    system("leaks m5ex01");
+
 
     return 0;
 }
