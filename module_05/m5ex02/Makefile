@@ -12,8 +12,7 @@
 
 NAME = ex02
 
-SRC =	main.cpp \
-			Bureaucrat.cpp
+SRC =	main.cpp 
 
 
 OBJS = $(SRC:.cpp=.o)

@@ -10,13 +10,23 @@ ShrubberyCreationForm::ShrubberyCreationForm() {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) {
     // Create and open a text file
-    std::ofstream outfile("name + _shrubbery.txt");
+    std::string filename = target + "_shrubby.txt";
+    std::ofstream outfile(filename);
+//    this->_target = target;
 //
-//    // Write to the file
-//    MyFile << "Files can be tricky, but it is fun enough!";
-//
-//    // Close the file
-//    MyFile.close();
+    // Write to the file
+    outfile << "                  %%%,%%%%%%%\n"
+               "                   ,'%% \\\\-*%%%%%%%\n"
+               "             ;%%%%%*%   _%%%%\"\n"
+               "              ,%%%       \\(_.*%%%%.\n"
+               "              % *%%, ,%%%%*(    '\n"
+               "            %^     ,*%%% )\\|,%%*%,_\n"
+               "                 *%    \\/ #).-\"*%%*\n"
+               "                     _.) ,/ *%,\n"
+               "             _________/)#(_____________";
+    // Close the file
+    outfile.close();
+
 
 }
 
@@ -26,13 +36,13 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy){
 }
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &copy) {
-    this->_target = copy.getTarget();
+//    this->_target = copy.getTarget();
     return (*this);
 }
 
-std::string getTarget(){
-    return(this->_target);
-}
+//std::string getTarget() const{
+//    return(this->_target);
+//}
 
 
 ShrubberyCreationForm::~ShrubberyCreationForm(){};

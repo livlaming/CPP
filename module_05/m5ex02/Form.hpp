@@ -14,9 +14,9 @@ private:
     bool _signed;
     const int _grade_sign;
     const int _grade_exc;
-    Form();
-public:
 
+public:
+    Form();
     Form(const std::string Name, const int GradeTS, const int GradeTE);
     virtual ~Form();
     Form(const Form &copy);
