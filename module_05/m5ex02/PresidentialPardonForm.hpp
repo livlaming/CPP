@@ -16,6 +16,14 @@ public:
     PresidentialPardonForm(const PresidentialPardonForm &copy);
 
     void execute(Bureaucrat const & executor) const;
+
+    class ImpossibleToSign : public std::exception {
+    public:
+        virtual const char * what() const throw()
+        {
+            return ("has NOT been pardoned by Zaphod Beeblebrox.");
+        }
+    };
 };
 
 

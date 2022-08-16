@@ -35,7 +35,7 @@ int main(){
     }
     std::cout << "---------------------------" << std::endl;
     try {
-        Bureaucrat Me("Lola", 4);
+        Bureaucrat Me("Lola", 10);
         PresidentialPardonForm Pardon("Lola");
         Me.signForm(Pardon);
         Me.executeForm(Pardon);
