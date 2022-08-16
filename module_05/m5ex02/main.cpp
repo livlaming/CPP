@@ -12,6 +12,7 @@
 
 int main(){
 
+//    ShrubberyCreationForm Required grades: sign 145, exec 137
     try {
         Bureaucrat Me("Lola", 14);
         ShrubberyCreationForm Tree("garden");
@@ -23,20 +24,46 @@ int main(){
         std::cout << Exc.what() << std::endl;
     }
     std::cout << "---------------------------" << std::endl;
+
+//    RobotomyRequestForm: Required grades: sign 72, exec 45
     try {
-        Bureaucrat Me("Lola", 139);
-        RobotomyRequestForm RoBoy("Lola");
+        Bureaucrat Me("Simon", 71);
+        RobotomyRequestForm RoBoy("Simon");
         Me.signForm(RoBoy);
-//        Me.IncrementGrade(20);
+//        Me.increment(20);
         Me.executeForm(RoBoy);
     }
     catch (std::exception &Exc) {
         std::cout << Exc.what() << std::endl;
     }
     std::cout << "---------------------------" << std::endl;
+
     try {
-        Bureaucrat Me("Lola", 10);
-        PresidentialPardonForm Pardon("Lola");
+        Bureaucrat Me("Simon", 45);
+        RobotomyRequestForm RoBoy("Simon");
+        Me.signForm(RoBoy);
+//        Me.increment(20);
+        Me.executeForm(RoBoy);
+    }
+    catch (std::exception &Exc) {
+        std::cout << Exc.what() << std::endl;
+    }
+    std::cout << "---------------------------" << std::endl;
+
+//    PresidentialPardonForm: Required grades: sign 25, exec 5
+    try {
+        Bureaucrat Me("Tim", 30);
+        PresidentialPardonForm Pardon("Tim");
+        Me.signForm(Pardon);
+        Me.executeForm(Pardon);
+    }
+    catch (std::exception &Exc) {
+        std::cout << Exc.what() << std::endl;
+    }
+
+    try {
+        Bureaucrat Me("Tim", 5);
+        PresidentialPardonForm Pardon("Tim");
         Me.signForm(Pardon);
         Me.executeForm(Pardon);
     }

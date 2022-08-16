@@ -6,8 +6,13 @@
 #define CPP_ROBOTOMYREQUESTFORM_HPP
 #include "Form.hpp"
 
+#include "Bureaucrat.hpp"
+
+class Bureaucrat;
+
 class RobotomyRequestForm : public Form{
 private:
+    std::string _target;
     RobotomyRequestForm();
 public:
     RobotomyRequestForm(std::string target);
@@ -16,6 +21,13 @@ public:
     RobotomyRequestForm &operator=(const RobotomyRequestForm &copy);
 
     void execute(Bureaucrat const & executor) const;
+    class ImpossibleToSign : public std::exception {
+    public:
+        virtual const char * what() const throw()
+        {
+            return ("informs that the robotomy failed");
+        }
+    };
 };
 
 

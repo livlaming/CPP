@@ -8,7 +8,7 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm() {}
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form(target, 145, 137){}
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form("Shrubbery Creation Form", 145, 137), _target(target){}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy){
     std::cout << "Copy constructor Cat called" << std::endl;
@@ -20,8 +20,8 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 }
 
 void ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
-    if (this->getSign() == 1) {
-        std::string filename = this->getTarget() + "_shrubby.txt";
+    if (this->getSign() == 1 && executor.getGrade() <= this->getGradeExc()) {
+        std::string filename = this->getName() + "_shrubby.txt";
         std::ofstream outfile;
         outfile.open(filename);
         if (outfile.is_open() == false)

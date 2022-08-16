@@ -11,7 +11,7 @@ class Bureaucrat;
 class Form {
 private:
     const std::string _name;
-    const std::string _target;
+//    const std::string _target;
     bool _signed;
     const int _grade_sign;
     const int _grade_exc;
@@ -26,7 +26,7 @@ public:
     int getGradeSign() const;
     bool getSign() const;
     int getGradeExc() const;
-    std::string getTarget() const ;
+//    std::string getTarget() const ;
 
     class GradeTooHighException : public std::exception {
     public:
