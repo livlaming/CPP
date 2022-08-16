@@ -17,7 +17,7 @@ SRC =	main.cpp \
 
 OBJS = $(SRC:.cpp=.o)
 
-CC = clang++
+CC = c++
 
 CFLAGS = -Wall -Werror -Wextra -pedantic -std=c++98
 
