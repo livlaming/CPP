@@ -14,11 +14,11 @@ private:
     const int _grade_sign;
     const int _grade_exc;
     bool _signed;
-    Form();
-public:
 
+public:
+    Form();
     Form(const std::string Name, const int GradeTS, const int GradeTE);
-    ~Form();
+    virtual ~Form();
     Form(const Form &copy);
     Form &operator=(const Form &copy);
     std::string getName() const;
@@ -43,6 +43,7 @@ public:
     };
 
     void beSigned(const Bureaucrat &copy);
+    virtual void execute(Bureaucrat const & executor) const = 0;
 
 };
 std::ostream &operator<<(std::ostream &out, Form &copy);

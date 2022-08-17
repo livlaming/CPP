@@ -5,7 +5,7 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-Bureaucrat::Bureaucrat(){};
+Bureaucrat::Bureaucrat(){}
 
 Bureaucrat::Bureaucrat(const std::string Name, int grade) : _name(Name) {
     this->_grade = grade;

@@ -3,7 +3,7 @@
 //
 
 #include "Bureaucrat.hpp"
-
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat(){}
 
@@ -14,6 +14,7 @@ Bureaucrat::Bureaucrat(const std::string Name, int grade) : _name(Name) {
     else if (this->_grade > 150)
         throw Bureaucrat::GradeTooLowException();
 }
+
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy) : _name(copy._name) {
     std::cout << "Copy constructor Cat called" << std::endl;
@@ -52,4 +53,27 @@ std::ostream &operator<<(std::ostream &out, Bureaucrat &copy)
     return (out);
 }
 
-Bureaucrat::~Bureaucrat() {}
+void Bureaucrat::signForm(Form &form){
+    try{
+        form.beSigned(*this);
+        std::cout << this->_name << " signed " << form.getName() << std::endl;
+    }
+    catch(const std::exception& Exc)
+    {
+        std::cout << this->_name << " couldn't sign " << form.getName() << " because " << Exc.what() << std::endl;
+    }
+}
+
+void Bureaucrat::executeForm(Form const &form){
+   try
+    {
+        form.execute(*this);
+        std::cout << this->_name << " executed " << form.getName() << std::endl;
+    }
+   catch (const std::exception& Exc)
+   {
+       std::cout << this->_name << " couldn't excecuted " << form.getName() << ": " << Exc.what() << std::endl;
+   }
+}
+
+Bureaucrat::~Bureaucrat(){}

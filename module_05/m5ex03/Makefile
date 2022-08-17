@@ -10,12 +10,15 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ex01
+NAME = ex02
 
 SRC =	main.cpp \
+			Form.cpp \
 			Bureaucrat.cpp \
-			Form.cpp
-
+			PresidentialPardonForm.cpp \
+			RobotomyRequestForm.cpp \
+			ShrubberyCreationForm.cpp \
+			Intern.hpp
 
 OBJS = $(SRC:.cpp=.o)
 
@@ -33,6 +36,7 @@ $(NAME):	$(OBJS)
 
 clean:
 			rm -f $(OBJS)
+			rm *_shrubby.txt
 
 fclean: 	clean
 			rm -f $(NAME)
