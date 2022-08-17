@@ -21,11 +21,11 @@ public:
     RobotomyRequestForm &operator=(const RobotomyRequestForm &copy);
 
     void execute(Bureaucrat const & executor) const;
-    class ImpossibleToSign : public std::exception {
+    class RobotomyFailed : public std::exception {
     public:
         virtual const char * what() const throw()
         {
-            return ("informs that the robotomy failed");
+            return ("The robotomy failed");
         }
     };
 };

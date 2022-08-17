@@ -21,7 +21,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 void ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
     if (this->getSign() == 1 && executor.getGrade() <= this->getGradeExc()) {
-        std::string filename = this->getName() + "_shrubby.txt";
+        std::string filename = this->_target + "_shrubby.txt";
         std::ofstream outfile;
         outfile.open(filename);
         if (outfile.is_open() == false)
@@ -40,7 +40,8 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
         outfile.close();
     }
     else
-        std::cout << "ShrubberyCreationForm not signed" << std::endl;
+        throw ShrubberyCreationForm::ShrubberyFailed();
+
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm(){};

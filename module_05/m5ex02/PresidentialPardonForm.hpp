@@ -25,7 +25,7 @@ public:
     public:
         virtual const char * what() const throw()
         {
-            return ("has NOT been pardoned by Zaphod Beeblebrox.");
+            return ("NOT pardoned");
         }
     };
 };

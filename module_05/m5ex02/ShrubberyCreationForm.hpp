@@ -21,7 +21,14 @@ public:
     ShrubberyCreationForm &operator=(const ShrubberyCreationForm &copy);
 
     void execute(Bureaucrat const & executor) const;
-};
 
+    class ShrubberyFailed : public std::exception {
+    public:
+        virtual const char * what() const throw()
+        {
+            return ("ShrubberyCreationForm not excecuted");
+        }
+    };
+};
 
 #endif //CPP_SHRUBBERYCREATIONFORM_HPP

@@ -10,6 +10,7 @@
 #include <iostream>
 #include <fstream>
 
+
 int main(){
 
 //    ShrubberyCreationForm Required grades: sign 145, exec 137
@@ -28,7 +29,7 @@ int main(){
 //    RobotomyRequestForm: Required grades: sign 72, exec 45
     try {
         Bureaucrat Me("Simon", 71);
-        RobotomyRequestForm RoBoy("Simon");
+        RobotomyRequestForm RoBoy("ROBO");
         Me.signForm(RoBoy);
 //        Me.increment(20);
         Me.executeForm(RoBoy);
@@ -40,7 +41,7 @@ int main(){
 
     try {
         Bureaucrat Me("Simon", 45);
-        RobotomyRequestForm RoBoy("Simon");
+        RobotomyRequestForm RoBoy("ROBO");
         Me.signForm(RoBoy);
 //        Me.increment(20);
         Me.executeForm(RoBoy);
@@ -53,7 +54,7 @@ int main(){
 //    PresidentialPardonForm: Required grades: sign 25, exec 5
     try {
         Bureaucrat Me("Tim", 30);
-        PresidentialPardonForm Pardon("Tim");
+        PresidentialPardonForm Pardon("TARGET");
         Me.signForm(Pardon);
         Me.executeForm(Pardon);
     }
@@ -63,7 +64,7 @@ int main(){
 
     try {
         Bureaucrat Me("Tim", 5);
-        PresidentialPardonForm Pardon("Tim");
+        PresidentialPardonForm Pardon("TARGET");
         Me.signForm(Pardon);
         Me.executeForm(Pardon);
     }
@@ -71,6 +72,37 @@ int main(){
         std::cout << Exc.what() << std::endl;
     }
 }
+
+
+//int main(void) {
+//    Bureaucrat  *a = new Bureaucrat("Adam", 1);
+//    Bureaucrat  b("Bob", 150);
+//
+//    std::cout << *a << b;
+//
+//    ShrubberyCreationForm   *s = new ShrubberyCreationForm("theft_and");
+//    RobotomyRequestForm     r("Marvin");
+//    PresidentialPardonForm  p("Arthur");
+//
+//    std::cout << *s;
+//    b.executeForm(*s);
+//    b.signForm(*s);
+//    a->signForm(*s);
+//    b.executeForm(*s);
+//    a->executeForm(*s);
+//
+//    std::cout << std::endl << r;
+//    b.executeForm(r);
+//    a->signForm(r);
+//    a->executeForm(r);
+//
+//    std::cout << std::endl << p;
+//    a->signForm(p);
+//    a->executeForm(p);
+//    delete s;
+//    delete a;
+//    return 0;
+//}
 
 //int main() {
 

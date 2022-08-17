@@ -53,14 +53,14 @@ std::ostream &operator<<(std::ostream &out, Bureaucrat &copy)
     return (out);
 }
 
-void Bureaucrat::signForm(Form &copy){
+void Bureaucrat::signForm(Form &form){
     try{
-        copy.beSigned(*this);
-        std::cout << copy.getName() << " signed " << this->getName() << std::endl;
+        form.beSigned(*this);
+        std::cout << this->_name << " signed " << form.getName() << std::endl;
     }
     catch(const std::exception& Exc)
     {
-        std::cout << copy.getName() << " couldn't sign " << this->getName() << " because " << Exc.what() << std::endl;
+        std::cout << this->_name << " couldn't sign " << form.getName() << " because " << Exc.what() << std::endl;
     }
 }
 

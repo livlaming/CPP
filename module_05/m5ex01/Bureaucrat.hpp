@@ -39,7 +39,7 @@ public:
                 return ("grade is too low :( for the input");
             }
     };
-    void signForm(Form &copy);
+    void signForm(Form &form);
 };
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat &copy);
