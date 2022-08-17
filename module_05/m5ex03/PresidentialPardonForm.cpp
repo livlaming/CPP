@@ -9,12 +9,12 @@ PresidentialPardonForm::PresidentialPardonForm(){}
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("Presidential Pardon Form", 25, 5), _target(target) {}
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy) {
-    std::cout << "Copy constructor Cat called" << std::endl;
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy) : Form(copy) {
     *this = copy;
 }
 
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &copy) {
+    this->Form::operator=(copy);
     this->_target = copy._target;
     return (*this);
 }

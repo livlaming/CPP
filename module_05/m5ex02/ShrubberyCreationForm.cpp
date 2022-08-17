@@ -10,7 +10,7 @@ ShrubberyCreationForm::ShrubberyCreationForm() {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form("Shrubbery Creation Form", 145, 137), _target(target){}
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy){
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) : Form(copy){
     std::cout << "Copy constructor Cat called" << std::endl;
     *this = copy;
 }
