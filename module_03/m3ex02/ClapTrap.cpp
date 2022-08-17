@@ -25,10 +25,12 @@ ClapTrap::ClapTrap(const ClapTrap &copy){
 //asignment operator: kopieerd Class in bestaande class
 ClapTrap& ClapTrap::operator=(const ClapTrap &copy){
     std::cout << "Copy assignment operator Claptrap called" << std::endl;
-    this->_Name = copy._Name;
-    this->_Hitpoints = copy._Hitpoints;
-    this->_EnergyPoints = copy._EnergyPoints;
-    this->_AttackDamage = copy._AttackDamage;
+    if (&copy != this) {
+        this->_Name = copy._Name;
+        this->_Hitpoints = copy._Hitpoints;
+        this->_EnergyPoints = copy._EnergyPoints;
+        this->_AttackDamage = copy._AttackDamage;
+    }
     return (*this);
 }
 

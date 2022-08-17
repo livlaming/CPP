@@ -15,7 +15,8 @@ Animal::Animal(const Animal &copy) {
 
 Animal &Animal::operator=(const Animal &copy) {
     std::cout << "Overload Copy assignment operator Animal called" << std::endl;
-    this->_type = copy.getType();
+    if (&copy != this)
+        this->_type = copy.getType();
     return (*this);
 }
 

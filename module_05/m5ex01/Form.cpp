@@ -16,7 +16,8 @@ Form::Form(const Form &copy) : _name(copy.getName()), _grade_sign(copy.getGradeS
 
 Form &Form::operator=(const Form &copy) {
     std::cout << "Copy assignment operator Cat called" << std::endl;
-    this->_signed = copy.getSign();
+    if (&copy != this)
+        this->_signed = copy.getSign();
     return (*this);
 }
 

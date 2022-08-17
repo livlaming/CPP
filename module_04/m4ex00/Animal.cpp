@@ -15,7 +15,8 @@ Animal::Animal(const Animal &copy) {
 
 Animal &Animal::operator=(const Animal &copy) {
     std::cout << "Copy assignment Animal Claptrap called" << std::endl;
-    this->_type = copy._type;
+    if (&copy != this)
+        this->_type = copy._type;
     return (*this);
 }
 std::string Animal::getType() const {

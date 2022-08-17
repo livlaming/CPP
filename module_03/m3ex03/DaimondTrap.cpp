@@ -24,10 +24,12 @@ DaimondTrap::DaimondTrap(const DaimondTrap &copy) { // = refereert naar copy ope
 
 DaimondTrap& DaimondTrap::operator=(const DaimondTrap &copy){ //copy assignement operator
     std::cout << "Copy assignment operator ScavtrapFragTrap called" << std::endl;
-    this->_Name = copy._Name;
-    this->_Hitpoints = copy._Hitpoints;
-    this->_EnergyPoints = copy._EnergyPoints;
-    this->_AttackDamage = copy._AttackDamage;
+    if (&copy != this) {
+        this->_Name = copy._Name;
+        this->_Hitpoints = copy._Hitpoints;
+        this->_EnergyPoints = copy._EnergyPoints;
+        this->_AttackDamage = copy._AttackDamage;
+    }
     return (*this);
 }
 

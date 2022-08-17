@@ -17,7 +17,7 @@ int main() {
     Intern someRandomIntern;
     Bureaucrat B("Lola", 30);
     Form *rrF;
-    Form *a;
+
     rrF = someRandomIntern.makeForm("robotomy request", "Bender");
 
     if (rrF != NULL)

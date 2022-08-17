@@ -6,9 +6,10 @@
 
 Intern::Intern() {}
 
-Intern::Intern(const Intern &copy) {}
+Intern::Intern(const Intern &copy) { *this = copy; }
 
 Intern &Intern::operator=(const Intern &copy) {
+    (void)copy;
     return(*this);
 }
 

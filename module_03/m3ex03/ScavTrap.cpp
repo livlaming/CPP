@@ -23,10 +23,12 @@ ScavTrap::ScavTrap(const ScavTrap &copy) { // = refereert naar copy operator
 
 ScavTrap& ScavTrap::operator=(const ScavTrap &copy){ //copy assignement operator
     std::cout << "Copy assignment operator Scavtrap called" << std::endl;
-    this->_Name = copy._Name;
-    this->_Hitpoints = copy._Hitpoints;
-    this->_EnergyPoints = copy._EnergyPoints;
-    this->_AttackDamage = copy._AttackDamage;
+    if (&copy != this) {
+        this->_Name = copy._Name;
+        this->_Hitpoints = copy._Hitpoints;
+        this->_EnergyPoints = copy._EnergyPoints;
+        this->_AttackDamage = copy._AttackDamage;
+    }
     return (*this);
 }
 

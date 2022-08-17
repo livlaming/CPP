@@ -18,7 +18,7 @@ SRC =	main.cpp \
 			PresidentialPardonForm.cpp \
 			RobotomyRequestForm.cpp \
 			ShrubberyCreationForm.cpp \
-			Intern.hpp
+			Intern.cpp
 
 OBJS = $(SRC:.cpp=.o)
 
@@ -36,7 +36,6 @@ $(NAME):	$(OBJS)
 
 clean:
 			rm -f $(OBJS)
-			rm *_shrubby.txt
 
 fclean: 	clean
 			rm -f $(NAME)
