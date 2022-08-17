@@ -5,7 +5,7 @@
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
-Form::Form() : _name(NULL), _grade_sign(0), _grade_exc(0), _signed(false){}
+Form::Form() :_name("NoName"), _grade_sign(150), _grade_exc(150), _signed(false) {}
 
 Form::Form(const std::string Name, const int GradeTS, const int GradeTE) : _name(Name), _grade_sign(GradeTS), _grade_exc(GradeTE), _signed(false){}
 
@@ -53,9 +53,5 @@ void Form::beSigned(const Bureaucrat &copy){
     else
         this->_signed = true;
 }
-
-//std::string Form::getTarget() const {
-//    return(this->_target);
-//}
 
 Form::~Form(){}

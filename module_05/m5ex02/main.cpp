@@ -15,10 +15,21 @@ int main(){
 
 //    ShrubberyCreationForm Required grades: sign 145, exec 137
     try {
-        Bureaucrat Me("Lola", 14);
+        Bureaucrat Me("Lola", 140);
         ShrubberyCreationForm Tree("garden");
         Me.signForm(Tree);
-//        Me.IncrementGrade(20);
+//        Me.increment();
+        Me.executeForm(Tree);
+    }
+    catch (std::exception &Exc) {
+        std::cout << Exc.what() << std::endl;
+    }
+    std::cout << "---------------------------" << std::endl;
+    try {
+        Bureaucrat Me("Lola", 137);
+        ShrubberyCreationForm Tree("garden");
+        Me.signForm(Tree);
+//        Me.increment();
         Me.executeForm(Tree);
     }
     catch (std::exception &Exc) {
@@ -28,10 +39,20 @@ int main(){
 
 //    RobotomyRequestForm: Required grades: sign 72, exec 45
     try {
+        Bureaucrat Me("Simon", 73);
+        RobotomyRequestForm RoBoy("ROBO");
+        Me.signForm(RoBoy);
+//        Me.increment();
+        Me.executeForm(RoBoy);
+    }
+    catch (std::exception &Exc) {
+        std::cout << Exc.what() << std::endl;
+    }
+    std::cout << "---------------------------" << std::endl;
+    try {
         Bureaucrat Me("Simon", 71);
         RobotomyRequestForm RoBoy("ROBO");
         Me.signForm(RoBoy);
-//        Me.increment(20);
         Me.executeForm(RoBoy);
     }
     catch (std::exception &Exc) {
@@ -43,7 +64,6 @@ int main(){
         Bureaucrat Me("Simon", 45);
         RobotomyRequestForm RoBoy("ROBO");
         Me.signForm(RoBoy);
-//        Me.increment(20);
         Me.executeForm(RoBoy);
     }
     catch (std::exception &Exc) {
@@ -61,9 +81,19 @@ int main(){
     catch (std::exception &Exc) {
         std::cout << Exc.what() << std::endl;
     }
-
+    std::cout << "---------------------------" << std::endl;
     try {
         Bureaucrat Me("Tim", 5);
+        PresidentialPardonForm Pardon("TARGET");
+        Me.signForm(Pardon);
+        Me.executeForm(Pardon);
+    }
+    catch (std::exception &Exc) {
+        std::cout << Exc.what() << std::endl;
+    }
+    std::cout << "---------------------------" << std::endl;
+    try {
+        Bureaucrat Me("Tim", 6);
         PresidentialPardonForm Pardon("TARGET");
         Me.signForm(Pardon);
         Me.executeForm(Pardon);
@@ -101,60 +131,6 @@ int main(){
 //    a->executeForm(p);
 //    delete s;
 //    delete a;
-//    return 0;
-//}
-
-//int main() {
-
-//    std::cout << "\n----------------\n" << std::endl;
-//    try {
-//        Bureaucrat She("Lola", 5);
-//        std::cout << She << std::endl;
-//        Form College("Entrance programme X", 6, 6);
-//        std::cout << College << std::endl;
-//        She.signForm(College);
-//        std::cout << std::endl;
-//        std::cout << College << std::endl;
-//    }
-//    catch (std::exception &Exc) {
-//        std::cout << Exc.what() << std::endl;
-//    }
-//    std::cout << "\n----------------\n" << std::endl;
-//    try {
-//        Bureaucrat He("George", 150);
-//        std::cout << He << std::endl;
-//        Form College2("Entrance programme Y", 5, 5);
-//        std::cout << College2 << std::endl;
-//        He.signForm(College2);
-//        std::cout << College2 << std::endl;
-//        std::cout << College2 << std::endl;
-//    }
-//    catch (std::exception &Exc) {
-//        std::cout << Exc.what() << std::endl;
-//    }
-//    std::string filename = "_shrubby.txt";
-//    std::ofstream outfile(filename);
-//    if (outfile.is_open() == false)
-//        std::cout << "error" << std::endl;
-//    this->_target = target;
-//
-//    // Write to the file
-//    outfile << "                  %%%,%%%%%%%\n"
-//               "                   ,'%% \\\\-*%%%%%%%\n"
-//               "             ;%%%%%*%   _%%%%\"\n"
-//               "              ,%%%       \\(_.*%%%%.\n"
-//               "              % *%%, ,%%%%*(    '\n"
-//               "            %^     ,*%%% )\\|,%%*%,_\n"
-//               "                 *%    \\/ #).-\"*%%*\n"
-//               "                     _.) ,/ *%,\n"
-//               "             _________/)#(_____________";
-//    // Close the file
-//    outfile.close();
-//
-
-//    system("leaks m5ex01");
-//
-//
 //    return 0;
 //}
 

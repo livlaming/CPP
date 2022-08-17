@@ -15,9 +15,9 @@ private:
     PresidentialPardonForm();
 public:
     PresidentialPardonForm(std::string target);
-    ~PresidentialPardonForm();
-    PresidentialPardonForm &operator=(const PresidentialPardonForm &copy);
     PresidentialPardonForm(const PresidentialPardonForm &copy);
+    PresidentialPardonForm &operator=(const PresidentialPardonForm &copy);
+    ~PresidentialPardonForm();
 
     void execute(Bureaucrat const & executor) const;
 
@@ -30,5 +30,5 @@ public:
     };
 };
 
-
 #endif //CPP_PRESIDENTIALPARDONFORM_HPP
+

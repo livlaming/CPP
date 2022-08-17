@@ -5,7 +5,7 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-Bureaucrat::Bureaucrat(){};
+Bureaucrat::Bureaucrat(){}
 
 Bureaucrat::Bureaucrat(const std::string Name, int grade) : _name(Name) {
     this->_grade = grade;
@@ -72,9 +72,8 @@ void Bureaucrat::executeForm(Form const &form){
     }
    catch (const std::exception& Exc)
    {
-//       std::cout <<  Exc.what() << std::endl;
-       std::cout << this->_name << " couldn't excecuted " << form.getName() << " because: " << Exc.what() << std::endl;
+       std::cout << this->_name << " couldn't excecuted " << form.getName() << ": " << Exc.what() << std::endl;
    }
 }
 
-Bureaucrat::~Bureaucrat() {}
+Bureaucrat::~Bureaucrat(){}

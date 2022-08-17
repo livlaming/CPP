@@ -14,6 +14,7 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy) {
 }
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &copy) {
+    this->_target = copy._target;
     return (*this);
 }
 
@@ -27,4 +28,4 @@ void RobotomyRequestForm::execute(const Bureaucrat &executor) const {
 
 }
 
-RobotomyRequestForm::~RobotomyRequestForm() {}
+RobotomyRequestForm::~RobotomyRequestForm(){}

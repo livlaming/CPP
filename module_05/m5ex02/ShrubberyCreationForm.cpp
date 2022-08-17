@@ -16,85 +16,29 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy){
 }
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &copy) {
+    this->_target = copy._target;
     return (*this);
 }
 
 void ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
-    if (this->getSign() == 1 && executor.getGrade() <= this->getGradeExc()) {
-        std::string filename = this->_target + "_shrubby.txt";
-        std::ofstream outfile;
-        outfile.open(filename);
+    if (this->getSign() == 1 && executor.getGrade() <= this->getGradeExc())
+    {
+        std::ofstream outfile(this->_target + "_shrubby.txt");
         if (outfile.is_open() == false)
-            std::cout << "error" << std::endl;
-
+            throw ShrubberyCreationForm::ShrubberyFailed();
         outfile << "                  %%%,%%%%%%%\n"
-                   "                   ,'%% \\\\-*%%%%%%%\n"
-                   "             ;%%%%%*%   _%%%%\"\n"
-                   "              ,%%%       \\(_.*%%%%.\n"
-                   "              % *%%, ,%%%%*(    '\n"
-                   "            %^     ,*%%% )\\|,%%*%,_\n"
-                   "                 *%    \\/ #).-\"*%%*\n"
-                   "                     _.) ,/ *%,\n"
-                   "             _________/)#(_____________" << std::endl;
-
+        "                   ,'%% \\\\-*%%%%%%%\n"
+        "             ;%%%%%*%   _%%%%\"\n"
+        "              ,%%%       \\(_.*%%%%.\n"
+        "              % *%%, ,%%%%*(    '\n"
+        "            %^     ,*%%% )\\|,%%*%,_\n"
+        "                 *%    \\/ #).-\"*%%*\n"
+        "                     _.) ,/ *%,\n"
+        "             _________/)#(_____________";
         outfile.close();
     }
     else
         throw ShrubberyCreationForm::ShrubberyFailed();
-
 }
 
-ShrubberyCreationForm::~ShrubberyCreationForm(){};
-
-
-
-
-
-//
-// Create and open a text file
-//std::string filename = target + "_shrubby.txt";
-//std::ofstream outfile(filename);
-//if (outfile.is_open() == false)
-//std::cout << "error" << std::endl;
-//    this->_target = target;
-//
-// Write to the file
-//outfile << "                  %%%,%%%%%%%\n"
-//"                   ,'%% \\\\-*%%%%%%%\n"
-//"             ;%%%%%*%   _%%%%\"\n"
-//"              ,%%%       \\(_.*%%%%.\n"
-//"              % *%%, ,%%%%*(    '\n"
-//"            %^     ,*%%% )\\|,%%*%,_\n"
-//"                 *%    \\/ #).-\"*%%*\n"
-//"                     _.) ,/ *%,\n"
-//"             _________/)#(_____________";
-// Close the file
-//outfile.close();
-
-
-//    of //
-//    std::string filename = "hallo.txt";
-//    std::ofstream outfile;
-//    outfile.open(filename);
-//    if (outfile.is_open() == false)
-//        std::cout << "error" << std::endl;
-//
-//    outfile << "                  %%%,%%%%%%%\n"
-//               "                   ,'%% \\\\-*%%%%%%%\n"
-//               "             ;%%%%%*%   _%%%%\"\n"
-//               "              ,%%%       \\(_.*%%%%.\n"
-//               "              % *%%, ,%%%%*(    '\n"
-//               "            %^     ,*%%% )\\|,%%*%,_\n"
-//               "                 *%    \\/ #).-\"*%%*\n"
-//               "                     _.) ,/ *%,\n"
-//               "             _________/)#(_____________" << std::endl;
-//    // Close the file
-//    outfile.close();
-//
-//    std::ofstream myfile;
-//    myfile.open ("example.txt");
-//    myfile << "Writing this to a file.\n";
-//    myfile.close();
-
-
-//}
+ShrubberyCreationForm::~ShrubberyCreationForm(){}

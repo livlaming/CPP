@@ -15,6 +15,7 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &cop
 }
 
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &copy) {
+    this->_target = copy._target;
     return (*this);
 }
 
@@ -25,4 +26,4 @@ void PresidentialPardonForm::execute(Bureaucrat const &executor) const{
         throw PresidentialPardonForm::ImpossibleToSign();
 }
 
-PresidentialPardonForm::~PresidentialPardonForm() {}
+PresidentialPardonForm::~PresidentialPardonForm(){}
