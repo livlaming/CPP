@@ -18,21 +18,21 @@ convert &convert::operator=(const convert &copy){
 }
 
 void convert::indicateType(const std::string input) {
-    double dot = input.find(".");
-    std::cout << input.find(".") << std::endl;
-
-    if (isalpha(input[0]) && input.length() == 1)
+    if (std::isalpha(input[0]) && input.length() == 1)
         this->_type = "char";
-    else if (dot != 18446744073709551615)
-        this->_type = "float";
-    else if (input.length() == 9 || (input.length() == 10 && input[0] == '-'))
+    else if (!std::isalpha(input[0]) && input.find(".") == std::string::npos && (input.length() <= 10 || (input.length() == 11 && input[0] == '-')))
         this->_type = "int";
-    else if (input.length() > 9)
+    else if (input.find(".") != std::string::npos)
+    {
+        if (input[input.length() - 1] == 'f')
+            this->_type = "float";
+        else
+            this->_type = "double";
+    }
+    else if (input.length() > 10 || (input.length() == 11 && input[0] != '-'))
         this->_type = "double";
     else
-        this->_type = "undefined";
-
-
+        this->_type = "impossible";
     std::cout << this->_type << std::endl;
 }
 
