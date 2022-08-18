@@ -3,8 +3,17 @@
 //
 
 #include <iostream>
-int main (){
+#include "convert.hpp"
 
-    int a = 12;
-    std::cout << std::typeof(a) << std::endl;
+int main (int ac, char **input){
+    convert a;
+
+    if (ac == 2){
+        input++;
+        a.indicateType(*input);
+        std::cout << *input << std::endl;
+    }
+    else
+        std::cout << "Invalid input" << std::endl;
+    return (0);
 }
