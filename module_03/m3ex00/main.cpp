@@ -14,6 +14,4 @@ int main(void){
     Jojo.beRepaired(10);
 
     return (0);
-}//
-// Created by Lisa Vlamings on 5/18/22.
-//
+}

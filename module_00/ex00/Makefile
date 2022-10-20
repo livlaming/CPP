@@ -6,7 +6,7 @@
 #    By: livlamin <marvin@codam.nl>                   +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/07/27 13:28:13 by livlamin      #+#    #+#                  #
-#    Updated: 2020/07/27 15:03:31 by livlamin      ########   odam.nl          #
+#    Updated: 2022/10/20 10:11:50 by livlamin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRCS = megaphone.cpp
 all: $(NAME)
 
 $(NAME): $(SRCS)
-	clang++ $(FLAGS) $(SRCS) -o $(NAME)
+	c++ $(FLAGS) $(SRCS) -o $(NAME)
 
 clean:
 
