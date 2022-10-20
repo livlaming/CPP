@@ -1,7 +1,3 @@
-//
-// Created by Lisa Vlamings on 7/12/22.
-//
-
 #ifndef CPP_DAIMONDTRAP_HPP
 #define CPP_DAIMONDTRAP_HPP
 #include <iostream>
@@ -23,4 +19,4 @@ public:
 };
 
 
-#endif //CPP_DAIMONDTRAP_HPP
+#endif

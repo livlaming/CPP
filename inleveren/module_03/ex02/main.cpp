@@ -5,16 +5,16 @@
 int main(void){
     std::cout << "SCAVTRAP" << std::endl;
     std::cout << "-----------------------" << std::endl;
-    FragTrap Lisa("Lisa");
-    FragTrap Nout("Nout");
+    FragTrap Dog("Dog");
+    FragTrap Dinosaur("Dinosaur");
 
-    Lisa.attack("Nout");
-    Nout.attack("Lisa");
-    Lisa.beRepaired(10);
-    Lisa.takeDamage(5);
-    Lisa.takeDamage(5);
-    Lisa.beRepaired(10);
-    Lisa.highFivesGuys();
-
+    Dog.attack("Dinosaur");
+    Dinosaur.attack("Dog");
+    Dog.beRepaired(10);
+    Dog.takeDamage(5);
+    Dog.takeDamage(500);
+    Dog.beRepaired(10);
+    Dog.highFivesGuys();
+    std::cout << "-----------------------\n" << std::endl;
     return (0);
 }

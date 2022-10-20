@@ -1,7 +1,3 @@
-//
-// Created by Lisa Vlamings on 5/18/22.
-//
-
 #ifndef CPP__CLAPTRAP_HPP
 #define CPP__CLAPTRAP_HPP
 #include <iostream>

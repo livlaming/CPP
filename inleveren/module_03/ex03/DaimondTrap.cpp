@@ -1,7 +1,3 @@
-//
-// Created by Lisa Vlamings on 7/12/22.
-//
-
 #include "DaimondTrap.hpp"
 
 DaimondTrap::DaimondTrap() {
@@ -17,12 +13,12 @@ DaimondTrap::DaimondTrap(std::string Name): ClapTrap(), ScavTrap(), FragTrap(){
     this->_AttackDamage = FragTrap::_AttackDamage;
 }
 
-DaimondTrap::DaimondTrap(const DaimondTrap &copy) { // = refereert naar copy operator
+DaimondTrap::DaimondTrap(const DaimondTrap &copy) {
     std::cout << "Copy constructor FragTrap called" << std::endl;
     *this = copy;
 }
 
-DaimondTrap& DaimondTrap::operator=(const DaimondTrap &copy){ //copy assignement operator
+DaimondTrap& DaimondTrap::operator=(const DaimondTrap &copy){
     std::cout << "Copy assignment operator ScavtrapFragTrap called" << std::endl;
     this->_Name = copy._Name;
     this->_Hitpoints = copy._Hitpoints;

@@ -1,21 +1,9 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         ::::::::             #
-#    Makefile                                           :+:    :+:             #
-#                                                      +:+                     #
-#    By: livlamin <marvin@codam.nl>                   +#+                      #
-#                                                    +#+                       #
-#    Created: 2020/07/27 13:28:13 by livlamin      #+#    #+#                  #
-#    Updated: 2020/07/27 15:03:31 by livlamin      ########   odam.nl          #
-#                                                                              #
-# **************************************************************************** #
-
 NAME = ex03
 
 SRC =	main.cpp \
-			Scavtrap.cpp \
-			Claptrap.cpp \
-			Fragtrap.cpp \
+			ClapTrap.cpp \
+			ScavTrap.cpp\
+			FragTrap.cpp \
 			DaimondTrap.cpp
 
 OBJS = $(SRC:.cpp=.o)
@@ -41,6 +29,5 @@ fclean: 	clean
 re: fclean all
 
 .PHONY:     clean fclean
-
 
 

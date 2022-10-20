@@ -1,7 +1,3 @@
-//
-// Created by Lisa Vlamings on 7/11/22.
-//
-
 #ifndef CPP_SCAVTRAP_HPP
 #define CPP_SCAVTRAP_HPP
 #include <iostream>

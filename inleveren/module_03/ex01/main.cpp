@@ -3,17 +3,19 @@
 
 int main(void){
     std::cout << "SCAVTRAP" << std::endl;
-    std::cout << "-----------------------" << std::endl;
-    ScavTrap Lisa("Lisa");
-    ScavTrap Nout("Nout");
+    std::cout << "-----------------------\n" << std::endl;
+    ScavTrap Dog("Dog");
+    ScavTrap Dinosaur("Dinosaur");
 
-    Lisa.attack("Nout");
-    Nout.attack("Lisa");
-    Lisa.beRepaired(10);
-    Lisa.takeDamage(5);
-    Lisa.takeDamage(5);
-    Lisa.beRepaired(10);
-    Lisa.guardGate();
-
+    Dog.attack("Dinosaur");
+    Dinosaur.attack("Dog");
+    Dog.beRepaired(0);
+    Dog.takeDamage(5);
+    Dog.takeDamage(5);
+    Dog.takeDamage(91);
+    Dog.beRepaired(10);
+    Dinosaur.takeDamage(8);
+    Dog.guardGate();
+    std::cout << "\n-----------------------\n" << std::endl;
     return (0);
 }
