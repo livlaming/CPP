@@ -1,7 +1,3 @@
-//
-// Created by Lisa Vlamings on 5/25/22.
-//
-
 #ifndef CPP_FIXED_HPP
 #define CPP_FIXED_HPP
 #include <iostream>

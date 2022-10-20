@@ -28,20 +28,20 @@ int main()
     std::cout << "BRAIN CHECKK!!!" << std::endl;
 
     Cat* Kit = new Cat();
-    for (int i = 0; i < 100; i++){
+    for (int i = 0; i < 20; i++){
         std::cout << "CAT brain: " << Kit->getBrain()->ideas[i] << std::endl;
     }
 
     Dog* Ko = new Dog();
-    for (int i = 0; i < 100; i++){
+    for (int i = 0; i < 20; i++){
         std::cout << "DOG brain: " << Ko->getBrain()->ideas[i] << std::endl;
     }
 
-    delete j;//should not create a leak
+    delete j;
     delete i;
     for (int i = 0; i < 5; i++)
         delete Various[i];
 
-    system("leaks m4ex01");
+    system("leaks ex01");
     return 0;
 }

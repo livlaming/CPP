@@ -1,7 +1,3 @@
-//
-// Created by Lisa Vlamings on 8/8/22.
-//
-
 #include "WrongCat.hpp"
 #include "WrongAnimal.hpp"
 #include <iostream>

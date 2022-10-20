@@ -1,7 +1,3 @@
-//
-// Created by Lisa Vlamings on 5/25/22.
-//
-
 #include "Fixed.hpp"
 #include <iostream>
 #include <cmath>
@@ -19,7 +15,7 @@ Fixed::Fixed(const int val){ //  converts int into fixed-point value ;
 Fixed::Fixed(const float val){ //  converts float into fixed-point value by shifting bits to the left (2 times value);
     std::cout << "Float constructor called" << std::endl;
     this->_FixedPointVal = (int)roundf(val * (1 << this->_FractorialBits)); // or this->_FixedPointVal = (int)roundf(val * pow (2.0, this->_FractorialBits));
-
+//    std::cout << "FIX: " << this->_FixedPointVal << std::endl;
 }
 
 Fixed::Fixed(const Fixed &copy){
