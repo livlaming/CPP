@@ -1,7 +1,3 @@
-//
-// Created by Lisa Vlamings on 5/18/22.
-//
-
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(void){}
@@ -13,12 +9,12 @@ ClapTrap::ClapTrap(std::string Name){
     this->_AttackDamage = 0;
 }
 
-//copy constructor kan een keer en maakt een Class aan waar hij een andere class in kopieerd.
+//creates class ander copies class within that class
 ClapTrap::ClapTrap(const ClapTrap &copy): _Name(copy._Name), _Hitpoints(copy._Hitpoints), _EnergyPoints(copy._EnergyPoints), _AttackDamage(copy._AttackDamage){
     std::cout << "Copy constructor called" << std::endl;
 }
 
-//asignment operator: kopieerd Class in bestaande class
+//copy assignment operator: copies Class in existing class
 ClapTrap& ClapTrap::operator=(const ClapTrap &copy){
     std::cout << "Copy assignment operator called" << std::endl;
     this->_Name = copy._Name;
@@ -29,7 +25,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap &copy){
 }
 
 void ClapTrap::attack(const std::string& target){
-    if (_Hitpoints > 0 || _EnergyPoints > 0)
+    if (_Hitpoints > 0 && _EnergyPoints > 0)
     {
         std::cout << "ClapTrap " << this->_Name << " attacks " << target << ", causing " << this->_AttackDamage << " points of damage!" << std::endl;
         this->_EnergyPoints -= 1;
@@ -44,7 +40,7 @@ void ClapTrap::takeDamage(unsigned int amount){
 }
 
 void ClapTrap::beRepaired(unsigned int amount){
-    if (_Hitpoints > 0 || _EnergyPoints > 0)
+    if (_Hitpoints > 0 && _EnergyPoints > 0)
     {
         std::cout << "ClapTrap " << this->_Name << " repaired itself for " << amount << " points." << std::endl;
         this->_EnergyPoints -= 1;

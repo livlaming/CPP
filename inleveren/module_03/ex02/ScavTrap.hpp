@@ -12,9 +12,9 @@ private:
     ScavTrap(void);
 public:
     ScavTrap(std::string Name);
-    ScavTrap(const ScavTrap &copy); // copy constructor
+    ScavTrap(const ScavTrap &copy);
     ScavTrap &operator=(const ScavTrap &copy);
-    ~ScavTrap(void); // destructor
+    ~ScavTrap(void);
 
     void guardGate();
     void attack(const std::string& target);

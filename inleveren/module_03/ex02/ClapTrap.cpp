@@ -16,14 +16,12 @@ ClapTrap::ClapTrap(std::string Name){
     this->_AttackDamage = 0;
 }
 
-//copy constructor kan een keer en maakt een Class aan waar hij een andere class in kopieerd.
 ClapTrap::ClapTrap(const ClapTrap &copy){
     std::cout << "Copy constructor ClapTrap called" << std::endl;
     if (&copy)
         *this = copy;
 }
 
-//asignment operator: kopieerd Class in bestaande class
 ClapTrap& ClapTrap::operator=(const ClapTrap &copy){
     std::cout << "Copy assignment operator Claptrap called" << std::endl;
     if (&copy){

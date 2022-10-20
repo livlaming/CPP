@@ -16,13 +16,13 @@ ScavTrap::ScavTrap(std::string Name) {
     this->_AttackDamage = 20;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &copy) { // = refereert naar copy operator
+ScavTrap::ScavTrap(const ScavTrap &copy) {
     std::cout << "Copy constructor ScavTrap called" << std::endl;
     if (&copy)
         *this = copy;
 }
 
-ScavTrap& ScavTrap::operator=(const ScavTrap &copy){ //copy assignement operator
+ScavTrap& ScavTrap::operator=(const ScavTrap &copy){
     std::cout << "Copy assignment operator Scavtrap called" << std::endl;
     if (&copy){
         this->_Name = copy._Name;

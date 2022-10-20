@@ -16,7 +16,7 @@ protected:
 public:
     ClapTrap(std::string Name);
     ~ClapTrap(void);
-    ClapTrap(const ClapTrap &copy); // copy constructor
+    ClapTrap(const ClapTrap &copy);
     ClapTrap &operator=(const ClapTrap &copy);
 
     void attack(const std::string& target);

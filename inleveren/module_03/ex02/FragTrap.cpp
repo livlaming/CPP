@@ -16,13 +16,14 @@ FragTrap::FragTrap(std::string Name) {
     this->_AttackDamage = 30;
 }
 
+// '=' gets overloaded by/uses the copy assignment operator
 FragTrap::FragTrap(const FragTrap &copy) { // = refereert naar copy operator
     std::cout << "Copy constructor FragTrap called" << std::endl;
     if (&copy)
         *this = copy;
 }
 
-FragTrap& FragTrap::operator=(const FragTrap &copy){ //copy assignement operator
+FragTrap& FragTrap::operator=(const FragTrap &copy){
     std::cout << "Copy assignment operator ScavtrapFragTrap called" << std::endl;
     if (&copy){
         this->_Name = copy._Name;

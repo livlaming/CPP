@@ -1,7 +1,3 @@
-//
-// Created by Lisa Vlamings on 5/18/22.
-//
-
 #ifndef CPP__CLAPTRAP_HPP
 #define CPP__CLAPTRAP_HPP
 #include <iostream>
@@ -13,10 +9,11 @@ private:
     int         _EnergyPoints;
     int         _AttackDamage;
     ClapTrap(void);
+
 public:
     ClapTrap(std::string Name);
     ~ClapTrap(void);
-    ClapTrap(const ClapTrap &copy); // copy constructor
+    ClapTrap(const ClapTrap &copy);
     ClapTrap &operator=(const ClapTrap &copy);
 
     void attack(const std::string& target);

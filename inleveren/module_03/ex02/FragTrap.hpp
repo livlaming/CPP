@@ -12,9 +12,9 @@ private:
     FragTrap(void);
 public:
     FragTrap(std::string Name);
-    FragTrap(const FragTrap &copy); // copy constructor
+    FragTrap(const FragTrap &copy);
     FragTrap &operator=(const FragTrap &copy);
-    ~FragTrap(void); // destructor
+    ~FragTrap(void);
 
     void highFivesGuys(void);
 };
