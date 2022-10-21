@@ -1,7 +1,3 @@
-//
-// Created by Lisa Vlamings on 8/12/22.
-//
-
 #ifndef CPP_FORM_HPP
 #define CPP_FORM_HPP
 #include <iostream>
@@ -16,7 +12,6 @@ private:
     bool _signed;
     Form();
 public:
-
     Form(const std::string Name, const int GradeTS, const int GradeTE);
     ~Form();
     Form(const Form &copy);
@@ -48,4 +43,4 @@ public:
 std::ostream &operator<<(std::ostream &out, Form &copy);
 
 
-#endif //CPP_FORM_HPP
+#endif

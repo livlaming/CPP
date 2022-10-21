@@ -1,7 +1,3 @@
-//
-// Created by Lisa Vlamings on 8/10/22.
-//
-
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
@@ -11,7 +7,7 @@ int main() {
     try {
         Bureaucrat She("Lola", 5);
         std::cout << She << std::endl;
-        Form College("Entrance programme X", 6, 6);
+        Form College("Entrance programme X", 5, 6);
         std::cout << College << std::endl;
         She.signForm(College);
         std::cout << std::endl;
@@ -24,7 +20,7 @@ int main() {
     try {
         Bureaucrat He("George", 150);
         std::cout << He << std::endl;
-        Form College2("Entrance programme Y", 5, 5);
+        Form College2("Entrance programme Y", 5, 20);
         std::cout << College2 << std::endl;
         He.signForm(College2);
         std::cout << College2 << std::endl;
@@ -36,9 +32,9 @@ int main() {
 
     std::cout << "\n----------------\n" << std::endl;
     try {
-        Bureaucrat They("Mo", 0);
+        Bureaucrat They("Mo", 1);
         std::cout << They << std::endl;
-        Form College3("Entrance programme Z", 5, 5);
+        Form College3("Entrance programme Z", 30, 5);
         std::cout << College3 << std::endl;
         They.signForm(College3);
         std::cout << std::endl;

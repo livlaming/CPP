@@ -11,7 +11,7 @@ int main() {
         Bureaucrat z("Zina", 155);
         std::cout << z << std::endl;
     }
-    catch (Bureaucrat::GradeTooLowException &e) {
+    catch (std::exception &e) {
             std::cout << e.what() << std::endl;
     }
     std::cout << "----------------------" << std::endl;
@@ -19,7 +19,7 @@ int main() {
         Bureaucrat a("Anna", 140);
         std::cout << a << std::endl;
     }
-    catch (Bureaucrat::GradeTooHighException &e) {
+    catch (std::exception &e) {
         std::cout << e.what() << std::endl;
     }
     std::cout << "----------------------" << std::endl;
@@ -27,7 +27,7 @@ int main() {
         Bureaucrat b("Bommel", 0);
         std::cout << b << std::endl;
     }
-    catch (Bureaucrat::GradeTooHighException &e) {
+    catch (std::exception &e) {
         std::cout << e.what() << std::endl;
     }
     std::cout << "----------------------" << std::endl;
@@ -37,7 +37,7 @@ int main() {
         c.increment();
         std::cout << c << std::endl;
     }
-    catch (Bureaucrat::GradeTooHighException &e) {
+    catch (std::exception &e) {
         std::cout << e.what() << std::endl;
     }
     std::cout << "----------------------" << std::endl;
@@ -47,7 +47,7 @@ int main() {
         d.increment();
         std::cout << d << std::endl;
     }
-    catch (Bureaucrat::GradeTooHighException &e) {
+    catch (std::exception &e) {
         std::cout << e.what() << std::endl;
     }
 
@@ -59,7 +59,7 @@ int main() {
         e.increment();
         std::cout << e << std::endl;
     }
-    catch (Bureaucrat::GradeTooHighException &e) {
+    catch (std::exception &e) {
         std::cout << e.what() << std::endl;
     }
     std::cout << "----------------------" << std::endl;
@@ -69,7 +69,7 @@ int main() {
         f.decrement();
         std::cout << f << std::endl;
     }
-    catch (Bureaucrat::GradeTooHighException &e) {
+    catch (std::exception &e) {
         std::cout << e.what() << std::endl;
     }
     std::cout << "----------------------" << std::endl;
@@ -79,7 +79,7 @@ int main() {
         g.decrement();
         std::cout << g << std::endl;
     }
-    catch (Bureaucrat::GradeTooHighException &e) {
+    catch (std::exception &e) {
         std::cout << e.what() << std::endl;
     }
     std::cout << "----------------------" << std::endl;

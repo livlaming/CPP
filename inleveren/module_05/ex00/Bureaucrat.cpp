@@ -8,7 +8,6 @@
 Bureaucrat::Bureaucrat(){}
 
 Bureaucrat::Bureaucrat(const std::string Name, int grade) : _name(Name), _grade(grade) {
-//    this->_grade = grade;
     if (this->_grade < 1 )
         throw Bureaucrat::GradeTooHighException();
     else if (this->_grade > 150)

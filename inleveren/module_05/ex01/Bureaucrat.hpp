@@ -1,7 +1,3 @@
-//
-// Created by Lisa Vlamings on 8/10/22.
-//
-
 #ifndef CPP_BUREAUCRAT_HPP
 #define CPP_BUREAUCRAT_HPP
 #include <iostream>

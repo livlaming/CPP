@@ -1,7 +1,3 @@
-//
-// Created by Lisa Vlamings on 8/12/22.
-//
-
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
@@ -10,12 +6,12 @@ Form::Form() :_name("NoName"), _grade_sign(150), _grade_exc(150), _signed(false)
 Form::Form(const std::string Name, const int GradeTS, const int GradeTE) : _name(Name), _grade_sign(GradeTS), _grade_exc(GradeTE), _signed(false){}
 
 Form::Form(const Form &copy) : _name(copy.getName()), _grade_sign(copy.getGradeSign()), _grade_exc(copy.getGradeExc()) {
-    std::cout << "Copy constructor Cat called" << std::endl;
+    std::cout << "Copy constructor called" << std::endl;
     *this = copy;
 }
 
 Form &Form::operator=(const Form &copy) {
-    std::cout << "Copy assignment operator Cat called" << std::endl;
+    std::cout << "Copy assignment operator called" << std::endl;
     if (&copy != this)
         this->_signed = copy.getSign();
     return (*this);
@@ -49,8 +45,8 @@ std::ostream &operator<<(std::ostream &out, Form &copy)
 void Form::beSigned(const Bureaucrat &copy){
     if (copy.getGrade() > this->_grade_sign)
         throw Form::GradeTooLowException();
-    else if (copy.getGrade() < 1)
-        throw Form::GradeTooHighException();
+//    else if (copy.getGrade() < 1)
+//        throw Form::GradeTooHighException();
     else
         this->_signed = true;
 }
