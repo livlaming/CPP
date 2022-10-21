@@ -36,8 +36,6 @@ $(NAME):	$(OBJS)
 
 clean:
 			rm -f $(OBJS)
-			#if (*_shrubby.txt)
-				rm *_shrubby.txt
 
 fclean: 	clean
 			rm -f $(NAME)

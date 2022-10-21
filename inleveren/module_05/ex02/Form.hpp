@@ -1,7 +1,3 @@
-//
-// Created by Lisa Vlamings on 8/12/22.
-//
-
 #ifndef CPP_FORM_HPP
 #define CPP_FORM_HPP
 #include <iostream>
@@ -49,4 +45,4 @@ public:
 std::ostream &operator<<(std::ostream &out, Form &copy);
 
 
-#endif //CPP_FORM_HPP
+#endif

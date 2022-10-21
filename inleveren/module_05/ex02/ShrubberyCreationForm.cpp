@@ -1,7 +1,3 @@
-//
-// Created by Lisa Vlamings on 8/15/22.
-//
-
 #include "ShrubberyCreationForm.hpp"
 #include <iostream>
 #include <fstream>

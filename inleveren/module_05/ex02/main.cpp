@@ -1,7 +1,3 @@
-//
-// Created by Lisa Vlamings on 8/10/22.
-//
-
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
@@ -103,35 +99,5 @@ int main(){
     }
 }
 
-
-//int main(void) {
-//    Bureaucrat  *a = new Bureaucrat("Adam", 1);
-//    Bureaucrat  b("Bob", 150);
-//
-//    std::cout << *a << b;
-//
-//    ShrubberyCreationForm   *s = new ShrubberyCreationForm("theft_and");
-//    RobotomyRequestForm     r("Marvin");
-//    PresidentialPardonForm  p("Arthur");
-//
-//    std::cout << *s;
-//    b.executeForm(*s);
-//    b.signForm(*s);
-//    a->signForm(*s);
-//    b.executeForm(*s);
-//    a->executeForm(*s);
-//
-//    std::cout << std::endl << r;
-//    b.executeForm(r);
-//    a->signForm(r);
-//    a->executeForm(r);
-//
-//    std::cout << std::endl << p;
-//    a->signForm(p);
-//    a->executeForm(p);
-//    delete s;
-//    delete a;
-//    return 0;
-//}
 
 

@@ -1,7 +1,3 @@
-//
-// Created by Lisa Vlamings on 8/15/22.
-//
-
 #ifndef CPP_SHRUBBERYCREATIONFORM_HPP
 #define CPP_SHRUBBERYCREATIONFORM_HPP
 #include "Form.hpp"
@@ -26,9 +22,9 @@ public:
     public:
         virtual const char * what() const throw()
         {
-            return ("ShrubberyCreationForm not excecuted");
+            return ("ShrubberyCreationForm not executed");
         }
     };
 };
 
-#endif //CPP_SHRUBBERYCREATIONFORM_HPP
+#endif

@@ -24,24 +24,20 @@ Form *Intern::makeForm(std::string form, std::string target) {
     }
     switch (index) {
         default:
-//            throw Intern::FormDoesNotExist();
+            std::cout << "Form does not exist: " << form << std::endl;
             break;
         case 0:
-            std::cout << "Intern creates" << form << std::endl;
+            std::cout << "Intern creates " << form << std::endl;
             return (new RobotomyRequestForm(target));
         case 1:
-            std::cout << "Intern creates" << form << std::endl;
+            std::cout << "Intern creates " << form << std::endl;
             return (new ShrubberyCreationForm(target));
         case 2:
-            std::cout << "Intern creates" << form << std::endl;
+            std::cout << "Intern creates " << form << std::endl;
             return (new PresidentialPardonForm(target));
     }
     std::cout << "Intern couldn't create " << form << std::endl;
     return(NULL);
-//    catch (const std::exception& Exc)
-//    {
-//        std::cout << form << " couldn't be found" <" because " << Exc.what() << std::endl;
-//    }
 }
 
 Intern::~Intern(){}
