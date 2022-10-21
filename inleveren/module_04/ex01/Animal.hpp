@@ -1,7 +1,3 @@
-//
-// Created by Lisa Vlamings on 8/8/22.
-//
-
 #ifndef CPP_ANIMAL_HPP
 #define CPP_ANIMAL_HPP
 #include <iostream>
@@ -19,4 +15,4 @@ public:
     virtual void makeSound() const ;
 };
 
-#endif //CPP_ANIMAL_HPP
+#endif

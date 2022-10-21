@@ -1,10 +1,6 @@
-//
-// Created by Lisa Vlamings on 8/10/22.
-//
-
 #ifndef CPP_ICHARACTER_HPP
 #define CPP_ICHARACTER_HPP
-
+#include <iostream>
 
 class ICharacter
 {
@@ -17,4 +13,4 @@ public:
 };
 
 
-#endif //CPP_ICHARACTER_HPP
+#endif

@@ -1,7 +1,3 @@
-//
-// Created by Lisa Vlamings on 8/8/22.
-//
-
 #ifndef CPP_CAT_HPP
 #define CPP_CAT_HPP
 #include <iostream>
@@ -21,5 +17,4 @@ public:
     void makeSound() const;
 };
 
-
-#endif //CPP_CAT_HPP
+#endif

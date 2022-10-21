@@ -1,7 +1,3 @@
-//
-// Created by Lisa Vlamings on 8/8/22.
-//
-
 #ifndef CPP_BRAIN_HPP
 #define CPP_BRAIN_HPP
 #include <iostream>
@@ -16,4 +12,4 @@ public:
 };
 
 
-#endif //CPP_BRAIN_HPP
+#endif

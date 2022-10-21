@@ -1,7 +1,3 @@
-//
-// Created by Lisa Vlamings on 8/9/22.
-//
-
 #ifndef CPP_AMATERIA_HPP
 #define CPP_AMATERIA_HPP
 #include <iostream>
@@ -22,4 +18,4 @@ public:
 };
 
 
-#endif //CPP_AMATERIA_HPP
+#endif

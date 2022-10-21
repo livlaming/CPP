@@ -16,4 +16,4 @@ public:
     void makeSound() const;
 };
 
-#endif //CPP_DOG_HPP
+#endif
