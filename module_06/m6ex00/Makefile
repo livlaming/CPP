@@ -15,7 +15,7 @@ NAME = convert
 SRC =	main.cpp \
 			convert.cpp
 
-INCL = convert.hpp
+INCL = Convert.hpp
 
 OBJS = $(SRC:.cpp=.o)
 

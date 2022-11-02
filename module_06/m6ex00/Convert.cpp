@@ -2,13 +2,13 @@
 // Created by Lisa Vlamings on 8/18/22.
 //
 
-#include "convert.hpp"
+#include "Convert.hpp"
 
-convert::convert() {}
+Convert::Convert() {}
 
-convert::convert(const convert &copy) : _type(copy._type), _charType(copy._charType), _intType(copy._intType), _floatType(copy._floatType), _doubleType(copy._doubleType) {}
+Convert::Convert(const Convert &copy) : _type(copy._type), _charType(copy._charType), _intType(copy._intType), _floatType(copy._floatType), _doubleType(copy._doubleType) {}
 
-convert &convert::operator=(const convert &copy){
+Convert &Convert::operator=(const Convert &copy){
     this->_type = copy._type;
     this->_charType = copy._charType;
     this->_intType = copy._intType;
@@ -17,7 +17,7 @@ convert &convert::operator=(const convert &copy){
     return (*this);
 }
 
-void convert::indicateType(const std::string input) {
+void Convert::indicateType(const std::string input) {
     if (std::isalpha(input[0]) && input.length() == 1)
         this->_type = "char";
     else if (!std::isalpha(input[0]) && input.find(".") == std::string::npos && (input.length() <= 10 || (input.length() == 11 && input[0] == '-')))
@@ -36,4 +36,4 @@ void convert::indicateType(const std::string input) {
     std::cout << this->_type << std::endl;
 }
 
-convert::~convert() {}
+Convert::~Convert() {}

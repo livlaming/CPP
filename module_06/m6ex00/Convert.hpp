@@ -6,7 +6,7 @@
 #define CPP_CONVERT_HPP
 #include <iostream>
 
-class convert {
+class Convert {
 private:
     std::string _type;
     std::string _charType;
@@ -14,10 +14,10 @@ private:
     float _floatType;
     double _doubleType;
 public:
-    convert();
-    ~convert();
-    convert(const convert &copy);
-    convert &operator=(const convert &copy);
+    Convert();
+    ~Convert();
+    Convert(const Convert &copy);
+    Convert &operator=(const Convert &copy);
 
     void indicateType(std::string input);
 };

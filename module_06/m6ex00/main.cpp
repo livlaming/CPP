@@ -3,10 +3,10 @@
 //
 
 #include <iostream>
-#include "convert.hpp"
+#include "Convert.hpp"
 
 int main (int ac, char **input){
-    convert a;
+    Convert a;
 
     if (ac == 2){
         input++;
