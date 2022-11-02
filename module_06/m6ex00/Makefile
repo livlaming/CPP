@@ -15,6 +15,7 @@ NAME = convert
 SRC =	main.cpp \
 			convert.cpp
 
+INCL = convert.hpp
 
 OBJS = $(SRC:.cpp=.o)
 
@@ -24,7 +25,7 @@ CFLAGS = -Wall -Werror -Wextra -pedantic -std=c++98
 
 all: $(NAME)
 
-$(NAME):	$(OBJS)
+$(NAME):	$(OBJS) $(INCL)
 			$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 %.o:	%.cpp
