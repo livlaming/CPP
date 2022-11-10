@@ -4,12 +4,17 @@
 
 class Convert {
 private:
+//    std::string _type;
+//    std::string _charType;
+//    int _intType;
+//    float _floatType;
+//    double _doubleType;
+public:
     std::string _type;
     std::string _charType;
     int _intType;
     float _floatType;
     double _doubleType;
-public:
     Convert();
     ~Convert();
     Convert(const Convert &copy);

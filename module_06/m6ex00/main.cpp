@@ -4,7 +4,7 @@
 
 // Literals are unnamed values inserted directly into the code.
 
-int main (int ac, char **input){
+int main (int ac, char const **input){
     Convert a;
 
     if (ac == 2){

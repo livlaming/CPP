@@ -21,26 +21,27 @@ this->_charType = input;
 }
 
 void Convert::isFloat(std::string input){
-this->_floatType = input;
+//this->_floatType = static_cast<float>(input);
 
 }
+#include <cstdlib>
 
 void Convert::isInt(std::string input){
     this->_charType = "Non displayable";
-    this->_intType = toinput;
+    this->_intType = static_cast<int>(strtol(input.c_str(), NULL, 0));
 
 }
 
 void Convert::isDouble(std::string input){
-this->_
+//this->_
 
 }
 
 void Convert::printOutput()  { //overloadoperator
     std::cout << "char: " << this->_charType << std::endl;
-    std::cout << "int: " << this->_charType << std::endl;
-    std::cout << "float: " << this->_charType << std::endl;
-    std::cout << "double: " << this->_charType << std::endl;
+    std::cout << "int: " << this->_intType << std::endl;
+    std::cout << "float: " << this->_floatType << std::endl;
+    std::cout << "double: " << this->_doubleType << std::endl;
 }
 
 void Convert::indicateType(const std::string input) {
