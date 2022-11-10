@@ -1,7 +1,3 @@
-//
-// Created by Lisa Vlamings on 8/18/22.
-//
-
 #ifndef CPP_CONVERT_HPP
 #define CPP_CONVERT_HPP
 #include <iostream>
@@ -20,7 +16,11 @@ public:
     Convert &operator=(const Convert &copy);
 
     void indicateType(std::string input);
+    void printOutput();
+    void isFloat(std::string input);
+    void isChar(std::string input);
+    void isDouble(std::string input);
+    void isInt(std::string input);
 };
 
-
-#endif //CPP_CONVERT_HPP
+#endif

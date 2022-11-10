@@ -1,9 +1,8 @@
-//
-// Created by Lisa Vlamings on 8/17/22.
-//
-
 #include <iostream>
 #include "Convert.hpp"
+
+
+// Literals are unnamed values inserted directly into the code.
 
 int main (int ac, char **input){
     Convert a;
