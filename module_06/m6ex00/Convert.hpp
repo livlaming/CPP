@@ -1,6 +1,7 @@
 #ifndef CPP_CONVERT_HPP
 #define CPP_CONVERT_HPP
 #include <iostream>
+#include <cstdlib>
 
 class Convert {
 private:
@@ -15,6 +16,7 @@ public:
     int _intType;
     float _floatType;
     double _doubleType;
+    std::string _dotNull;
     Convert();
     ~Convert();
     Convert(const Convert &copy);
