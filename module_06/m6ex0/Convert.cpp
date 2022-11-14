@@ -48,15 +48,20 @@ int     Convert::checkDigit(){
 
 void    Convert::indicateType() {
     if (this->_literal.length() == 1 && std::isalpha(this->_literal[0])){
-        if (std::isprint(this->_literal[0]) == 0) {
-            this->_charType = "Not displayable";
+        std::cout << "bla" << std::endl;
+        if (std::isdigit(this->_literal[0])) {
+            this->_charType = INT;
         }
-        this->_type = CHAR;
+        else {
+            this->_type = CHAR;
+        }
     }
     else if (this->_literal == "nanf" || this->_literal == "-inff" || this->_literal == "+inff") {
+        this->_charType = "Impossible";
         this->_type = FLOAT;
     }
     else if (this->_literal == "nan" || this->_literal == "-inf" || this->_literal == "+inf") {
+        this->_charType = "Impossible";
         this->_type = DOUBLE;
     }
     else if (this->_literal.find(".") != std::string::npos) {
@@ -72,19 +77,54 @@ void    Convert::indicateType() {
     }
 }
 
+void    Convert::fromChar(){
+    if (!std::isprint(std::stoi(this->_literal))) {
+        this->_charType = "Non displayable";
+    }
+    else {
+        this->_charType = "'" + this->_literal + "'";
+    }
+    this->_intType = static_cast<int>(*this->_literal.c_str());
+    this->_doubleType = static_cast<double>(*this->_literal.c_str());
+    this->_floatType = static_cast<float>(*this->_literal.c_str());
+    this->_dotZero = ".0";
+    this->_f = "f";
+}
+
+void    Convert::fromInt(){
+    if (!std::isprint(std::stoi(this->_literal))) {
+        this->_charType = "Non displayable";
+    }
+    else  {
+        this->_charType = static_cast<int>(std::stoi(this->_literal));
+    }
+    this->_intType = static_cast<int>(std::stoi(this->_literal));
+    this->_doubleType = static_cast<double>(std::stol(this->_literal));
+    this->_floatType = static_cast<float>(std::stol(this->_literal));
+    this->_dotZero = ".0";
+    this->_f = "f";
+}
+
+
 void    Convert::setValues(){
     indicateType();
     if (this->_type == CHAR){
         std::cout << "type = CHAR" << std::endl;
+        fromChar();
     }
     else if (this->_type == INT){
         std::cout << "type = INT" << std::endl;
+        fromInt();
     }
     else if (this->_type == DOUBLE) {
         std::cout << "type = DOUBLE" << std::endl;
     }
     else if (this->_type == FLOAT){
         std::cout << "type = FLOAT" << std::endl;
+    }
+    else if (this->_type == INVALID){
+        // throw error
+        std::cout << "INVALID: please try again" << std::endl;
     }
 
 }
@@ -109,13 +149,17 @@ std::string Convert::getDotZero() const {
     return this->_dotZero;
 }
 
+std::string Convert::getF() const {
+    return this->_f;
+}
+
 Convert::~Convert() {}
 
 std::ostream &operator<<(std::ostream &out, const Convert &copy)
 {
-    out << "char: " << copy.getCharType() << std::endl <<
+    out << "char: " << copy.getCharType()  << std::endl <<
         "int: " << copy.getIntType() << std::endl <<
-        "float: " << copy.getFloatType() << copy.getDotZero() << std::endl <<
+        "float: " << copy.getFloatType() << copy.getDotZero() << copy.getF() << std::endl <<
         "double: " << copy.getDoubleType() << copy.getDotZero() << std::endl;
     return (out);
 }

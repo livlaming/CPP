@@ -16,6 +16,7 @@ private:
     float       _floatType;
     double      _doubleType;
     std::string _dotZero;
+    std::string _f;
     e_Type      _type;
     Convert();
 public:
@@ -29,11 +30,15 @@ public:
     float           getFloatType() const;
     double          getDoubleType() const;
     std::string     getDotZero() const;
+    std::string     getF() const;
 
     int             checkAlpha();
     int             checkDigit();
     void            indicateType();
     void            setValues();
+
+    void            fromChar();
+    void            fromInt();
 };
 
 std::ostream &operator<<(std::ostream &out, const Convert &copy);
