@@ -25,32 +25,66 @@ Convert &Convert::operator=(const Convert &copy) {
     return (*this);
 }
 
+int     Convert::checkAlpha(){
+    for (int i = 0; this->_literal[i]; i++)
+    {
+        if (std::isalpha(this->_literal[i])){
+            return (1);
+        }
+    }
+    return (0);
+}
+
+
+int     Convert::checkDigit(){
+    for (int i = 0; this->_literal[i]; i++)
+    {
+        if (!std::isdigit(this->_literal[i])){
+            return (0);
+        }
+    }
+    return (1);
+}
+
 void    Convert::indicateType() {
     if (this->_literal.length() == 1 && std::isalpha(this->_literal[0])){
-        if (std::isprint(this->_literal[0]) != 0) {
+        if (std::isprint(this->_literal[0]) == 0) {
             this->_charType = "Not displayable";
         }
         this->_type = CHAR;
     }
-    else if {
+    else if (this->_literal == "nanf" || this->_literal == "-inff" || this->_literal == "+inff") {
+        this->_type = FLOAT;
+    }
+    else if (this->_literal == "nan" || this->_literal == "-inf" || this->_literal == "+inf") {
+        this->_type = DOUBLE;
+    }
+    else if (this->_literal.find(".") != std::string::npos) {
+        if (this->_literal[this->_literal.length() - 1] == 'f') {
+            this->_type = FLOAT;
+        }
+        else if (checkAlpha() == 0){
+            this->_type = DOUBLE;
+        }
+    }
+    else if (checkDigit() == 1){
         this->_type = INT;
     }
-
 }
 
 void    Convert::setValues(){
     indicateType();
     if (this->_type == CHAR){
-        std::cout << "char" << std::endl;
+        std::cout << "type = CHAR" << std::endl;
     }
     else if (this->_type == INT){
-        std::cout << "int" << std::endl;
+        std::cout << "type = INT" << std::endl;
     }
     else if (this->_type == DOUBLE) {
-        std::cout << "double" << std::endl;
+        std::cout << "type = DOUBLE" << std::endl;
     }
     else if (this->_type == FLOAT){
-        std::cout << "float" << std::endl;
+        std::cout << "type = FLOAT" << std::endl;
     }
 
 }

@@ -19,17 +19,21 @@ private:
     e_Type      _type;
     Convert();
 public:
+    Convert(std::string literal);
+    Convert(const Convert &copy);
+    Convert &operator=(const Convert &copy);
+    ~Convert();
+
     std::string     getCharType() const;
     int             getIntType() const;
     float           getFloatType() const;
     double          getDoubleType() const;
     std::string     getDotZero() const;
-    Convert(std::string literal);
-    Convert(const Convert &copy);
-    Convert &operator=(const Convert &copy);
-    ~Convert();
-    void    indicateType();
-    void    setValues();
+
+    int             checkAlpha();
+    int             checkDigit();
+    void            indicateType();
+    void            setValues();
 };
 
 std::ostream &operator<<(std::ostream &out, const Convert &copy);
