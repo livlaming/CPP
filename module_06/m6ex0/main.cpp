@@ -1,13 +1,13 @@
 #include <iostream>
 #include "Convert.hpp"
 
+
 // Literals are unnamed values inserted directly into the code.
 
 int main (int ac, char const **input){
     if (ac == 2){
         input++;
         Convert literal(*input);
-//        literal.indicateType(*input);
         std::cout << literal << std::endl;
     }
     else

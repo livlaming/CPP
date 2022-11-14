@@ -4,4 +4,4 @@ project(m6ex00)
 set(CMAKE_CXX_STANDARD 98)
 set(CMAKE_CXX_FLAGS -std=c++98)
 
-add_executable(m6ex00 main.cpp Convert.cpp)
+add_executable(m6ex00 main.cpp Convert.cpp ../m6ex0/Convert.cpp ../m6ex0/Convert.hpp)
