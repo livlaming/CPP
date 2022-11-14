@@ -26,9 +26,13 @@ Convert &Convert::operator=(const Convert &copy) {
 }
 
 void    Convert::indicateType() {
-    if (this->_literal.length() == 1 && std::isprint(this->_literal[0]) != 0 && std::isalpha(this->_literal[0]))
+    if (this->_literal.length() == 1 && std::isalpha(this->_literal[0])){
+        if (std::isprint(this->_literal[0]) != 0) {
+            this->_charType = "Not displayable";
+        }
         this->_type = CHAR;
-    else{
+    }
+    else if {
         this->_type = INT;
     }
 
