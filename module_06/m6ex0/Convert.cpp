@@ -7,6 +7,10 @@ Convert::Convert() {}
 
 Convert::Convert(std::string literal) : _literal(literal), _type(INVALID){
     setValues();
+    _exception[CHAR] = Exc_None;
+    _exception[INT] = Exc_None;
+    _exception[FLOAT] = Exc_None;
+    _exception[DOUBLE] = Exc_None;
 }
 
 Convert::Convert(const Convert &copy) : _literal(copy._literal), _charType(copy._charType), _intType(copy._intType), _doubleType(copy._doubleType), _floatType(copy._floatType){
@@ -92,15 +96,23 @@ void    Convert::fromChar(){
 }
 
 void    Convert::fromInt(){
-    if (!std::isprint(std::stoi(this->_literal))) {
+    long val = std::stol(this->_literal);
+    if (val < std::numeric_limits<int>::lowest() || val > std::numeric_limits<int>::max()){
+        this->
+    }
+
+    if (!std::isprint(std::stol(this->_literal))) {
         this->_charType = "Non displayable";
     }
     else  {
         this->_charType = static_cast<int>(std::stoi(this->_literal));
     }
-    this->_intType = static_cast<int>(std::stoi(this->_literal));
-    this->_doubleType = static_cast<double>(std::stol(this->_literal));
-    this->_floatType = static_cast<float>(std::stol(this->_literal));
+    this->_intType = static_cast<int>(std::stol(this->_literal));
+    this->_doubleType = static_cast<double>(std::stod(this->_literal));
+    if (errno == )
+        this->_doubleType = "impossible";
+
+    this->_floatType = static_cast<float>(std::stod(this->_literal));
     this->_dotZero = ".0";
     this->_f = "f";
 }
@@ -122,11 +134,11 @@ void    Convert::setValues(){
     else if (this->_type == FLOAT){
         std::cout << "type = FLOAT" << std::endl;
     }
-    else if (this->_type == INVALID){
-        // throw error
-        std::cout << "INVALID: please try again" << std::endl;
-    }
 
+}
+
+enum e_Type Convert::getType() const {
+    return this->_type;
 }
 
 std::string Convert::getCharType() const {
@@ -157,9 +169,14 @@ Convert::~Convert() {}
 
 std::ostream &operator<<(std::ostream &out, const Convert &copy)
 {
-    out << "char: " << copy.getCharType()  << std::endl <<
-        "int: " << copy.getIntType() << std::endl <<
-        "float: " << copy.getFloatType() << copy.getDotZero() << copy.getF() << std::endl <<
-        "double: " << copy.getDoubleType() << copy.getDotZero() << std::endl;
+    if (copy.getType() == INVALID){
+        out << "INVALID: please try again";
+    }
+    else {
+        out << "char: " << copy.getCharType()  << std::endl <<
+            "int: " << copy.getIntType() << std::endl <<
+            "float: " << copy.getFloatType() << copy.getDotZero() << copy.getF() << std::endl <<
+            "double: " << copy.getDoubleType() << copy.getDotZero() << std::endl;
+    }
     return (out);
 }
