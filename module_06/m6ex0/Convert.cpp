@@ -60,13 +60,13 @@ void    Convert::indicateType() {
         }
     }
     else if (this->_literal == "nanf" || this->_literal == "-inff" || this->_literal == "+inff") {
-        this->_exception[CHAR] = "Impossible";
-        this->_exception[INT] = "Impossible";
+        this->_exception[CHAR] = Exc_imp;
+        this->_exception[INT] = Exc_imp;
         this->_type = FLOAT;
     }
     else if (this->_literal == "nan" || this->_literal == "-inf" || this->_literal == "+inf") {
-        this->_exception[CHAR] = "Impossible";
-        this->_exception[INT] = "Impossible";
+        this->_exception[CHAR] = Exc_imp;
+        this->_exception[INT] = Exc_imp;
         this->_type = DOUBLE;
     }
     else if (this->_literal.find(".") != std::string::npos) {
@@ -84,7 +84,7 @@ void    Convert::indicateType() {
 
 void    Convert::fromChar(){
     if (!std::isprint(std::stoi(this->_literal))) {
-        this->_exception[CHAR] = "Non displayable";
+        this->_exception[CHAR] = Exc_NoDisp;
     }
     else {
         this->_charType = "'" + this->_literal + "'";
@@ -99,7 +99,7 @@ void    Convert::fromChar(){
 void    Convert::fromInt(){
     long val = std::stol(this->_literal);
     if (val < std::numeric_limits<int>::lowest() || val > std::numeric_limits<int>::max()){
-        this->
+        this->_exception[INT] = "Impossible";
     }
 
     if (!std::isprint(std::stol(this->_literal))) {
@@ -173,9 +173,11 @@ std::ostream &operator<<(std::ostream &out, const Convert &copy)
     if (copy.getType() == INVALID){
         out << "INVALID: please try again";
     }
+    if (!copy._exception[CHAR].empty())
+
     else {
-        if (copy.getException())
-        out << "char: " << copy.getCharType()  << std::endl <<
+
+        out << "char: " << copy.getCharType() << std::endl <<
             "int: " << copy.getIntType() << std::endl <<
             "float: " << copy.getFloatType() << copy.getDotZero() << copy.getF() << std::endl <<
             "double: " << copy.getDoubleType() << copy.getDotZero() << std::endl;

@@ -13,9 +13,13 @@
 //#define MAX_FLOAT 3.40282e+38
 //#define MIN_FLOAT -3.40282e+38
 
+#define Exc_None ""
+#define Exc_imp "Impossible"
+#define Exc_Nan "Nan"
+#define Exc_NoDisp "Not Displayable"
 
 enum e_Type {CHAR, INT, DOUBLE, FLOAT, INVALID};
-enum exc {Exc_None, Exc_imp, Exc_Nan};
+//enum exc {Exc_None, Exc_imp, Exc_Nan, Exc_};
 
 class Convert {
 private:
@@ -25,13 +29,14 @@ private:
     int         _intType;
     float       _floatType;
     double      _doubleType;
-    std::string _exception[4];
+
     std::string _dotZero;
     std::string _f;
     e_Type      _type;
 //    exc         _exc;
     Convert();
 public:
+    std::string _exception[4];
     Convert(std::string literal);
     Convert(const Convert &copy);
     Convert &operator=(const Convert &copy);
