@@ -52,7 +52,6 @@ int     Convert::checkDigit(){
 
 void    Convert::indicateType() {
     if (this->_literal.length() == 1 && std::isalpha(this->_literal[0])){
-        std::cout << "bla" << std::endl;
         if (std::isdigit(this->_literal[0])) {
             this->_charType = INT;
         }
@@ -61,11 +60,13 @@ void    Convert::indicateType() {
         }
     }
     else if (this->_literal == "nanf" || this->_literal == "-inff" || this->_literal == "+inff") {
-        this->_charType = "Impossible";
+        this->_exception[CHAR] = "Impossible";
+        this->_exception[INT] = "Impossible";
         this->_type = FLOAT;
     }
     else if (this->_literal == "nan" || this->_literal == "-inf" || this->_literal == "+inf") {
-        this->_charType = "Impossible";
+        this->_exception[CHAR] = "Impossible";
+        this->_exception[INT] = "Impossible";
         this->_type = DOUBLE;
     }
     else if (this->_literal.find(".") != std::string::npos) {
@@ -83,7 +84,7 @@ void    Convert::indicateType() {
 
 void    Convert::fromChar(){
     if (!std::isprint(std::stoi(this->_literal))) {
-        this->_charType = "Non displayable";
+        this->_exception[CHAR] = "Non displayable";
     }
     else {
         this->_charType = "'" + this->_literal + "'";
@@ -109,8 +110,8 @@ void    Convert::fromInt(){
     }
     this->_intType = static_cast<int>(std::stol(this->_literal));
     this->_doubleType = static_cast<double>(std::stod(this->_literal));
-    if (errno == )
-        this->_doubleType = "impossible";
+    if (errno < 0)
+        this->_exception[DOUBLE] = Exc_imp;
 
     this->_floatType = static_cast<float>(std::stod(this->_literal));
     this->_dotZero = ".0";
@@ -173,6 +174,7 @@ std::ostream &operator<<(std::ostream &out, const Convert &copy)
         out << "INVALID: please try again";
     }
     else {
+        if (copy.getException())
         out << "char: " << copy.getCharType()  << std::endl <<
             "int: " << copy.getIntType() << std::endl <<
             "float: " << copy.getFloatType() << copy.getDotZero() << copy.getF() << std::endl <<
