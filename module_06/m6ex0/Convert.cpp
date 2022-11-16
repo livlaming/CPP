@@ -1,7 +1,6 @@
 //
 // Created by Lisa Vlamings on 11/14/22.
 //
-
 #include "Convert.hpp"
 Convert::Convert() {}
 
@@ -106,7 +105,7 @@ void    Convert::fromInt(){
         this->_charType = "Non displayable";
     }
     else  {
-        this->_charType = static_cast<int>(std::stoi(this->_literal));
+        this->_charType = static_cast<int>(std::stol(this->_literal));
     }
     this->_intType = static_cast<int>(std::stol(this->_literal));
     this->_doubleType = static_cast<double>(std::stod(this->_literal));
@@ -174,13 +173,13 @@ std::ostream &operator<<(std::ostream &out, const Convert &copy)
         out << "INVALID: please try again";
     }
     if (!copy._exception[CHAR].empty())
-
-    else {
-
-        out << "char: " << copy.getCharType() << std::endl <<
-            "int: " << copy.getIntType() << std::endl <<
-            "float: " << copy.getFloatType() << copy.getDotZero() << copy.getF() << std::endl <<
-            "double: " << copy.getDoubleType() << copy.getDotZero() << std::endl;
-    }
+        checkExceptions(out);
+//    else {
+//
+//        out << "char: " << copy.getCharType() << std::endl <<
+//            "int: " << copy.getIntType() << std::endl <<
+//            "float: " << copy.getFloatType() << copy.getDotZero() << copy.getF() << std::endl <<
+//            "double: " << copy.getDoubleType() << copy.getDotZero() << std::endl;
+//    }
     return (out);
 }

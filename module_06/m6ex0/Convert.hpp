@@ -1,17 +1,10 @@
 //
 // Created by Lisa Vlamings on 11/14/22.
 //
-
 #ifndef CPP_CONVERT_HPP
 #define CPP_CONVERT_HPP
 #include <iostream>
 #include <errno.h>
-//#define MAX_INT +2147483647
-//#define MIN_INT -2147483648
-//#define MAX_DOUBLE 1.79769e+308
-//#define MIN_DOUBLE -1.79769e+308
-//#define MAX_FLOAT 3.40282e+38
-//#define MIN_FLOAT -3.40282e+38
 
 #define Exc_None ""
 #define Exc_imp "Impossible"
@@ -19,7 +12,6 @@
 #define Exc_NoDisp "Not Displayable"
 
 enum e_Type {CHAR, INT, DOUBLE, FLOAT, INVALID};
-//enum exc {Exc_None, Exc_imp, Exc_Nan, Exc_};
 
 class Convert {
 private:
@@ -33,7 +25,6 @@ private:
     std::string _dotZero;
     std::string _f;
     e_Type      _type;
-//    exc         _exc;
     Convert();
 public:
     std::string _exception[4];
@@ -55,7 +46,6 @@ public:
     int             checkDigit();
     void            indicateType();
     void            setValues();
-
 
     void            fromChar();
     void            fromInt();
