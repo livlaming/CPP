@@ -82,12 +82,12 @@ void    Convert::indicateType() {
 }
 
 void    Convert::fromChar(){
-    if (!std::isprint(std::stoi(this->_literal))) {
+//    if (!std::isprint(this->_literal)) {
         this->_exception[CHAR] = Exc_NoDisp;
-    }
-    else {
-        this->_charType = "'" + this->_literal + "'";
-    }
+//    }
+//    else {
+//        this->_charType = "'" + this->_literal + "'";
+//    }
     this->_intType = static_cast<int>(*this->_literal.c_str());
     this->_doubleType = static_cast<double>(*this->_literal.c_str());
     this->_floatType = static_cast<float>(*this->_literal.c_str());
@@ -165,17 +165,58 @@ std::string Convert::getF() const {
     return this->_f;
 }
 
+
+void    Convert::createStream(std::ostream &out) const {
+    out << "char: ";
+    if (!_exception[CHAR].empty()){
+        out << _exception[CHAR] << std::endl;
+    }
+    else{
+        out << this->getCharType() << std::endl;
+    }
+    out << "int: ";
+    if (!_exception[INT].empty()){
+        out << _exception[INT] << std::endl;
+    }
+    else{
+        out << this->getIntType() << std::endl;
+    }
+    out << "float: ";
+    if (!_exception[FLOAT].empty()){
+        out << _exception[FLOAT];
+    }
+    else{
+        out << this->getFloatType();
+    }
+    out << this->getDotZero() << this->getF() << std::endl;
+    out << "double: ";
+    if (!_exception[DOUBLE].empty()){
+        out << _exception[DOUBLE];
+    }
+    else{
+        out << this->getDoubleType();
+    }
+    out << this->getDotZero() << std::endl;
+}
+
 Convert::~Convert() {}
 
-std::ostream &operator<<(std::ostream &out, const Convert &copy)
-{
+std::ostream &operator<<(std::ostream &out, const Convert &copy) {
     if (copy.getType() == INVALID){
         out << "INVALID: please try again";
     }
-    if (!copy._exception[CHAR].empty())
-        checkExceptions(out);
+    else {
+        copy.createStream(out);
+    }
+
 //    else {
-//
+//        out << "char: " << copy.checkException(CHAR) << std::endl <<
+//            "int: " << copy.checkException(INT) << std::endl <<
+//            "float: " << copy.checkException(FLOAT) << copy.getDotZero() << copy.getF() << std::endl <<
+//            "double: " << copy.checkException() << copy.getDotZero() << std::endl;
+//    }
+
+//    else {
 //        out << "char: " << copy.getCharType() << std::endl <<
 //            "int: " << copy.getIntType() << std::endl <<
 //            "float: " << copy.getFloatType() << copy.getDotZero() << copy.getF() << std::endl <<

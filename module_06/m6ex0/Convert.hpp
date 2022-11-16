@@ -41,6 +41,7 @@ public:
     std::string     getF() const;
     enum e_Type     getType() const;
     const std::string     getException() const;
+    void            createStream(std::ostream &out) const;
 
     int             checkAlpha();
     int             checkDigit();
@@ -52,6 +53,5 @@ public:
 };
 
 std::ostream &operator<<(std::ostream &out, const Convert &copy);
-
 
 #endif //CPP_CONVERT_HPP
