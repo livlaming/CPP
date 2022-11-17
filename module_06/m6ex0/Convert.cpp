@@ -98,11 +98,10 @@ void    Convert::fromChar(){
 void    Convert::fromInt(){
     long val = std::stol(this->_literal);
     if (val < std::numeric_limits<int>::lowest() || val > std::numeric_limits<int>::max()){
-        this->_exception[INT] = "Impossible";
+        this->_exception[INT] = Exc_imp;
     }
-
     if (!std::isprint(std::stol(this->_literal))) {
-        this->_charType = "Non displayable";
+        this->_charType = Exc_NoDisp;
     }
     else  {
         this->_charType = static_cast<int>(std::stol(this->_literal));
