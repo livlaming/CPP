@@ -82,12 +82,12 @@ void    Convert::indicateType() {
 }
 
 void    Convert::fromChar(){
-//    if (!std::isprint(this->_literal)) {
+    if (!std::isprint(static_cast<unsigned char>(this->_literal[0]))) {
         this->_exception[CHAR] = Exc_NoDisp;
-//    }
-//    else {
-//        this->_charType = "'" + this->_literal + "'";
-//    }
+    }
+    else {
+        this->_charType = "'" + this->_literal + "'";
+    }
     this->_intType = static_cast<int>(*this->_literal.c_str());
     this->_doubleType = static_cast<double>(*this->_literal.c_str());
     this->_floatType = static_cast<float>(*this->_literal.c_str());
