@@ -1,7 +1,6 @@
-NAME = ex00
+NAME = ex01
 
-SRC =	main.cpp \
-			Convert.cpp
+SRC =	main.cpp
 
 OBJS = $(SRC:.cpp=.o)
 

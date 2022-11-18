@@ -1,26 +1,10 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         ::::::::             #
-#    Makefile                                           :+:    :+:             #
-#                                                      +:+                     #
-#    By: livlamin <marvin@codam.nl>                   +#+                      #
-#                                                    +#+                       #
-#    Created: 2020/07/27 13:28:13 by livlamin      #+#    #+#                  #
-#    Updated: 2020/07/27 15:03:31 by livlamin      ########   odam.nl          #
-#                                                                              #
-# **************************************************************************** #
-
 NAME = ex02
 
-SRC =	main.cpp \
-			Form.cpp \
-			Bureaucrat.cpp \
-			PresidentialPardonForm.cpp \
-			RobotomyRequestForm.cpp \
-			ShrubberyCreationForm.cpp \
-			Intern.cpp
+SRC =	main.cpp
 
 OBJS = $(SRC:.cpp=.o)
+
+DEPS = $(OBJS:.o=.d)
 
 CC = c++
 
@@ -31,11 +15,14 @@ all: $(NAME)
 $(NAME):	$(OBJS)
 			$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
+-include $(DEPS)
+
 %.o:	%.cpp
-			$(CC) $(CFLAGS) -c $< -o $@
+			$(CC) $(CFLAGS) -MMD -c $< -o $@
 
 clean:
 			rm -f $(OBJS)
+			rm -f $(DEPS)
 
 fclean: 	clean
 			rm -f $(NAME)
@@ -43,6 +30,5 @@ fclean: 	clean
 re: fclean all
 
 .PHONY:     clean fclean
-
 
 

@@ -4,6 +4,7 @@ SRC =	main.cpp \
 			Serialize.cpp
 
 OBJS = $(SRC:.cpp=.o)
+
 DEPS = $(OBJS:.o=.d)
 
 CC = c++
