@@ -1,23 +1,10 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         ::::::::             #
-#    Makefile                                           :+:    :+:             #
-#                                                      +:+                     #
-#    By: livlamin <marvin@codam.nl>                   +#+                      #
-#                                                    +#+                       #
-#    Created: 2020/07/27 13:28:13 by livlamin      #+#    #+#                  #
-#    Updated: 2020/07/27 15:03:31 by livlamin      ########   odam.nl          #
-#                                                                              #
-# **************************************************************************** #
+NAME = ex01
 
-NAME = convert
-
-SRC =	main.cpp /
-			serialize.cpp
-
-INCL = Convert.hpp
+SRC =	main.cpp \
+			Serialize.cpp
 
 OBJS = $(SRC:.cpp=.o)
+DEPS = $(OBJS:.o=.d)
 
 CC = c++
 
@@ -25,14 +12,17 @@ CFLAGS = -Wall -Werror -Wextra -pedantic -std=c++98
 
 all: $(NAME)
 
-$(NAME):	$(OBJS) $(INCL)
+$(NAME):	$(OBJS)
 			$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
+-include $(DEPS)
+
 %.o:	%.cpp
-			$(CC) $(CFLAGS) -c $< -o $@
+			$(CC) $(CFLAGS) -MMD -c $< -o $@
 
 clean:
 			rm -f $(OBJS)
+			rm -f $(DEPS)
 
 fclean: 	clean
 			rm -f $(NAME)

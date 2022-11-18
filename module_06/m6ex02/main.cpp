@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
+#include <ctime>
 
 Base::~Base(){}
 
@@ -50,6 +51,7 @@ void identify(Base& p){
 
 //dynamic casting: by far the most common use for dynamic casting is for converting base-class pointers into derived-class pointers. This process is called downcasting.
 int main(void){
+    srand(time(NULL));
     A *Aa = new A;
     B Bb;
     C *Cc = new C;

@@ -21,6 +21,7 @@ SRC =	main.cpp \
 			Intern.cpp
 
 OBJS = $(SRC:.cpp=.o)
+DEPS = $(SRC:.o=.d)
 
 CC = c++
 
@@ -28,11 +29,13 @@ CFLAGS = -Wall -Werror -Wextra -pedantic -std=c++98
 
 all: $(NAME)
 
+-include $(DEPS)
+
 $(NAME):	$(OBJS)
 			$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 %.o:	%.cpp
-			$(CC) $(CFLAGS) -c $< -o $@
+			$(CC) $(CFLAGS) -MMD -c $< -o $@
 
 clean:
 			rm -f $(OBJS)
