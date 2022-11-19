@@ -2,12 +2,15 @@
 #define CPP_ITER_HPP
 
 #include <iostream>
-template <typename T, typename F>
-void iter(T *A, size_t len, void(*f)(F&))
+
+template <typename T>
+void	iter(T *Array, size_t len, void (*f)(T const & ))
 {
-    for(int i;i<len;len++){
-        f(A[i]);
+    if (Array == NULL){
+        return;
+    }
+    for (size_t i = 0; i < len; i++) {
+        f(Array[i]);
     }
 }
-
 #endif //CPP_ITER_HPP

@@ -1,24 +1,39 @@
 #include "iter.hpp"
-#include <iostream>
 
-template <typename T>
-void costumPrint(T const &x) {
-    std::cout << x << std::endl;
+class customClass {
+public:
+    customClass() : s("customClass") {}
+    std::string get() const { return s; }
+
+private:
+    std::string s;
+};
+
+std::ostream& operator<<(std::ostream& out, const customClass& example) {
+    out << example.get();
+    return out;
 }
 
-int	main()
-{
-    int	tab[] = { 0, 1, 2, 3, 4 };
-//    float       f[] = {1,1.0, 3.4,7.7};
-//    std::string s[] = {"hi", "hello", "hai", "hoi", "hallo"};
 
-    size_t five = 5;
-    ::iter(tab, 5, costumPrint);
-//    ::iter(f, five, costumePrint);
-//    ::iter(s, 5, costumePrint);
-//    ::iter(f, 5, costumePrint);
+template <typename T>
+void	customPrint(T const &x) { std::cout << x << std::endl; return ;}
+
+int main(void){
+    std::cout << std::endl << "TEST WITH STD::STRING" << std::endl;
+    std::string s[] = {"hi", "hello", "hai", "hoi", "hallo"};
+
+    ::iter<std::string>(s, 5, customPrint);
+
+
+    std::cout << std::endl << "TEST WITH INT" << std::endl;
+    int i[]  = {5, 56, 567, 5678};
+    ::iter<int>(i, 4, customPrint<int>);
+
+
+    std::cout << std::endl << "TEST WITH CLASS" << std::endl;
+    customClass CC[10];
+    ::iter<customClass>(CC, 10, customPrint);
+
 
     return (0);
 }
-
-
