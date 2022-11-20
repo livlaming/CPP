@@ -1,4 +1,5 @@
 #include <iostream>
+#include "MutantStack.hpp"
 
 void testExample(){
     MutantStack<int> mstack;
@@ -22,9 +23,5 @@ void testExample(){
         ++it;
     }
     std::stack<int> s(mstack);
-    return
-}
-int main()
-{
-
+    return;
 }
