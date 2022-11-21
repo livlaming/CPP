@@ -49,7 +49,7 @@ public:
     void            setValues();
 
     void            fromChar();
-    void            fromInt();
+    void            fromDigit();
 };
 
 std::ostream &operator<<(std::ostream &out, const Convert &copy);

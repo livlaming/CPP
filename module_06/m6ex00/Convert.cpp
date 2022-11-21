@@ -91,7 +91,7 @@ void    Convert::fromChar(){
     this->_f = "f";
 }
 
-void    Convert::fromInt(){
+void    Convert::fromDigit(){
     long val = std::stol(this->_literal);
     if (!std::isprint(std::stol(this->_literal))) {
         this->_exception[CHAR] = Exc_NoDisp;
@@ -99,67 +99,36 @@ void    Convert::fromInt(){
     else  {
         this->_charType = static_cast<char>(val);
     }
+
     if (val < std::numeric_limits<int>::lowest() || val > std::numeric_limits<int>::max()){
         this->_exception[INT] = Exc_imp;
     }
-
-    this->_intType = static_cast<int>(std::stol(this->_literal));
+    else {
+        this->_intType = static_cast<int>(val);
+    }
 
     double valDouble = std::stod(this->_literal);
-    this->_doubleType = static_cast<double>(valDouble);
-    if (errno < 0)
+    if (errno < 0){
         this->_exception[DOUBLE] = Exc_imp;
+    }
+    else {
+        this->_doubleType = static_cast<double>(valDouble);
+    }
 
-    this->_floatType = static_cast<float>(std::stod(this->_literal));
-    this->_dotZero = ".0";
+    if (valDouble < std::numeric_limits<float>::lowest() || valDouble > std::numeric_limits<float>::max()){
+        this->_exception[DOUBLE] = Exc_imp;
+    }
+    else {
+        this->_floatType = static_cast<float>(valDouble);
+    }
+    if (this->_literal.find("."){
+        if (this->_literal.find("."))
+    }
+    else {
+        this->_dotZero = ".0";
+    }
     this->_f = "f";
 }
-
-//void    Convert::fromDouble(){
-//    long val = std::stod(this->_literal);
-//    if (val < std::numeric_limits<int>::lowest() || val > std::numeric_limits<int>::max()){
-//        this->_exception[INT] = Exc_imp;
-//    }
-//    if (!std::isprint(std::stol(this->_literal))) {
-//        this->_charType = Exc_NoDisp;
-//    }
-//    else  {
-//        this->_charType = static_cast<int>(std::stol(this->_literal));
-//    }
-//    this->_intType = static_cast<int>(std::stol(this->_literal));
-//    this->_doubleType = static_cast<double>(std::stod(this->_literal));
-//    if (errno < 0)
-//        this->_exception[DOUBLE] = Exc_imp;
-//
-//    this->_floatType = static_cast<float>(std::stod(this->_literal));
-//    this->_dotZero = ".0";
-//    this->_f = "f";
-//}
-//
-//void    Convert::fromInt(){
-//    long val = std::stol(this->_literal);
-//    if (val < std::numeric_limits<int>::lowest() || val > std::numeric_limits<int>::max()){
-//        this->_exception[INT] = Exc_imp;
-//    }
-//    if (!std::isprint(std::stol(this->_literal))) {
-//        this->_charType = Exc_NoDisp;
-//    }
-//    else  {
-//        this->_charType = static_cast<int>(std::stol(this->_literal));
-//    }
-//    this->_intType = static_cast<int>(std::stol(this->_literal));
-//    this->_doubleType = static_cast<double>(std::stod(this->_literal));
-//    if (errno < 0)
-//        this->_exception[DOUBLE] = Exc_imp;
-//
-//    this->_floatType = static_cast<float>(std::stod(this->_literal));
-//    this->_dotZero = ".0";
-//    this->_f = "f";
-//}
-
-
-
-
 
 void    Convert::setValues(){
     indicateType();
@@ -169,13 +138,15 @@ void    Convert::setValues(){
     }
     else if (this->_type == INT){
         std::cout << "type = INT" << std::endl;
-        fromInt();
+        fromDigit();
     }
     else if (this->_type == DOUBLE) {
         std::cout << "type = DOUBLE" << std::endl;
+        fromDigit();
     }
     else if (this->_type == FLOAT){
         std::cout << "type = FLOAT" << std::endl;
+        fromDigit();
     }
 
 }
