@@ -52,20 +52,16 @@ int     Convert::checkDigit(){
 void    Convert::indicateType() {
     if (this->_literal.length() == 1 && std::isalpha(this->_literal[0])){
         if (std::isdigit(this->_literal[0])) {
-            this->_charType = INT;
+            this->_type = INT;
         }
         else {
             this->_type = CHAR;
         }
     }
     else if (this->_literal == "nanf" || this->_literal == "-inff" || this->_literal == "+inff") {
-        this->_exception[CHAR] = Exc_imp;
-        this->_exception[INT] = Exc_imp;
         this->_type = FLOAT;
     }
     else if (this->_literal == "nan" || this->_literal == "-inf" || this->_literal == "+inf") {
-        this->_exception[CHAR] = Exc_imp;
-        this->_exception[INT] = Exc_imp;
         this->_type = DOUBLE;
     }
     else if (this->_literal.find(".") != std::string::npos) {
@@ -86,7 +82,7 @@ void    Convert::fromChar(){
         this->_exception[CHAR] = Exc_NoDisp;
     }
     else {
-        this->_charType = "'" + this->_literal + "'";
+        this->_charType =  static_cast<char>(this->_literal[0]);
     }
     this->_intType = static_cast<int>(*this->_literal.c_str());
     this->_doubleType = static_cast<double>(*this->_literal.c_str());
@@ -97,17 +93,20 @@ void    Convert::fromChar(){
 
 void    Convert::fromInt(){
     long val = std::stol(this->_literal);
+    if (!std::isprint(std::stol(this->_literal))) {
+        this->_exception[CHAR] = Exc_NoDisp;
+    }
+    else  {
+        this->_charType = static_cast<char>(val);
+    }
     if (val < std::numeric_limits<int>::lowest() || val > std::numeric_limits<int>::max()){
         this->_exception[INT] = Exc_imp;
     }
-    if (!std::isprint(std::stol(this->_literal))) {
-        this->_charType = Exc_NoDisp;
-    }
-    else  {
-        this->_charType = static_cast<int>(std::stol(this->_literal));
-    }
+
     this->_intType = static_cast<int>(std::stol(this->_literal));
-    this->_doubleType = static_cast<double>(std::stod(this->_literal));
+
+    double valDouble = std::stod(this->_literal);
+    this->_doubleType = static_cast<double>(valDouble);
     if (errno < 0)
         this->_exception[DOUBLE] = Exc_imp;
 
@@ -115,6 +114,51 @@ void    Convert::fromInt(){
     this->_dotZero = ".0";
     this->_f = "f";
 }
+
+//void    Convert::fromDouble(){
+//    long val = std::stod(this->_literal);
+//    if (val < std::numeric_limits<int>::lowest() || val > std::numeric_limits<int>::max()){
+//        this->_exception[INT] = Exc_imp;
+//    }
+//    if (!std::isprint(std::stol(this->_literal))) {
+//        this->_charType = Exc_NoDisp;
+//    }
+//    else  {
+//        this->_charType = static_cast<int>(std::stol(this->_literal));
+//    }
+//    this->_intType = static_cast<int>(std::stol(this->_literal));
+//    this->_doubleType = static_cast<double>(std::stod(this->_literal));
+//    if (errno < 0)
+//        this->_exception[DOUBLE] = Exc_imp;
+//
+//    this->_floatType = static_cast<float>(std::stod(this->_literal));
+//    this->_dotZero = ".0";
+//    this->_f = "f";
+//}
+//
+//void    Convert::fromInt(){
+//    long val = std::stol(this->_literal);
+//    if (val < std::numeric_limits<int>::lowest() || val > std::numeric_limits<int>::max()){
+//        this->_exception[INT] = Exc_imp;
+//    }
+//    if (!std::isprint(std::stol(this->_literal))) {
+//        this->_charType = Exc_NoDisp;
+//    }
+//    else  {
+//        this->_charType = static_cast<int>(std::stol(this->_literal));
+//    }
+//    this->_intType = static_cast<int>(std::stol(this->_literal));
+//    this->_doubleType = static_cast<double>(std::stod(this->_literal));
+//    if (errno < 0)
+//        this->_exception[DOUBLE] = Exc_imp;
+//
+//    this->_floatType = static_cast<float>(std::stod(this->_literal));
+//    this->_dotZero = ".0";
+//    this->_f = "f";
+//}
+
+
+
 
 
 void    Convert::setValues(){
@@ -140,7 +184,7 @@ enum e_Type Convert::getType() const {
     return this->_type;
 }
 
-std::string Convert::getCharType() const {
+char Convert::getCharType() const {
     return this->_charType;
 }
 
@@ -170,21 +214,21 @@ void    Convert::createStream(std::ostream &out) const {
     if (!_exception[CHAR].empty()){
         out << _exception[CHAR] << std::endl;
     }
-    else{
-        out << this->getCharType() << std::endl;
+    else {
+        out << "'" << this->getCharType() << "'" << std::endl;
     }
     out << "int: ";
     if (!_exception[INT].empty()){
         out << _exception[INT] << std::endl;
     }
-    else{
+    else {
         out << this->getIntType() << std::endl;
     }
     out << "float: ";
     if (!_exception[FLOAT].empty()){
         out << _exception[FLOAT];
     }
-    else{
+    else {
         out << this->getFloatType();
     }
     out << this->getDotZero() << this->getF() << std::endl;
@@ -192,7 +236,7 @@ void    Convert::createStream(std::ostream &out) const {
     if (!_exception[DOUBLE].empty()){
         out << _exception[DOUBLE];
     }
-    else{
+    else {
         out << this->getDoubleType();
     }
     out << this->getDotZero() << std::endl;

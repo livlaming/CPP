@@ -9,7 +9,7 @@
 #define Exc_None ""
 #define Exc_imp "Impossible"
 #define Exc_Nan "Nan"
-#define Exc_NoDisp "Not Displayable"
+#define Exc_NoDisp "Non Displayable"
 
 enum e_Type {CHAR, INT, DOUBLE, FLOAT, INVALID};
 
@@ -17,7 +17,7 @@ class Convert {
 private:
 
     std::string _literal;
-    std::string _charType;
+    char _charType;
     int         _intType;
     float       _floatType;
     double      _doubleType;
@@ -33,7 +33,7 @@ public:
     Convert &operator=(const Convert &copy);
     ~Convert();
 
-    std::string     getCharType() const;
+    char            getCharType() const;
     int             getIntType() const;
     float           getFloatType() const;
     double          getDoubleType() const;
