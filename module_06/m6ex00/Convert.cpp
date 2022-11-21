@@ -121,12 +121,13 @@ void    Convert::fromDigit(){
     else {
         this->_floatType = static_cast<float>(valDouble);
     }
-    if (this->_literal.find("."){
-        if (this->_literal.find("."))
-    }
-    else {
+    if (!this->_literal.find(".")){
         this->_dotZero = ".0";
     }
+//    int *x = this->_literal.find(".")
+//    if (this->_literal.find(".") != std::string::npos || this->_literal.find(".") + 1 > this->literal.length())){
+//        this->_dotZero = "0";
+//    }
     this->_f = "f";
 }
 
