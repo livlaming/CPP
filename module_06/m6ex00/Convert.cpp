@@ -183,7 +183,6 @@ void    Convert::fromDigit(){
             this->_dotZero = ".0";
         }
     }
-
     this->_f = "f";
 }
 
@@ -279,19 +278,5 @@ std::ostream &operator<<(std::ostream &out, const Convert &copy) {
     else {
         copy.createStream(out);
     }
-
-//    else {
-//        out << "char: " << copy.checkException(CHAR) << std::endl <<
-//            "int: " << copy.checkException(INT) << std::endl <<
-//            "float: " << copy.checkException(FLOAT) << copy.getDotZero() << copy.getF() << std::endl <<
-//            "double: " << copy.checkException() << copy.getDotZero() << std::endl;
-//    }
-
-//    else {
-//        out << "char: " << copy.getCharType() << std::endl <<
-//            "int: " << copy.getIntType() << std::endl <<
-//            "float: " << copy.getFloatType() << copy.getDotZero() << copy.getF() << std::endl <<
-//            "double: " << copy.getDoubleType() << copy.getDotZero() << std::endl;
-//    }
     return (out);
 }
