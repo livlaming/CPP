@@ -9,6 +9,8 @@
 #define Exc_None ""
 #define Exc_imp "Impossible"
 #define Exc_Nan "Nan"
+#define Exc_inf_minus "-inf"
+#define Exc_inf_plus "+inf"
 #define Exc_NoDisp "Non Displayable"
 
 enum e_Type {CHAR, INT, DOUBLE, FLOAT, INVALID};
@@ -50,6 +52,9 @@ public:
 
     void            fromChar();
     void            fromDigit();
+
+    void            doubleException();
+    void            floatException();
 };
 
 std::ostream &operator<<(std::ostream &out, const Convert &copy);
