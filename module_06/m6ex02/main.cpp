@@ -76,12 +76,10 @@ int main(void){
 
     Base &ref = *Base_B;
     identify(ref);
-    return 0;
 
     std::cout << "generate random class & identify: " << std::endl;
     Base *res = generate();
     identify(res);
-    identify(&(*res));
 
     std::cout << "\nrandom test: " << std::endl;
     identify(Cc);
