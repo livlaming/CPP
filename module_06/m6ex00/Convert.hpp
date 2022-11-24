@@ -53,8 +53,12 @@ public:
     void            fromChar();
     void            fromDigit();
 
-    void            doubleException();
-    void            floatException();
+    void            toChar();
+    void            toInt();
+    void            toFloat();
+    void            toDouble();
+
+    void            floatDoubleException();
 };
 
 std::ostream &operator<<(std::ostream &out, const Convert &copy);

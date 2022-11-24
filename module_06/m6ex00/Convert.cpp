@@ -49,36 +49,17 @@ int     Convert::checkDigit(){
     return (1);
 }
 
-void    Convert::floatException(){
-    if (this->_literal == "nanff"){
+void    Convert::floatDoubleException(){
+    if (this->_literal == "nanff" || this->_literal == "nan"){
         this->_exception[DOUBLE] = Exc_Nan;
         this->_exception[FLOAT] = Exc_Nan;
 
     }
-    else if (this->_literal == "-inff"){
+    else if (this->_literal == "-inff" || this->_literal == "-inf"){
         this->_exception[DOUBLE] = Exc_inf_minus;
         this->_exception[FLOAT] = Exc_inf_minus;
     }
-    else {
-        this->_exception[DOUBLE] = Exc_inf_plus;
-        this->_exception[FLOAT] = Exc_inf_plus;
-    }
-    this->_exception[CHAR] = Exc_imp;
-    this->_exception[INT] = Exc_imp;
-
-}
-
-void    Convert::doubleException(){
-    if (this->_literal == "nan"){
-        this->_exception[DOUBLE] = Exc_Nan;
-        this->_exception[FLOAT] = Exc_Nan;
-
-    }
-    else if (this->_literal == "-inf"){
-        this->_exception[DOUBLE] = Exc_inf_minus;
-        this->_exception[FLOAT] = Exc_inf_minus;
-    }
-    else {
+    else if (this->_literal == "+inff" || this->_literal == "+inf"){
         this->_exception[DOUBLE] = Exc_inf_plus;
         this->_exception[FLOAT] = Exc_inf_plus;
     }
@@ -96,11 +77,11 @@ void    Convert::indicateType() {
         }
     }
     else if (this->_literal == "nanf" || this->_literal == "-inff" || this->_literal == "+inff") {
-        floatException();
+        floatDoubleException();
         this->_type = FLOAT;
     }
     else if (this->_literal == "nan" || this->_literal == "-inf" || this->_literal == "+inf") {
-        doubleException();
+        floatDoubleException();
         this->_type = DOUBLE;
     }
     else if (this->_literal.find(".") != std::string::npos) {
@@ -116,6 +97,74 @@ void    Convert::indicateType() {
     }
 }
 
+
+
+
+void    Convert::toChar(){
+    /*CHAR*/
+    if (this->_exception[CHAR].empty()){
+        long val = std::stol(this->_literal);
+        if (!std::isprint(val)) {
+            this->_exception[CHAR] = Exc_NoDisp;
+        }
+        else  {
+            this->_charType = static_cast<char>(val);
+        }
+    }
+}
+void    Convert::toInt(){
+    /*INT*/
+    if (this->_exception[CHAR].empty()){
+        long val = std::stol(this->_literal);
+        if (val < std::numeric_limits<int>::lowest() || val > std::numeric_limits<int>::max()){
+            this->_exception[INT] = Exc_imp;
+        }
+        else {
+            this->_intType = static_cast<int>(val);
+        }
+    }
+}
+void    Convert::toFloat(){
+    /*FLOAT*/
+    if (this->_exception[FLOAT].empty()){
+        double valDouble = std::stod(this->_literal);
+        if (valDouble < std::numeric_limits<float>::lowest() || valDouble > std::numeric_limits<float>::max()){
+            this->_exception[FLOAT] = Exc_imp;
+        }
+        else {
+            this->_floatType = static_cast<float>(valDouble);
+        }
+    }
+}
+void    Convert::toDouble(){
+    /*DOUBLE*/
+    if (this->_exception[DOUBLE].empty()){
+        double valDouble = std::stod(this->_literal);
+        if (errno < 0){
+            this->_exception[DOUBLE] = Exc_imp;
+        }
+        else {
+            this->_doubleType = static_cast<double>(valDouble);
+        }
+    }
+}
+
+void    Convert::fromDigit(){
+    toChar();
+    toInt();
+    toDouble();
+    toFloat();
+    if (this->_exception[FLOAT].empty() && this->_exception[DOUBLE].empty()){
+        if (this->_literal.find(".") == std::string::npos){
+            this->_dotZero = ".0";
+        }
+        if (this->_literal.find(".") != std::string::npos && this->_literal.find(".") + 1 >= this->_literal.length()) {
+            this->_dotZero = ".0";
+        }
+    }
+    this->_f = "f";
+}
+
 void    Convert::fromChar(){
     if (!std::isprint(static_cast<unsigned char>(this->_literal[0]))) {
         this->_exception[CHAR] = Exc_NoDisp;
@@ -127,62 +176,6 @@ void    Convert::fromChar(){
     this->_doubleType = static_cast<double>(*this->_literal.c_str());
     this->_floatType = static_cast<float>(*this->_literal.c_str());
     this->_dotZero = ".0";
-    this->_f = "f";
-}
-
-void    Convert::fromDigit(){
-    /*CHAR*/
-    if (this->_exception[CHAR].empty()){
-        long val = std::stol(this->_literal);
-        if (!std::isprint(std::stol(this->_literal))) {
-            this->_exception[CHAR] = Exc_NoDisp;
-        }
-        else  {
-            this->_charType = static_cast<char>(val);
-        }
-    }
-
-    /*INT*/
-    if (this->_exception[CHAR].empty()){
-        long val = std::stol(this->_literal);
-        if (val < std::numeric_limits<int>::lowest() || val > std::numeric_limits<int>::max()){
-            this->_exception[INT] = Exc_imp;
-        }
-        else {
-            this->_intType = static_cast<int>(val);
-        }
-    }
-
-
-    /*DOUBLE*/
-    if (this->_exception[DOUBLE].empty()){
-        double valDouble = std::stod(this->_literal);
-        if (errno < 0){
-            this->_exception[DOUBLE] = Exc_imp;
-        }
-        else {
-            this->_doubleType = static_cast<double>(valDouble);
-        }
-    }
-
-    /*FLOAT*/
-    if (this->_exception[FLOAT].empty()){
-        double valDouble = std::stod(this->_literal);
-        if (valDouble < std::numeric_limits<float>::lowest() || valDouble > std::numeric_limits<float>::max()){
-            this->_exception[FLOAT] = Exc_imp;
-        }
-        else {
-            this->_floatType = static_cast<float>(valDouble);
-        }
-    }
-    if (this->_exception[FLOAT].empty() && this->_exception[DOUBLE].empty()){
-        if (this->_literal.find(".") == std::string::npos){
-            this->_dotZero = ".0";
-        }
-        if (this->_literal.find(".") != std::string::npos && this->_literal.find(".") + 1 >= this->_literal.length()) {
-            this->_dotZero = ".0";
-        }
-    }
     this->_f = "f";
 }
 
