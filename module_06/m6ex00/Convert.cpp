@@ -9,7 +9,6 @@ Convert::Convert(std::string literal) : _literal(literal), _type(INVALID){
     _exception[INT] = Exc_None;
     _exception[FLOAT] = Exc_None;
     _exception[DOUBLE] = Exc_None;
-    _exception[INVALID] = Exc_None;
     setValues();
 }
 
@@ -25,11 +24,13 @@ Convert &Convert::operator=(const Convert &copy) {
         this->_floatType = copy._floatType;
         this->_doubleType = copy._doubleType;
         this->_dotZero = copy._dotZero;
+        this->_f = copy._f;
+        this->_type = copy._type;
         this->_exception[CHAR] = copy._exception[CHAR];
         this->_exception[INT] = copy._exception[INT];
         this->_exception[FLOAT] = copy._exception[FLOAT];
         this->_exception[DOUBLE] = copy._exception[DOUBLE];
-        this->_exception[INVALID] = copy._exception[INVALID];
+
     }
     return (*this);
 }
@@ -106,7 +107,6 @@ void    Convert::indicateType() {
 
 
 void    Convert::toChar(){
-    /*CHAR*/
     if (this->_exception[CHAR].empty()){
         long val = std::stol(this->_literal); // c++ 11
 
@@ -119,7 +119,6 @@ void    Convert::toChar(){
     }
 }
 void    Convert::toInt(){
-    /*INT*/
     if (this->_exception[INT].empty()){
         long val = std::stol(this->_literal);
         if (val < std::numeric_limits<int>::lowest() || val > std::numeric_limits<int>::max()){
@@ -131,7 +130,6 @@ void    Convert::toInt(){
     }
 }
 void    Convert::toFloat(){
-    /*FLOAT*/
     if (this->_exception[FLOAT].empty()){
         double valDouble = std::stod(this->_literal);
         if (valDouble < std::numeric_limits<float>::lowest() || valDouble > std::numeric_limits<float>::max()){
@@ -143,7 +141,6 @@ void    Convert::toFloat(){
     }
 }
 void    Convert::toDouble(){
-    /*DOUBLE*/
     if (this->_exception[DOUBLE].empty()){
         double valDouble = std::stod(this->_literal);
         if (errno < 0){
@@ -164,7 +161,10 @@ void    Convert::fromDigit(){
         if (this->_literal.find(".") == std::string::npos){
             this->_dotZero = ".0";
         }
-        if (this->_literal.find(".") != std::string::npos && this->_literal.find(".") + 1 >= this->_literal.length()) {
+        if (this->_literal.find(".") != std::string::npos && this->_literal.find(".") + 2 >= this->_literal.length()) {
+            this->_dotZero = ".0";
+        }
+        if (this->_literal.find(".0") == this->_literal.length() - 3){
             this->_dotZero = ".0";
         }
     }
@@ -191,16 +191,7 @@ void    Convert::setValues(){
         std::cout << "type = CHAR" << std::endl;
         fromChar();
     }
-    else if (this->_type == INT){
-        std::cout << "type = INT" << std::endl;
-        fromDigit();
-    }
-    else if (this->_type == DOUBLE) {
-        std::cout << "type = DOUBLE" << std::endl;
-        fromDigit();
-    }
-    else if (this->_type == FLOAT){
-        std::cout << "type = FLOAT" << std::endl;
+    else if (this->_type == INT || this->_type == DOUBLE || this->_type == FLOAT){
         fromDigit();
     }
 
@@ -265,7 +256,7 @@ void    Convert::createStream(std::ostream &out) const {
     else {
         out << this->getDoubleType();
     }
-    out << this->getDotZero() << std::endl;
+    out << this->getDotZero();
 }
 
 Convert::~Convert() {}

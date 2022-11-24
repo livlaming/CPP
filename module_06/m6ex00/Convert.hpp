@@ -19,11 +19,10 @@ class Convert {
 private:
 
     std::string _literal;
-    char _charType;
+    char        _charType;
     int         _intType;
     float       _floatType;
     double      _doubleType;
-
     std::string _dotZero;
     std::string _f;
     e_Type      _type;
