@@ -97,6 +97,7 @@ void    Convert::indicateType() {
         else if (checkAlpha() == 0){
             this->_type = DOUBLE;
         }
+
     }
     else if (checkDigit() == 1){
         this->_type = INT;
@@ -107,7 +108,7 @@ void    Convert::toChar(){
     if (this->_exception[CHAR].empty()){
         char* pEnd = NULL;
         long val = std::strtol(this->_literal.c_str(), &pEnd, 10);
-        if (*pEnd != '\0'){
+        if (*pEnd != '\0' && *pEnd != '.'){
             this->_type = INVALID;
             return;
         }
@@ -124,7 +125,7 @@ void    Convert::toInt(){
     if (this->_exception[INT].empty()){
         char* pEnd = NULL;
         long val = std::strtol(this->_literal.c_str(), &pEnd, 10);
-        if (*pEnd != '\0'){
+        if (*pEnd != '\0' && *pEnd != '.'){
             this->_type = INVALID;
             return;
         }
@@ -141,7 +142,7 @@ void    Convert::toFloat(){
     if (this->_exception[FLOAT].empty()){
         char* pEnd = NULL;
         double valDouble = std::strtod(this->_literal.c_str(), &pEnd);
-        if (*pEnd != '\0'){
+        if (*pEnd != '\0' && *pEnd != 'f'){
             this->_type = INVALID;
             return;
         }
@@ -158,7 +159,7 @@ void    Convert::toDouble(){
     if (this->_exception[DOUBLE].empty()){
         char* pEnd = NULL;
         double valDouble = std::strtod(this->_literal.c_str(), &pEnd);
-        if (*pEnd != '\0'){
+        if (*pEnd != '\0' && *pEnd != 'f'){
             this->_type = INVALID;
             return;
         }
@@ -207,13 +208,11 @@ void    Convert::fromChar(){
 void    Convert::setValues(){
     indicateType();
     if (this->_type == CHAR){
-        std::cout << "type = CHAR" << std::endl;
         fromChar();
     }
     else if (this->_type == INT || this->_type == DOUBLE || this->_type == FLOAT){
         fromDigit();
     }
-
 }
 
 enum e_Type Convert::getType() const {
