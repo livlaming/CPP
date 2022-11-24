@@ -32,16 +32,6 @@ Convert &Convert::operator=(const Convert &copy) {
     return (*this);
 }
 
-int     Convert::checkAlpha(){
-    for (int i = 0; this->_literal[i]; i++)
-    {
-        if (std::isalpha(this->_literal[i])){
-            return (1);
-        }
-    }
-    return (0);
-}
-
 int     Convert::checkDigit(){
     int i = 0;
     if (this->_literal[i] == '+' || this->_literal[i] == '-'){
@@ -74,7 +64,7 @@ void    Convert::floatDoubleException(){
 }
 
 void    Convert::indicateType() {
-    if (this->_literal.length() == 1 && std::isalpha(this->_literal[0])){
+    if (this->_literal.length() == 1 && std::isprint(this->_literal[0])){
         if (std::isdigit(this->_literal[0])) {
             this->_type = INT;
         }
@@ -94,10 +84,9 @@ void    Convert::indicateType() {
         if (this->_literal[this->_literal.length() - 1] == 'f') {
             this->_type = FLOAT;
         }
-        else if (checkAlpha() == 0){
-            this->_type = DOUBLE;
+        if (this->_literal.find_first_not_of("0123456789.") == std::string::npos) {
+            _type = DOUBLE;
         }
-
     }
     else if (checkDigit() == 1){
         this->_type = INT;

@@ -40,11 +40,17 @@ void identify(Base& p){
         A &Aa = dynamic_cast<A&>(p);
         std::cout << 'A' << std::endl;
         (void)Aa;
+    }
+    catch (std::exception& e) {}
 
+    try {
         B &Bb = dynamic_cast<B&>(p);
         std::cout << 'B' << std::endl;
         (void)Bb;
+    }
+    catch (std::exception& e) {}
 
+    try {
         C &Cc= dynamic_cast<C&>(p);
         std::cout << 'C' << std::endl;
         (void)Cc;
@@ -52,7 +58,7 @@ void identify(Base& p){
     catch (std::exception& e) {}
 }
 
-//dynamic casting: by far the most common use for dynamic casting
+// dynamic casting: by far the most common use for dynamic casting
 // is for converting base-class pointers into derived-class pointers.
 // This process is called downcasting.
 int main(void){
@@ -67,6 +73,10 @@ int main(void){
     Base *Base_A = new A;;
     Base *Base_B = new B;
     Base *Base_C = new C;
+
+    Base &ref = *Base_B;
+    identify(ref);
+    return 0;
 
     std::cout << "generate random class & identify: " << std::endl;
     Base *res = generate();

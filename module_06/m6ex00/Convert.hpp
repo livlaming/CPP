@@ -8,7 +8,7 @@
 
 #define Exc_None ""
 #define Exc_imp "Impossible"
-#define Exc_Nan "Nan"
+#define Exc_Nan "nan"
 #define Exc_inf_minus "-inf"
 #define Exc_inf_plus "+inf"
 #define Exc_NoDisp "Non Displayable"
@@ -44,7 +44,6 @@ public:
     const std::string     getException() const;
     void            createStream(std::ostream &out) const;
 
-    int             checkAlpha();
     int             checkDigit();
     void            indicateType();
     void            setValues();

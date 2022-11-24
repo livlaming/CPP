@@ -17,11 +17,11 @@ int main(void) {
 
     std::cout << "ORIGINAL POINTER: [" << ptr << "]\n" << std::endl;
 
-    uintptr_t	raw = serialize(ptr);
-    std::cout << "RAW BYTES: [" << raw << "]" << std::endl;
+    uintptr_t	serialized = serialize(ptr);
+    std::cout << "SERIALIZED: [" << serialized << "]" << std::endl;
     printData(ptr);
 
-    res = deserialize(raw);
+    res = deserialize(serialized);
     std::cout << "DESERIALIZED: [" << res << "]" << std::endl;
     printData(res);
 
