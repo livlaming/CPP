@@ -7,6 +7,7 @@
 int main (int ac, char const **input){
     if (ac == 2){
         input++;
+
         Convert literal(*input);
         std::cout << literal << std::endl;
     }

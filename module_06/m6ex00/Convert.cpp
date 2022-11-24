@@ -170,7 +170,10 @@ void    Convert::fromDigit(){
         if (this->_literal.find(".") == std::string::npos){
             this->_dotZero = ".0";
         }
-        if (this->_literal.find(".") != std::string::npos && this->_literal.find(".") + 2 >= this->_literal.length()) {
+        if (this->_literal.find(".") != std::string::npos && this->_literal.find(".") == this->_literal.length()) {
+            this->_dotZero = ".0";
+        }
+        if (this->_literal.find(".f") + 2 == this->_literal.length()){
             this->_dotZero = ".0";
         }
         if (this->_literal.find(".0") == this->_literal.length() - 3){
