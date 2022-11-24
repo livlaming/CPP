@@ -23,5 +23,6 @@ void testExample(){
         ++it;
     }
     std::stack<int> s(mstack);
+//    find function is cool
     return;
 }
