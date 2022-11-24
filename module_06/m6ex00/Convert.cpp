@@ -1,6 +1,3 @@
-//
-// Created by Lisa Vlamings on 11/14/22.
-//
 #include "Convert.hpp"
 Convert::Convert() {}
 
@@ -45,9 +42,12 @@ int     Convert::checkAlpha(){
     return (0);
 }
 
-
 int     Convert::checkDigit(){
-    for (int i = 0; this->_literal[i]; i++)
+    int i = 0;
+    if (this->_literal[i] == '+' || this->_literal[i] == '-'){
+        i++;
+    }
+    for (; this->_literal[i]; i++)
     {
         if (!std::isdigit(this->_literal[i])){
             return (0);
@@ -103,13 +103,14 @@ void    Convert::indicateType() {
     }
 }
 
-
-
-
 void    Convert::toChar(){
     if (this->_exception[CHAR].empty()){
-        long val = std::stol(this->_literal); // c++ 11
-
+        char* pEnd = NULL;
+        long val = std::strtol(this->_literal.c_str(), &pEnd, 10);
+        if (*pEnd != '\0'){
+            this->_type = INVALID;
+            return;
+        }
         if (!std::isprint(val)) {
             this->_exception[CHAR] = Exc_NoDisp;
         }
@@ -118,9 +119,15 @@ void    Convert::toChar(){
         }
     }
 }
+
 void    Convert::toInt(){
     if (this->_exception[INT].empty()){
-        long val = std::stol(this->_literal);
+        char* pEnd = NULL;
+        long val = std::strtol(this->_literal.c_str(), &pEnd, 10);
+        if (*pEnd != '\0'){
+            this->_type = INVALID;
+            return;
+        }
         if (val < std::numeric_limits<int>::lowest() || val > std::numeric_limits<int>::max()){
             this->_exception[INT] = Exc_imp;
         }
@@ -129,9 +136,15 @@ void    Convert::toInt(){
         }
     }
 }
+
 void    Convert::toFloat(){
     if (this->_exception[FLOAT].empty()){
-        double valDouble = std::stod(this->_literal);
+        char* pEnd = NULL;
+        double valDouble = std::strtod(this->_literal.c_str(), &pEnd);
+        if (*pEnd != '\0'){
+            this->_type = INVALID;
+            return;
+        }
         if (valDouble < std::numeric_limits<float>::lowest() || valDouble > std::numeric_limits<float>::max()){
             this->_exception[FLOAT] = Exc_imp;
         }
@@ -140,9 +153,15 @@ void    Convert::toFloat(){
         }
     }
 }
+
 void    Convert::toDouble(){
     if (this->_exception[DOUBLE].empty()){
-        double valDouble = std::stod(this->_literal);
+        char* pEnd = NULL;
+        double valDouble = std::strtod(this->_literal.c_str(), &pEnd);
+        if (*pEnd != '\0'){
+            this->_type = INVALID;
+            return;
+        }
         if (errno < 0){
             this->_exception[DOUBLE] = Exc_imp;
         }
@@ -224,7 +243,6 @@ std::string Convert::getDotZero() const {
 std::string Convert::getF() const {
     return this->_f;
 }
-
 
 void    Convert::createStream(std::ostream &out) const {
     out << "char: ";
