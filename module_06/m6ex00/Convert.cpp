@@ -5,14 +5,15 @@
 Convert::Convert() {}
 
 Convert::Convert(std::string literal) : _literal(literal), _type(INVALID){
-    setValues();
     _exception[CHAR] = Exc_None;
     _exception[INT] = Exc_None;
     _exception[FLOAT] = Exc_None;
     _exception[DOUBLE] = Exc_None;
+    _exception[INVALID] = Exc_None;
+    setValues();
 }
 
-Convert::Convert(const Convert &copy) : _literal(copy._literal), _charType(copy._charType), _intType(copy._intType), _doubleType(copy._doubleType), _floatType(copy._floatType){
+Convert::Convert(const Convert &copy) : _literal(copy._literal), _charType(copy._charType), _intType(copy._intType), _floatType(copy._floatType), _doubleType(copy._doubleType){
 
 }
 
@@ -24,6 +25,11 @@ Convert &Convert::operator=(const Convert &copy) {
         this->_floatType = copy._floatType;
         this->_doubleType = copy._doubleType;
         this->_dotZero = copy._dotZero;
+        this->_exception[CHAR] = copy._exception[CHAR];
+        this->_exception[INT] = copy._exception[INT];
+        this->_exception[FLOAT] = copy._exception[FLOAT];
+        this->_exception[DOUBLE] = copy._exception[DOUBLE];
+        this->_exception[INVALID] = copy._exception[INVALID];
     }
     return (*this);
 }
@@ -50,10 +56,9 @@ int     Convert::checkDigit(){
 }
 
 void    Convert::floatDoubleException(){
-    if (this->_literal == "nanff" || this->_literal == "nan"){
+    if (this->_literal == "nanf" || this->_literal == "nan"){
         this->_exception[DOUBLE] = Exc_Nan;
         this->_exception[FLOAT] = Exc_Nan;
-
     }
     else if (this->_literal == "-inff" || this->_literal == "-inf"){
         this->_exception[DOUBLE] = Exc_inf_minus;
@@ -103,7 +108,8 @@ void    Convert::indicateType() {
 void    Convert::toChar(){
     /*CHAR*/
     if (this->_exception[CHAR].empty()){
-        long val = std::stol(this->_literal);
+        long val = std::stol(this->_literal); // c++ 11
+
         if (!std::isprint(val)) {
             this->_exception[CHAR] = Exc_NoDisp;
         }
@@ -114,7 +120,7 @@ void    Convert::toChar(){
 }
 void    Convert::toInt(){
     /*INT*/
-    if (this->_exception[CHAR].empty()){
+    if (this->_exception[INT].empty()){
         long val = std::stol(this->_literal);
         if (val < std::numeric_limits<int>::lowest() || val > std::numeric_limits<int>::max()){
             this->_exception[INT] = Exc_imp;

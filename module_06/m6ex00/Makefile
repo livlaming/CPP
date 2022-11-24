@@ -9,7 +9,7 @@ DEPS = $(OBJS:.o=.d)
 
 CC = c++
 
-CFLAGS = -Wall -Werror -Wextra -pedantic -std=c++98
+CFLAGS = -Wall -Werror -Wextra -pedantic -std=c++98 -g
 
 all: $(NAME)
 
