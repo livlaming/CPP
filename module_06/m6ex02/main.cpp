@@ -61,38 +61,51 @@ void identify(Base& p){
 // dynamic casting: by far the most common use for dynamic casting
 // is for converting base-class pointers into derived-class pointers.
 // This process is called downcasting.
-int main(void){
+int main(void) {
     srand(time(NULL));
 
-    A *Aa = new A;
-    B Bb;
-    C *Cc = new C;
+    A    *Aa = new A;
+    B     Bb;
+    C    *Cc = new C;
 
-    A AA;
+    A     AA;
 
-    Base *Base_A = new A;;
+    Base *Base_A = new A;
     Base *Base_B = new B;
     Base *Base_C = new C;
 
-    Base &ref = *Base_B;
-    identify(ref);
 
-    std::cout << "generate random class & identify: " << std::endl;
+    std::cout << "generate random class & identify 3x: " << std::endl;
     Base *res = generate();
     identify(res);
+    identify(*res);
+    res = generate();
+    identify(res);
+    identify(*res);
+    res = generate();
+    identify(res);
+    identify(*res);
 
-    std::cout << "\nrandom test: " << std::endl;
-    identify(Cc);
+    std::cout << "\nABC as pointer: " << std::endl;
     identify(Aa);
-
     identify(&Bb);
-    identify(&AA);
+    identify(Cc);
 
-    std::cout << "\nBASE TESTS:" << std::endl;
+    std::cout << "\nABC as reference: " << std::endl;
+    identify(*Aa);
+    identify(Bb);
+    identify(*Cc);
+
+    std::cout << "\nBASE TESTS (as pointer):" << std::endl;
     identify(Base_A);
     identify(Base_B);
     identify(Base_C);
-    std::cout  << std::endl;
+
+    std::cout << "BASE TESTS (as reference):" << std::endl;
+    identify(*Base_A);
+    identify(*Base_B);
+    identify(*Base_C);
+    std::cout << std::endl;
 
     return (0);
 }
