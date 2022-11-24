@@ -1,11 +1,11 @@
 #include "Serialize.hpp"
 
-//
-//void printData(Data *ptr){
-//    std::cout << "Data num: " << ptr->num << std::endl;
-//    std::cout << "Data str: "<< ptr->str << std::endl;
-//    std::cout << std::endl;
-//}
+
+void printData(Data *ptr){
+    std::cout << "Data num: " << ptr->num << std::endl;
+    std::cout << "Data str: "<< ptr->str << std::endl;
+    std::cout << std::endl;
+}
 
 
 int main(void) {
@@ -19,11 +19,11 @@ int main(void) {
 
     uintptr_t	raw = serialize(ptr);
     std::cout << "RAW BYTES: [" << raw << "]" << std::endl;
-//    printData(ptr);
+    printData(ptr);
 
     res = deserialize(raw);
     std::cout << "DESERIALIZED: [" << res << "]" << std::endl;
-//    printData(ptr);
+    printData(res);
 
     delete ptr;
     return 0;
