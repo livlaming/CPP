@@ -21,8 +21,8 @@ void	customPrint(T const &x) {
     return ;
 }
 
-template <typename T> void squareMeter(T &value) {
-    value = value * value;
+template <typename T> void zero(T &value) {
+    value = value - value;
 }
 
 int main(void) {
@@ -42,9 +42,9 @@ int main(void) {
     ::iter<customClass>(CC, 10, customPrint);
 
 
-    std::cout << std::endl << "TEST WITH SQUARE METERS" << std::endl;
+    std::cout << std::endl << "TEST WITH ZERO" << std::endl;
     int Sides[] = {1, 4, 11, 33};
-    ::iter<int>(Sides, 4, squareMeter<int>);
+    ::iter<int>(Sides, 4, zero<int>);
 
 
     for (int i = 0; i < 4; ++i) {
