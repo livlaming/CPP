@@ -37,15 +37,14 @@ public:
         return *this;
     };
 
-    T &operator[](unsigned int index){
+    T &operator[](size_t index){
         if (index >= this->_n){
             throw std::exception();
         }
         return this->_array[index];
-
     }
 
-    T const &operator[](unsigned int index) const{
+    T const &operator[](size_t index) const{
         if (index >= this->_n){
             throw std::exception();
         }

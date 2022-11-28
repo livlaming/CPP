@@ -22,3 +22,10 @@ T min(T x, T y)
 }
 
 #endif //CPP_WHATEVER_HPP
+
+
+
+
+// Function templates are special functions that can operate with generic types.
+// This allows us to create a function template whose functionality can be adapted
+// to more than one type or class without repeating the entire code for each type.

@@ -4,7 +4,7 @@ Span::Span(){}
 
 Span::Span(unsigned int N) : _N(N){}
 
-Span::Span(const Span &copy) : _vec(copy._vec), _N(copy._N){}
+Span::Span(const Span &copy) : _N(copy._N), _vec(copy._vec) {}
 
 Span &Span::operator=(const Span &copy){
     if (this != &copy){
@@ -30,7 +30,7 @@ unsigned int    Span::shortestSpan(){
     std::vector<int>::iterator it = tempVec.begin();
     std::vector<int>::iterator itNext = ++tempVec.begin();
 
-    unsigned int shortest = *itNext - *it;
+    int shortest = *itNext - *it;
     while (itNext != tempVec.end())
     {
         if (*itNext - *it < shortest)

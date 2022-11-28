@@ -60,13 +60,37 @@ void tests(){
     delete [] mirror;//
 }
 
+void simple_array_test(){
+    // Assign new array with bigger size
+    Array<std::string> string = Array<std::string>(1);
+    try{
+        string[0] = "HAAI";
+        std::cout << "well done! " << string[0] << std::endl;
+    }
+    catch (const std::exception& e) {
+        std::cout << e.what() << "bad indexing" << std::endl;
+    }
+    std::string B = "BAAI";
+    try{
+        string[1] = B;
+        std::cout << string[1] << std::endl;
+    }
+    catch (const std::exception& e) {
+        std::cout << e.what() << " " << B <<  " bad indexing" << std::endl;
+    }
+
+    Array<std::string> empty;
+    try {
+        empty[0] = "abcd";
+    } catch (const std::exception& e) {
+        std::cout << e.what() << " empty" << std::endl;
+    }
+}
 
 
 int main(void)
 {
     tests();
-    //    int *a = new int();
-    //    std::cout << a << std::endl;
-
+    simple_array_test();
     return 0;
 }
