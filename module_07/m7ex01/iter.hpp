@@ -25,5 +25,4 @@ void	iter(T const *Array, size_t len, void (*f)(const T&))
     }
 }
 
-
 #endif //CPP_ITER_HPP
