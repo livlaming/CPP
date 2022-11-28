@@ -4,12 +4,7 @@
 
 template<typename T>
 typename T::iterator easyfind(T& container, int n) {
-    typename T::iterator    it;
-
-    it = find(container.begin(), container.end(), n);
-    if (it == container.end())
-        throw std::exception();
-    return it;
+    return std::find(container.begin(), container.end(), n);
 }
 
 #endif //CPP_EASYFIND_HPP

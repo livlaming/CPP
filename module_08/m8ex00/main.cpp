@@ -3,8 +3,6 @@
 #include <list>
 #include <vector>
 
-// clang-format off
-
 void vector(){
     std::vector<int> 		   i_vector;
     std::vector<int>::iterator it;
@@ -13,20 +11,33 @@ void vector(){
     for (int i = 0; i < 13; i++)
         i_vector.push_back(i);
 
+    std::cout << "-------------" << std::endl;
+    std::cout << "VECTOR TESTS!" << std::endl;
+    std::cout << "-------------" << std::endl;
+
     val = -1;
-    try {
-        it = easyfind(i_vector, val);
+    it = easyfind(i_vector, val);
+    if (it != i_vector.end()){
         std::cout << "Found " << val << " on index: " << std::distance(i_vector.begin(), it) << std::endl;
-    } catch (const std::exception &e) {
-        std::cerr << e.what() << '\n';
+    }
+    else {
+        std::cout << val << " not found" << std::endl;
     }
 
     val = 3;
-    try {
-        it = easyfind(i_vector, val);
+    it = easyfind(i_vector, val);
+    if (it != i_vector.end()){
         std::cout << "Found " << val << " on index: " << std::distance(i_vector.begin(), it) << std::endl;
-    } catch (const std::exception &e) {
-        std::cerr << e.what() << '\n';
+    } else {
+        std::cout << val << " not found" << std::endl;
+    }
+
+    val = 27;
+    it = easyfind(i_vector, val);
+    if (it != i_vector.end()){
+        std::cout << "Found " << val << " on index: " << std::distance(i_vector.begin(), it) << std::endl;
+    } else {
+        std::cout << val << " not found" << std::endl;
     }
 }
 
@@ -37,79 +48,43 @@ void list(){
     for (int i = 0; i < 20; i++)
         i_list.push_back(i);
 
+    std::cout << std::endl;
+    std::cout << "-------------" << std::endl;
+    std::cout << "LIST TESTS!" << std::endl;
+    std::cout << "-------------" << std::endl;
     val = 25;
-    try {
-        it = easyfind(i_list, val);
+    it = easyfind(i_list, val);
+    if (it != i_list.end()){
         std::cout << "Found " << val << " on index: " << std::distance(i_list.begin(), it) << std::endl;
-    } catch (const std::exception &e) {
-        std::cerr << e.what() << '\n';
+    } else {
+        std::cout << val << " not found" << std::endl;
     }
 
     val = 4;
-    try {
-        it = easyfind(i_list, val);
+    it = easyfind(i_list, val);
+    if (it != i_list.end()){
         std::cout << "Found " << val << " on index: " << std::distance(i_list.begin(), it) << std::endl;
-    } catch (const std::exception &e) {
-        std::cerr << e.what() << '\n';
+    } else {
+        std::cout << val << " not found" << std::endl;
     }
 
     val = 7;
-    try {
-        it = easyfind(i_list, val);
+    it = easyfind(i_list, val);
+    if (it != i_list.end()){
         std::cout << "Found " << val << " on index: " << std::distance(i_list.begin(), it) << std::endl;
-    } catch (const std::exception &e) {
-        std::cerr << e.what() << '\n';
+    } else {
+        std::cout << val << " not found" << std::endl;
     }
+    std::cout << std::endl;
+}
+
+void l(){
+    system("leaks ex00");
 }
 
 int main (void){
+    atexit(l);
     vector();
     list();
     return (0);
 }
-
-
-
-//#include <iostream>
-//#include <vector>
-//#include <list>
-//#include "easyfind.hpp"
-//
-//void vector(){
-//    std::vector<int>	i_vector;
-//    int	val;
-//
-//    for (int i = 0; i < 13; i++)
-//        i_vector.push_back(i);
-//    val = -1;
-//    easyfind(i_vector, val);
-//        std::cout << "HALLOO\n";
-//    val = 3;
-//    easyfind(i_vector, val);
-//}
-//
-//void list(){
-//    std::list<int>		i_list;
-//    int val;
-//    for (int i = 0; i < 20; i++)
-//        i_list.push_back(i);
-//    val = 25;
-//    easyfind(i_list, val);
-//    val = 4;
-//    easyfind(i_list, val);
-//    val = 7;
-//    easyfind(i_list, val);
-//}
-//
-//int main (void){
-//    try
-//    {
-//        vector();
-//        list();
-//    }
-//    catch(const std::exception& e)
-//    {
-//        std::cerr << e.what() << '\n';
-//    }
-//    return (0);
-//}
