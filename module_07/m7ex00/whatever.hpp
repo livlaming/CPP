@@ -1,7 +1,6 @@
 #ifndef CPP_WHATEVER_HPP
 #define CPP_WHATEVER_HPP
 
-#include <iostream>
 template <typename T>
 void swap(T &x, T &y)
 {

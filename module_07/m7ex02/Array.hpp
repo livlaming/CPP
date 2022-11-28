@@ -36,14 +36,14 @@ public:
         return *this;
     };
 
-    T &operator[](int index){
-        if (index >= _n){
-            throw std::exception();
-        }
-        else {
-            return _array[index];
-        }
-    }
+//    T &operator[](int index){
+//        if (index >= _n){
+//            throw std::exception();
+//        }
+//        else {
+//            return _array[index];
+//        }
+//    }
 
     T &operator[](unsigned int index){
         if (index >= _n){
