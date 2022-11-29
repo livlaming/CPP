@@ -2,14 +2,15 @@
 
 Span::Span(){}
 
-Span::Span(unsigned int N) : _N(N){}
+Span::Span(unsigned int N) : _N(N), _sorted(0){}
 
-Span::Span(const Span &copy) : _N(copy._N), _vec(copy._vec) {}
+Span::Span(const Span &copy) : _N(copy._N), _vec(copy._vec), _sorted(copy._sorted) {}
 
 Span &Span::operator=(const Span &copy){
     if (this != &copy){
         this->_vec = copy._vec;
         this->_N = copy._N;
+        this->_sorted = copy._sorted;
     }
     return *this;
 }
@@ -20,13 +21,32 @@ void    Span::addNumber(int Num){
     this->_vec.push_back(Num);
 }
 
+void    Span::addRange(int start, int range){
+    while (start <= range){
+        addNumber(start);
+        start++;
+    }
+}
+
+void    Span::addRange(int range){
+    int i = 0;
+    while (i <= range){
+        addNumber(i);
+        i++;
+    }
+}
+
 unsigned int    Span::shortestSpan(){
-    if (_vec.empty() || _N == 1)
+    if (_vec.empty() || _N == 1){
         throw std::exception();
+    }
+
 
     std::vector<int> tempVec = this->_vec;
-    std::sort(tempVec.begin(), tempVec.end()); //
-
+    if (this->_sorted == 0){
+        std::sort(tempVec.begin(), tempVec.end());
+        this->_sorted = 1;
+    }
     std::vector<int>::iterator it = tempVec.begin();
     std::vector<int>::iterator itNext = ++tempVec.begin();
 
@@ -38,19 +58,22 @@ unsigned int    Span::shortestSpan(){
         it++;
         itNext++;
     }
-    std::cout <<  std::endl;
     return (shortest);
 
 }
 
 unsigned int    Span::longestSpan(){
-    if (_vec.empty() || _N == 1)
+    if (_vec.empty() || _N == 1){
         throw std::exception();
+    }
+
     std::vector<int> tempVec = this->_vec;
 
-    std::sort(tempVec.begin(), tempVec.end());
+    if (this->_sorted == 0){
+        std::sort(tempVec.begin(), tempVec.end());
+        this->_sorted = 1;
+    }
     return (tempVec.back()- tempVec.front());
 }
-
 
 Span::~Span(){}

@@ -7,8 +7,9 @@
 
 class Span {
 private:
-    unsigned int _N; // max variables
+    unsigned int        _N; // max variables
     std::vector<int>	_vec;
+    bool                _sorted;
     Span();
 
 public:
@@ -20,6 +21,9 @@ public:
     void            addNumber(int Num);
     unsigned int    shortestSpan();
     unsigned int    longestSpan();
+    void            addRange(int start, int range);
+    void            addRange(int range);
+
 };
 //<<ostream
 

@@ -76,6 +76,8 @@ void list(){
         std::cout << val << " not found" << std::endl;
     }
     std::cout << std::endl;
+    std::cout << "-------------" << std::endl;
+    std::cout << std::endl;
 }
 
 void l(){
