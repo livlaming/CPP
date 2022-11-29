@@ -1,6 +1,7 @@
 
 #include "MutantStack.hpp"
 #include <iostream>
+#include <list>
 
 template <typename T>
 void    printStack(MutantStack<T> mstack) {
@@ -13,6 +14,20 @@ void    printStack(MutantStack<T> mstack) {
         ++it;
     }
 }
+
+template <typename T>
+void    printReverseStack(MutantStack<T> mstack) {
+    typename MutantStack<T>::reverse_iterator it = mstack.rbegin();
+    typename MutantStack<T>::reverse_iterator ite = mstack.rend();
+    ++it;
+    --it;
+    while (it != ite) {
+        std::cout << *it << std::endl;
+        ++it;
+    }
+}
+
+
 //Container adapters
 void testExample(){
     MutantStack<int> mstack;
@@ -36,11 +51,36 @@ void testExample(){
         ++it;
     }
     std::stack<int> s(mstack);
-//    find function is cool
     return;
 }
 
-void ownExample(){
+void testReplacement(){
+    std::list<int> mstack;
+
+    mstack.push_back(5);
+    mstack.push_back(17);
+    std::cout << mstack.back() << std::endl;
+    mstack.pop_back();
+    std::cout << mstack.size() << std::endl;
+    mstack.push_back(3);
+    mstack.push_back(5);
+    mstack.push_back(737);
+//[...]
+    mstack.push_back(0);
+    std::list<int>::iterator it = mstack.begin();
+    std::list<int>::iterator ite = mstack.end();
+    ++it;
+    --it;
+    while (it != ite)
+    {
+        std::cout << *it << std::endl;
+        ++it;
+    }
+    std::list<int> s(mstack);
+    return;
+}
+
+void testOne(){
     MutantStack<int> mstack;
 
     std::cout << "empty? : " << mstack.empty() << std::endl;   //    Test whether container is empty (public member function)
@@ -68,6 +108,15 @@ void ownExample(){
     mstack.pop(); //    Remove top element (public member function)
 }
 
+void    reverseTest(){
+    MutantStack<std::string> mstack2;
+    mstack2.push("hi");
+    mstack2.push("ha");
+    mstack2.push("he");
+    mstack2.push("ho");
+    printReverseStack<std::string>(mstack2);
+}
+
 //If you run it a first time with your MutantStack, and a second time replacing the
 //MutantStack with, for example, a std::list, the two outputs should be the same. Of
 //        course, when testing another container, update the code below with the corresponding
@@ -78,8 +127,27 @@ void    l(){
 }
 
 int main(){
-//    atexit(l);
-//    testExample();
-    ownExample();
+    atexit(l);
+//    if (testExample() == testReplacement()){
+//        std::cout << testExample() << std::endl;
+//    };
+    std::cout << "----------------------" << std::endl;
+    std::cout << "EXAMPLE TEST" << std::endl;
+    std::cout << "----------------------" << std::endl;
+    testExample();
+    std::cout << "----------------------" << std::endl;
+    std::cout << "LIST TEST" << std::endl;
+    std::cout << "----------------------" << std::endl;
+    testReplacement();
+    std::cout << "----------------------" << std::endl;
+    std::cout << "LIST TEST ONE " << std::endl;
+    std::cout << "----------------------" << std::endl;
+    testOne();
+    std::cout << "----------------------" << std::endl;
+    std::cout << "LIST REVERSE TEST " << std::endl;
+    std::cout << "----------------------" << std::endl;
+    reverseTest();
+    std::cout << "----------------------" << std::endl;
+    std::cout << std::endl;
     return (0);
 }
