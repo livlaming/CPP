@@ -12,7 +12,7 @@
 -  interfaces
 -  inheritance
 -  overloading
--  - references
+-  references
 -  exeption handlers
 -  casting
 -  function class templates
